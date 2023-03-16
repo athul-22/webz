@@ -1,8 +1,11 @@
 import React from 'react'
+import swal from 'sweetalert'
 
 function Signin() {
   return (
-    <div>Signin</div>
+    <div>
+        
+    </div>
   )
 }
 

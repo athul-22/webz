@@ -11,7 +11,6 @@ import App from './App';
 import Home from './Home';
 import Signin from './Signin'
 
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const router = createBrowserRouter([
@@ -21,11 +20,11 @@ const router = createBrowserRouter([
   },
   {
     path: "home",
-    element: "<Home/>"
+    element: <Home/>
   },
   {
     path: "signin",
-    element: "<Signin/>"
+    element: <Signin/>
   }
 ]);
 

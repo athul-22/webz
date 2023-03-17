@@ -1,6 +1,6 @@
 import './App.css';
-import {redirect, useNavigate } from 'react-router'
-import swal from 'sweetalert';
+import { useNavigate } from 'react-router'
+// import swal from 'sweetalert';
 import { useEffect } from 'react';
 
 function App() {

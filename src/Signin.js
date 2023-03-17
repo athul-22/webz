@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import swal from 'sweetalert'
 import './Styles/signin.css';
 import main from './Images/MAIN.png'
@@ -6,12 +6,37 @@ import gicon from './Images/gicon.webp'
 import { useGoogleLogin } from '@react-oauth/google';
 
 function Signin() {
+  
+  const [name , setName ] = useState();
+  const [email , setEmail ] = useState();
 
   const login = useGoogleLogin({
     onSuccess: tokenResponse => console.log(tokenResponse),
     onError: tokenResponse => console.log(tokenResponse),
     flow: 'auth-code',
   });
+
+  function fbFun(tokenResponse) {
+
+    // const name = tokenResponse.name;
+    // const email = tokenResponse.email;
+    // const profile = tokenResponse.picture;
+
+    const newEmail = email.replace(/[&\/\\#,+()$~%.'":*?<>{}@.]/g, '');
+    const newEmail1 = newEmail.split('.').join("");
+    console.log(newEmail1);
+    
+    const fbUrl = 'https://todoapp-fb470-default-rtdb.firebaseio.com/' + newEmail + '.json?auth='+"AAA"
+    fetch(fbUrl,
+    {
+        method: "PUT",
+        body: JSON.stringify({
+            name,
+            profile,
+            email,        
+        })
+    })
+}
 
   return (
     <div>
@@ -20,9 +45,9 @@ function Signin() {
           <div className='f-header'>
             <center><p className='f-title'>⎯  Sign In ⎯</p></center>
             <center><p className='f-des'>Create account to access full features</p></center>
-            <center><input placeholder='Name' className='name' type="text"/></center>
-            <center><input placeholder='email'  className='email' type="email" required/></center>
-            <center><button className='signin'> Sign In</button></center>
+            <center><input o placeholder='Name' className='name' type="text" value={name} required onChange={e => setName(e.target.value)}/></center>
+            <center><input placeholder='email'  className='email' type="email" required value={email} onChange={e => setEmail(e.target.value)}/></center>
+            <center><button onClick={fbFun} className='signin'> Sign In</button></center>
           </div>
         </div>
 

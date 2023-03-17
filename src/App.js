@@ -5,22 +5,18 @@ import { useEffect } from 'react';
 
 function App() {
 
-
+  //✅ FIRST TIME USER ACCOUNT NOT CREATED REDIRECTING TO LOGIN PAGE
     let navigate = useNavigate();
     useEffect(()=>{
       if(localStorage.getItem("signin") !== "1" ){
-        navigate('/signin')
+        navigate('/home')
       }
       else{
-        alert("done");
+        navigate('/home')
       }
-    },[])
+    },[]);
 
-
-    // const accountCredCheck = (e) =>{
-     
-    // }
-
+    
       
   return (
     <div className="App">

@@ -2,28 +2,16 @@ import React from 'react'
 import swal from 'sweetalert'
 import './Styles/signin.css';
 import main from './Images/MAIN.png'
-import { GoogleLogin } from '@react-oauth/google';
-import { useGoogleOneTapLogin } from '@react-oauth/google';
-
+import gicon from './Images/gicon.webp'
+import { useGoogleLogin } from '@react-oauth/google';
 
 function Signin() {
 
-  const responseMessage = (response) => {
-    console.log(response);
-};
-const errorMessage = (error) => {
-    console.log(error);
-};
-
-
-useGoogleOneTapLogin({
-  onSuccess: credentialResponse => {
-    console.log(credentialResponse);
-  },
-  onError: () => {
-    console.log('Login Failed');
-  },
-});
+  const login = useGoogleLogin({
+    onSuccess: tokenResponse => console.log(tokenResponse),
+    onError: tokenResponse => console.log(tokenResponse),
+    flow: 'auth-code',
+  });
 
   return (
     <div>
@@ -38,8 +26,11 @@ useGoogleOneTapLogin({
           </div>
         </div>
 
-        {/* GOOGLE LOGIN FORM */}
-     <div className='gform'></div>
+      {/* GOOGLE LOGIN FORM */}
+      <div onClick={() => login()} className='gform'>
+      <img src={gicon} height="40px" width="40px" className="gicon" alt=''/>
+      <p id='gtext'>Continue with Google</p>
+     </div>
         <img src={main} className="main-img" alt=''/>
     </div>
   )

@@ -1,3 +1,8 @@
+@font-face {
+    font-family:'popins';
+    src: url(https://fonts.googleapis.com/css?family=Poppins);
+}
+
 body{
     background-color: rgb(243,239,229)	;
     display: inline-flex;
@@ -8,21 +13,75 @@ body{
 .main-img{
     height: 400px;
     width: 500px;
-    margin-top:-380px;
+    margin-top:-500px;
     margin-left: 130px;
 }
 
 .form{
     margin-left: 750px;
-    margin-top: 230px;
+    margin-top: 180px;
     display: block;
     justify-content: center;
     background-color: white;
-    height: 300px;
-    width: 450px;
+    height: 310px;
+    width: 420px;
     border-radius: 20px;
 }
 
 .f-title{
-    
+   font-size: 30px;
+   font-weight: bold;
+   padding-top: 20px; 
+   
+}
+
+.f-des{
+    font-size: 16px;
+    margin-top: -30px;
+   color: grey;
+}
+
+.name,.email{
+    margin-top: 15px;
+    font-size: 20px;
+    height: 40px;
+    width: 300px;
+    border:1px solid #bbbbbb;
+    border-radius: 5px;
+}
+
+.name[placeholder], .email[placeholder]{
+    padding-left: 10px;
+}
+
+.signin{
+    margin-top: 20px;
+    font-size: 20px;
+    height: 40px;
+    width: 315px;
+    background-color: #ffbb00;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.signin:hover{
+    color: black;
+    background-color: #fbd05b;
+}
+
+.googlebtn{
+    height: 40px;
+    width: 200px;
+}
+
+.gform{
+    margin-left: 750px;
+    margin-top: 30px;
+    display: block;
+    justify-content: center;
+    background-color: white;
+    height: 100px;
+    width: 420px;
+    border-radius: 20px;
 }

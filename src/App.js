@@ -9,7 +9,7 @@ function App() {
     let navigate = useNavigate();
     useEffect(()=>{
       if(localStorage.getItem("signin") !== "1" ){
-        navigate('/home')
+        navigate('/signin')
       }
       else{
         navigate('/home')

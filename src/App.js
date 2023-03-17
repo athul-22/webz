@@ -5,8 +5,8 @@ import { useEffect } from 'react';
 
 function App() {
 
-   let navigate = useNavigate();
 
+    let navigate = useNavigate();
     useEffect(()=>{
       if(localStorage.getItem("signin") !== "1" ){
         navigate('/signin')
@@ -14,7 +14,7 @@ function App() {
       else{
         alert("done");
       }
-    })
+    },[])
 
 
     // const accountCredCheck = (e) =>{
@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="App">
       <h1>app</h1>
-    <button onClick={accountCredCheck}></button>
+    <button ></button>
     </div>
   );
 }

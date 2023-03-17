@@ -8,7 +8,7 @@ function Signin() {
     <div>
         <div className="form">
           <div className='f-header'>
-            <center><p >SignIn</p></center>
+            <center><p className='f-title'>SignIn</p></center>
           </div>
         </div>
         <img src={main} className="main-img" alt=''/>

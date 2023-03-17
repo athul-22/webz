@@ -6,19 +6,23 @@ body{
 }
 
 .main-img{
-    height: 350px;
-    width: 450px;
+    height: 400px;
+    width: 500px;
     margin-top:-380px;
     margin-left: 130px;
 }
 
 .form{
-    margin-left: 650px;
-    margin-top: 250px;
+    margin-left: 750px;
+    margin-top: 230px;
     display: block;
     justify-content: center;
     background-color: white;
     height: 300px;
     width: 450px;
     border-radius: 20px;
+}
+
+.f-title{
+    
 }

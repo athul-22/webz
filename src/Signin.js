@@ -16,7 +16,7 @@ function Signin() {
     flow: 'auth-code',
   });
 
-  function fbFun() {
+  function fbFun(name,email) {
 
     const db = localStorage.setItem("signin","1");
 

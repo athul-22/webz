@@ -16,23 +16,20 @@ function Signin() {
     flow: 'auth-code',
   });
 
-  function fbFun(tokenResponse) {
+  function fbFun() {
 
-    // const name = tokenResponse.name;
-    // const email = tokenResponse.email;
-    // const profile = tokenResponse.picture;
+    const db = localStorage.setItem("signin","1");
 
-    const newEmail = email.replace(/[&\/\\#,+()$~%.'":*?<>{}@.]/g, '');
-    const newEmail1 = newEmail.split('.').join("");
-    console.log(newEmail1);
+    // const newEmail = email.replace(/[&\/\\#,+()$~%.'":*?<>{}@.]/g, '');
+    // const newEmail1 = newEmail.split('.').join("");
+    // console.log(newEmail1);
     
-    const fbUrl = 'https://todoapp-fb470-default-rtdb.firebaseio.com/' + newEmail + '.json?auth='+"AAA"
+    const fbUrl = 'https://todoapp-fb470-default-rtdb.firebaseio.com/' + email + '.json?auth='+"AAA"
     fetch(fbUrl,
     {
         method: "PUT",
         body: JSON.stringify({
             name,
-            profile,
             email,        
         })
     })

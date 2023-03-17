@@ -1,13 +1,14 @@
 import './App.css';
-import { Route, redirect } from 'react-router'
+import {redirect } from 'react-router'
 import swal from 'sweetalert';
 
 function App() {
 
-  if(localStorage.getItem("signin") !== "1" ){
-    console.log("1");
-   return <redirect to="/signin" />
-  }
+  
+    
+      if (localStorage.getItem("signin") !== "1" ) {
+        return redirect("/login");
+      }
 
   return (
     <div className="App">

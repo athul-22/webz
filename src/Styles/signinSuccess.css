@@ -8,7 +8,7 @@ body{
 }
 
 .wrapper{
-    height: 300px;
+    height: 270px;
     width: 400px;
     background-color: white;
     margin-top: -370px;
@@ -17,7 +17,7 @@ body{
 }
 
 hr{
-margin-top: 10px;
+margin-top:10px;
 width: 90%;
 border: none;
 height: 1px;
@@ -27,7 +27,7 @@ background: repeating-linear-gradient(90deg,#000,#000 6px,transparent 6px,transp
 
 #verified{
     margin-top: 20px;
-    margin-left:-120px;
+    margin-left:-160px;
     height: 30px;
     width: 30px;
 }
@@ -45,26 +45,43 @@ background: repeating-linear-gradient(90deg,#000,#000 6px,transparent 6px,transp
     margin-left: 50px;
 }
 
-#name{
-    margin-top: 30px;
+#names{
+    margin-top: 10px;
     font-size: 40px;
     font-weight: bold;
     font-size: 20px;
 }
 
-#email{
-    margin-top: -20px;
+#emails{
+    margin-top: -10px;
     color: grey;
-    font-size: 40px;
+    font-size: 10px;
     font-weight: bold;
     font-size: 20px;
 }
 
 #hr1{
-margin-top: 40px;
+margin-top: 20px;
 width: 90%;
 border: none;
 height: 1px;
 background: #000;
 background: repeating-linear-gradient(90deg,#000,#000 6px,transparent 6px,transparent 12px);
+}
+
+#explore{
+    margin-top: 30px;
+    font-size: 20px;
+    height: 40px;
+    width: 315px;
+    background-color: #ffbb00;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+
+}
+
+#explore:hover{
+    color: black;
+    background-color: #fbd05b;
 }

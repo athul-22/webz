@@ -9,11 +9,11 @@ function SuccessNavigate() {
     useEffect(()=>{
 
         let name = localStorage.getItem("name");
-        let nameText = document.getElementById("name");
+        let nameText = document.getElementById("names");
         nameText.innerText = name;
 
         let email = localStorage.getItem("email");
-        let emailText = document.getElementById("email");
+        let emailText = document.getElementById("emails");
         emailText.innerText = email;
 
     },[])
@@ -25,13 +25,14 @@ function SuccessNavigate() {
            
             <div className='top'>
             <center> <img src={verify} id='verified' alt=""/>
-            <p className='title'>My Account</p></center>
+            <p className='title'>Account Created </p></center>
             </div>
 
             <hr/>
-            <center><p id='name'> Name: </p>
-            <p id='email'></p></center>
+            <center><p id='names'> Name: </p>
+            <p id='emails'></p></center>
             <hr id='hr1'/>
+            <center><button id='explore'>Explore</button></center>
 
         </div>
     </div>

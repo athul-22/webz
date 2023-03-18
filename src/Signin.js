@@ -56,8 +56,12 @@ function Signin() {
             email,
           })
         })
+      // ✅ SIGNIN VALUE DB = 1
       localStorage.setItem("signin", "1");
-
+      // ✅ NAME DB -> NAME 
+      localStorage.setItem("name", name);
+      // ✅ EMAIL DM -> EMAIL
+      localStorage.setItem("email", email);
       // ✅ AFTER ACCOUNT CREATING REDIRECTING TO HOME PAGE
 
       if (localStorage.getItem("signin") === "1") {

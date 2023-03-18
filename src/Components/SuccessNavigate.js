@@ -2,8 +2,16 @@ import React from 'react'
 import '../Styles/signinSuccess.css'
 import successImg from '../Images/account.svg'
 import verify from '../Images/verified.png'
+import { useEffect } from 'react'
 
 function SuccessNavigate() {
+
+    useEffect(()=>{
+        let name = localStorage.getItem("name");
+        let nameText = document.getElementById("name");
+    nameText.innerText = "Name " + name;
+    },[])
+    
   return (
     <div>
         <img src={successImg} alt="11" height="450px" width="550px" id='mainImg' />
@@ -15,7 +23,7 @@ function SuccessNavigate() {
             </div>
 
             <hr/>
-            <p id='name'></p>
+            <p id='name'> Name: </p>
             <p id='email'></p>
             
         </div>

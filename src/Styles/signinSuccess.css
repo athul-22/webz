@@ -8,32 +8,32 @@ body{
 }
 
 .wrapper{
-    height: 250px;
+    height: 300px;
     width: 400px;
     background-color: white;
-    margin-top: -350px;
+    margin-top: -370px;
     margin-left: 800px;
     border-radius: 15px;
 }
 
 hr{
-    margin-top: 10px;
-    width: 90%;
-    border: none;
-  height: 1px;
-  background: #000;
-  background: repeating-linear-gradient(90deg,#000,#000 6px,transparent 6px,transparent 12px);
+margin-top: 10px;
+width: 90%;
+border: none;
+height: 1px;
+background: #000;
+background: repeating-linear-gradient(90deg,#000,#000 6px,transparent 6px,transparent 12px);
 }
 
 #verified{
     margin-top: 20px;
-    margin-left:-90px;
+    margin-left:-120px;
     height: 30px;
     width: 30px;
 }
 
 .top{
-    display: ;
+    
     justify-content: center;
 }
 
@@ -42,5 +42,10 @@ hr{
     font-weight: bold;
     color:rgb(0, 0, 0);
     margin-top: -30px;
-    margin-left: 70px;
+    margin-left: 50px;
+}
+
+#name{
+    margin-left: 30px;
+    font-size: 20px;
 }

@@ -4,6 +4,7 @@ import './Styles/signin.css';
 import main from './Images/MAIN.png'
 import gicon from './Images/gicon.webp'
 import { useGoogleLogin } from '@react-oauth/google';
+import LoginError from './Components/LoginError';
 
 function Signin() {
   
@@ -14,18 +15,12 @@ function Signin() {
     onSuccess: tokenResponse => console.log(tokenResponse),
     onError: tokenResponse => console.log(tokenResponse),
     onClick:tokenResponse => console.log(tokenResponse),
-    onNonOAuthError:tokenResponse => alert(tokenResponse),
+    onNonOAuthError:tokenResponse => <LoginError/>,
     onChange:tokenResponse => console.log(tokenResponse),
     
   });
 
-
-
-
   function fbFun() {
-    
-
-
     const fbUrl = 'https://todoapp-fb470-default-rtdb.firebaseio.com/' + name + '.json?'
     fetch(fbUrl,
     {
@@ -36,8 +31,6 @@ function Signin() {
         })
     })
     localStorage.setItem("signin","1");
-
- 
 }
 
   return (

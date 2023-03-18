@@ -1,19 +1,12 @@
 import React from 'react'
 import '../Styles/signinSuccess.css'
-import successAnimation from '../Images/success.mp4'
-import { Player } from 'video-react';
-
+import successImg from '../Images/account.svg'
 
 function SuccessNavigate() {
 
   return (
     <div>
-        <Player
-      playsInline
-      poster="/assets/poster.png"
-      src={successAnimation}
-    />
-       
+        <svg  src={successImg} alt="11" />
     </div>
   )
 }

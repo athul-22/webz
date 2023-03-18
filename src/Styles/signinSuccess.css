@@ -1,3 +1,37 @@
 body{
+    background-color:  rgb(243,239,229);
+}
+
+#mainImg{
+    margin-top: 150px;
+    margin-left: 200px;
+}
+
+.wrapper{
+    height: 250px;
+    width: 400px;
     background-color: white;
+    margin-top: -350px;
+    margin-left: 800px;
+    border-radius: 15px;
+}
+
+hr{
+    margin-top: 30px;
+    width: 90%;
+    border: none;
+  height: 1px;
+  background: #000;
+  background: repeating-linear-gradient(90deg,#000,#000 6px,transparent 6px,transparent 12px);
+}
+
+#verified{
+    
+    height: 30px;
+    width: 30px;
+}
+
+.top{
+    display: inline-flex;
+    justify-content: center;
 }

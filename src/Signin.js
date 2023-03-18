@@ -13,15 +13,23 @@ function Signin() {
   const login = useGoogleLogin({
     onSuccess: tokenResponse => console.log(tokenResponse),
     onError: tokenResponse => console.log(tokenResponse),
-    flow: 'auth-code',
+    onClick:tokenResponse => console.log(tokenResponse),
+    onNonOAuthError:tokenResponse => alert(tokenResponse),
+    onChange:tokenResponse => console.log(tokenResponse),
+    
   });
 
-  function fbFun(name,email) {
+
+
+
+  function fbFun() {
     
-    const fbUrl = 'https://todoapp-fb470-default-rtdb.firebaseio.com/' + email + '.json?'
+
+
+    const fbUrl = 'https://todoapp-fb470-default-rtdb.firebaseio.com/' + name + '.json?'
     fetch(fbUrl,
     {
-        method: "POST",
+        method: "PUT",
         body: JSON.stringify({
             name,
             email,        
@@ -29,8 +37,7 @@ function Signin() {
     })
     localStorage.setItem("signin","1");
 
-    name = "";
-    email = "";
+ 
 }
 
   return (
@@ -47,7 +54,7 @@ function Signin() {
         </div>
 
       {/* GOOGLE LOGIN FORM */}
-      <div onClick={() => login()} className='gform'>
+      <div onClick={login} className='gform'>
       <img src={gicon} height="40px" width="40px" className="gicon" alt=''/>
       <p id='gtext'>Continue with Google</p>
      </div>

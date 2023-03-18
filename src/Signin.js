@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
-import swal from 'sweetalert'
 import './Styles/signin.css';
 import main from './Images/MAIN.png'
 import gicon from './Images/gicon.webp'
 import { useGoogleLogin } from '@react-oauth/google';
-import SuccessNavigate from './Components/SuccessNavigate';
 import Swal from 'sweetalert2'
 
 function Signin() {

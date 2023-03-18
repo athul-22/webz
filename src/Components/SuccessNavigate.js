@@ -17,6 +17,10 @@ function SuccessNavigate() {
         emailText.innerText = email;
 
     },[])
+
+    function homeFun(){
+        window.location.replace('http://localhost:3000/home')
+    }
     
   return (
     <div>
@@ -32,7 +36,7 @@ function SuccessNavigate() {
             <center><p id='names'> Name: </p>
             <p id='emails'></p></center>
             <hr id='hr1'/>
-            <center><button id='explore'>Explore</button></center>
+            <center><button onClick={homeFun} id='explore'>Explore</button></center>
 
         </div>
     </div>

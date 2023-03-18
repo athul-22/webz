@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert'
 import './Styles/signin.css';
 import main from './Images/MAIN.png'
 import gicon from './Images/gicon.webp'
 import { useGoogleLogin } from '@react-oauth/google';
-import LoginError from './Components/LoginError';
+import SuccessNavigate from './Components/SuccessNavigate';
 
 function Signin() {
   
@@ -15,12 +16,16 @@ function Signin() {
     onSuccess: tokenResponse => console.log(tokenResponse),
     onError: tokenResponse => console.log(tokenResponse),
     onClick:tokenResponse => console.log(tokenResponse),
-    //onNonOAuthError:tokenResponse => <LoginError/>,
+    onNonOAuthError:tokenResponse =>alert(tokenResponse),
     onChange:tokenResponse => console.log(tokenResponse),
     
   });
 
+ 
+
   function fbFun() {
+
+    //🟡 FIREBASE DATA POSTING 
     const fbUrl = 'https://todoapp-fb470-default-rtdb.firebaseio.com/' + name + '.json?'
     fetch(fbUrl,
     {
@@ -31,6 +36,13 @@ function Signin() {
         })
     })
     localStorage.setItem("signin","1");
+
+    // ✅ AFTER ACCOUNT CREATING REDIRECTING TO HOME PAGE
+
+    <SuccessNavigate/>
+    // if(localStorage.getItem("signin") === "1" ){
+    //   <SuccessNavigate/>
+    // }
 }
 
   return (
@@ -42,7 +54,7 @@ function Signin() {
             <center><p className='f-des'>Create account to access full features</p></center>
             <center><input o placeholder='Name' className='name' type="text" value={name} required onChange={e => setName(e.target.value)}/></center>
             <center><input placeholder='email'  className='email' type="email" required value={email} onChange={e => setEmail(e.target.value)}/></center>
-            <center><button onClick={fbFun} className='signin'> Sign In</button></center>
+            <center><input onClick={fbFun} className='signin'> Sign In</input></center>
           </div>
         </div>
 

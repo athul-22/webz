@@ -15,7 +15,7 @@ function Signin() {
     onSuccess: tokenResponse => console.log(tokenResponse),
     onError: tokenResponse => console.log(tokenResponse),
     onClick:tokenResponse => console.log(tokenResponse),
-    onNonOAuthError:tokenResponse => <LoginError/>,
+    //onNonOAuthError:tokenResponse => <LoginError/>,
     onChange:tokenResponse => console.log(tokenResponse),
     
   });

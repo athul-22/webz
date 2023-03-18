@@ -10,8 +10,8 @@ function SuccessNavigate() {
         <div className='wrapper'>
            
             <div className='top'>
-         <img src={verify} id='verified' alt=""/>
-            <p id='Success'>My Account</p>
+            <center> <img src={verify} id='verified' alt=""/>
+            <p className='title'>My Account</p></center>
             </div>
 
             <hr/>

@@ -46,6 +46,25 @@ background: repeating-linear-gradient(90deg,#000,#000 6px,transparent 6px,transp
 }
 
 #name{
-    margin-left: 30px;
+    margin-top: 30px;
+    font-size: 40px;
+    font-weight: bold;
     font-size: 20px;
+}
+
+#email{
+    margin-top: -20px;
+    color: grey;
+    font-size: 40px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#hr1{
+margin-top: 40px;
+width: 90%;
+border: none;
+height: 1px;
+background: #000;
+background: repeating-linear-gradient(90deg,#000,#000 6px,transparent 6px,transparent 12px);
 }

@@ -7,9 +7,15 @@ import { useEffect } from 'react'
 function SuccessNavigate() {
 
     useEffect(()=>{
+
         let name = localStorage.getItem("name");
         let nameText = document.getElementById("name");
-    nameText.innerText = "Name " + name;
+        nameText.innerText = name;
+
+        let email = localStorage.getItem("email");
+        let emailText = document.getElementById("email");
+        emailText.innerText = email;
+
     },[])
     
   return (
@@ -23,9 +29,10 @@ function SuccessNavigate() {
             </div>
 
             <hr/>
-            <p id='name'> Name: </p>
-            <p id='email'></p>
-            
+            <center><p id='name'> Name: </p>
+            <p id='email'></p></center>
+            <hr id='hr1'/>
+
         </div>
     </div>
   )

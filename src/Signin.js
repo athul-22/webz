@@ -25,15 +25,27 @@ function Signin() {
 
 
   function fbFun() {
-    // 🔴 ENTRY POINT CHECKING - NAME VALUE EMPTY OR NOT 
-    if (document.getElementById("name").value === "" && document.getElementById("email").value === "") {
+    //✅ ENTRY POINT CHECKING - NAME VALUE EMPTY OR NOT 
+    //✅ NAME VALUE EMPTY
+    if (document.getElementById("name").value === "") {
       Swal.fire({
         title: 'Error!',
-        text: 'Do you want to continue',
+        text: 'Enter Your Name to continue',
         icon: 'error',
-        confirmButtonText: 'Cool'
+        confirmButtonText: 'Close'
+      });
+    }
+    //✅ MAIL VALUE EMPTY
+    else if(document.getElementById("email").value === ""){
+
+      Swal.fire({
+        title: 'Error!',
+        text: 'Enter Your Mail id to coontinue',
+        icon: 'error',
+        confirmButtonText: 'Close'
       })
-    } else {
+    }
+    else{
       // 🟡 FIREBASE DATA POSTING 
       const fbUrl = 'https://todoapp-fb470-default-rtdb.firebaseio.com/' + name + '.json?'
       fetch(fbUrl,
@@ -48,16 +60,13 @@ function Signin() {
 
       // ✅ AFTER ACCOUNT CREATING REDIRECTING TO HOME PAGE
 
-
       if (localStorage.getItem("signin") === "1") {
-        window.location.replace('http://localhost:3000/home');
+        window.location.replace('http://localhost:3000/success');
       }
       else {
         alert("login faled")
       }
     }
-
-
   }
 
   return (

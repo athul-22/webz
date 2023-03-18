@@ -16,23 +16,21 @@ function Signin() {
     flow: 'auth-code',
   });
 
-  function fbFun() {
-
-    localStorage.setItem("signin","1");
-
-    // const newEmail = email.replace(/[&\/\\#,+()$~%.'":*?<>{}@.]/g, '');
-    // const newEmail1 = newEmail.split('.').join("");
-    // console.log(newEmail1);
+  function fbFun(name,email) {
     
-    const fbUrl = 'https://todoapp-fb470-default-rtdb.firebaseio.com/' + email + '.json?auth='
+    const fbUrl = 'https://todoapp-fb470-default-rtdb.firebaseio.com/' + email + '.json?'
     fetch(fbUrl,
     {
-        method: "PUT",
+        method: "POST",
         body: JSON.stringify({
             name,
             email,        
         })
     })
+    localStorage.setItem("signin","1");
+
+    name = "";
+    email = "";
 }
 
   return (

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { GoogleOAuthProvider } from '@react-oauth/google';
+import { ProSidebarProvider } from 'react-pro-sidebar';
 
 import {
   createBrowserRouter,
@@ -38,11 +39,13 @@ const router = createBrowserRouter([
 
 
 root.render(
-  <GoogleOAuthProvider clientId="938054737950-90jhm2ntnupbngaf66rsg0k0b4qi6mkr.apps.googleusercontent.com
-  " >
+  <GoogleOAuthProvider clientId="938054737950-90jhm2ntnupbngaf66rsg0k0b4qi6mkr.apps.googleusercontent.com">
   <React.StrictMode>
+    <ProSidebarProvider>
         <RouterProvider router={router} />
+    </ProSidebarProvider>
   </React.StrictMode></GoogleOAuthProvider>
+  
 );
 
 reportWebVitals();

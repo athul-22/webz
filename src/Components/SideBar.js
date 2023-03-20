@@ -1,6 +1,5 @@
 import React from "react";
 import '../Styles/sidebar.css'
-import $ from 'jquery';
 import ScriptTag from 'react-script-tag';
 
 function Layout() {

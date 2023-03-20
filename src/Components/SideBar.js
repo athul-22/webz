@@ -1,7 +1,22 @@
 import React from "react";
 import '../Styles/sidebar.css'
+import $ from 'jquery';
 
 function Layout() {
+
+    const sidebarToggle = $(".sidebar__toggle");
+    const sidebar = $(".sidebar");
+    const sidebarLink = $(".sidebar__link");
+
+    // sidebarToggle.addEventListener("click", () => {
+    //     sidebar.classList.toggle("sidebar--open");
+    // });
+
+
+    $(".sidebar__toggle").click((link)=>{
+        link.classList.remove("sidebar__link--active");
+        this.classList.add("sidebar__link--active");
+    });
 
 
     return (
@@ -14,10 +29,11 @@ function Layout() {
                     </span>
                     <h2 class="sidebar__brand">Tauruscode</h2>
                 </div>
+
                 <nav class="sidebar__menu">
                     <ul class="sidebar__list">
                         <li class="sidebar__item">
-                            <a href="#" class="sidebar__link sidebar__link--active">
+                            <a href="#"  onClick={activeLink} class="sidebar__link sidebar__link--active">
                                 <i class="ri-dashboard-fill sidebar__icon">
                                 </i>
                                 <span class="sidebar__link-text ">
@@ -106,10 +122,10 @@ function Layout() {
                 </div>
             </main>
             <script>
-            
-        </script>
+
+            </script>
         </div>
-        
+
     );
 }
 

@@ -16,3 +16,4 @@ function activeLink() {
 sidebarLink.forEach((link) => {
   link.addEventListener("click", activeLink);
 });
+

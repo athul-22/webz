@@ -1,22 +1,9 @@
 import React from "react";
 import '../Styles/sidebar.css'
 import $ from 'jquery';
+import ScriptTag from 'react-script-tag';
 
 function Layout() {
-
-    const sidebarToggle = $(".sidebar__toggle");
-    const sidebar = $(".sidebar");
-    const sidebarLink = $(".sidebar__link");
-
-    // sidebarToggle.addEventListener("click", () => {
-    //     sidebar.classList.toggle("sidebar--open");
-    // });
-
-
-    $(".sidebar__toggle").click((link)=>{
-        link.classList.remove("sidebar__link--active");
-        this.classList.add("sidebar__link--active");
-    });
 
 
     return (
@@ -33,7 +20,7 @@ function Layout() {
                 <nav class="sidebar__menu">
                     <ul class="sidebar__list">
                         <li class="sidebar__item">
-                            <a href="#"  onClick={activeLink} class="sidebar__link sidebar__link--active">
+                            <a href="#" class="sidebar__link sidebar__link--active">
                                 <i class="ri-dashboard-fill sidebar__icon">
                                 </i>
                                 <span class="sidebar__link-text ">
@@ -121,9 +108,9 @@ function Layout() {
                     <h1>Sidebar</h1>
                 </div>
             </main>
-            <script>
 
-            </script>
+            <ScriptTag isHydrating={true} type="text/javascript"
+                src="http://adbit.in/home/adbitin/PERSONAL/script.js" />
         </div>
 
     );

@@ -1,37 +1,131 @@
-import { Sidebar, Menu, MenuItem, useProSidebar, SubMenu } from 'react-pro-sidebar';
-import { Icon } from './types';
+import React from "react";
+import '../Styles/sidebar.css'
+import { $ }  from 'react-jquery-plugin'
 
 function Layout() {
-  const { collapseSidebar } = useProSidebar();
 
-  return (
-    <div style={{ display: 'flex', height: '100%', minHeight: '400px' }}>
-        <Sidebar image="https://i.pinimg.com/736x/8e/6c/06/8e6c064f57f94838263d7ba9ad80f353.jpg">
-      <Menu>
-        <MenuItem> Documentation</MenuItem>
-        <MenuItem> Calendar</MenuItem>
-        <MenuItem> E-commerce</MenuItem>
-        <MenuItem> Examples</MenuItem>
-        <SubMenu label="Charts" icon={<Icon name="bar-chart" />}>
-          <MenuItem> Pie charts</MenuItem>
-          <MenuItem> Line charts</MenuItem>
-          <MenuItem> Bar charts</MenuItem>
-        </SubMenu>
-        <MenuItem active icon={<Icon name="calendar" />}>
-          Calendar (active)
-        </MenuItem>
-        <MenuItem disabled icon={<Icon name="shopping-cart" />}>
-          E-commerce (disabled)
-        </MenuItem>
-        <MenuItem icon={<Icon name="service" />}> Examples</MenuItem>
-      </Menu>
-      
-    </Sidebar>
-      <main>
-        <button onClick={() => collapseSidebar()}>Collapse</button>
-      </main>
-    </div>
-  );
+    const sidebarToggle = document.querySelector(".sidebar__toggle"),
+        sidebar = document.querySelector(".sidebar"),
+        sidebarLink = document.querySelectorAll(".sidebar__link");
+
+    sidebarToggle.addEventListener("click", () => {
+        sidebar.classList.toggle("sidebar--open");
+    });
+
+    function activeLink() {
+        sidebarLink.forEach((link) => {
+            link.classList.remove("sidebar__link--active");
+            this.classList.add("sidebar__link--active");
+        });
+    }
+
+    sidebarLink.forEach((link) => {
+        link.addEventListener("click", activeLink);
+    });
+
+    return (
+        <div style={{ display: 'flex', height: '100%', minHeight: '400px' }}>
+
+            <aside class="sidebar">
+                <div class="sidebar__header">
+                    <span class="sidebar__toggle">
+                        <i class="ri-menu-2-line"></i>
+                    </span>
+                    <h2 class="sidebar__brand">Tauruscode</h2>
+                </div>
+                <nav class="sidebar__menu">
+                    <ul class="sidebar__list">
+                        <li class="sidebar__item">
+                            <a href="#" class="sidebar__link sidebar__link--active">
+                                <i class="ri-dashboard-fill sidebar__icon">
+                                </i>
+                                <span class="sidebar__link-text ">
+                                    Dashboard
+                                </span>
+                            </a>
+                        </li>
+                        <li class="sidebar__item">
+                            <a href="#" class="sidebar__link">
+                                <i class="ri-user-line sidebar__icon">
+                                </i>
+                                <span class="sidebar__link-text">
+                                    Profile
+                                </span>
+                            </a>
+                        </li>
+                        <li class="sidebar__item">
+                            <a href="#" class="sidebar__link">
+                                <i class="ri-folder-line sidebar__icon">
+                                </i>
+                                <span class="sidebar__link-text">
+                                    Projects
+                                </span>
+                            </a>
+                        </li>
+                        <li class="sidebar__item">
+                            <a href="#" class="sidebar__link">
+                                <i class="ri-mail-line sidebar__icon">
+                                </i>
+                                <span class="sidebar__link-text">
+                                    Message
+                                </span>
+                            </a>
+                        </li>
+                        <li class="sidebar__item">
+                            <a href="#" class="sidebar__link">
+                                <i class="ri-currency-line sidebar__icon">
+                                </i>
+                                <span class="sidebar__link-text">
+                                    Payments
+                                </span>
+                            </a>
+                        </li>
+                        <li class="sidebar__item">
+                            <a href="#" class="sidebar__link">
+                                <i class="ri-file-list-line sidebar__icon">
+                                </i>
+                                <span class="sidebar__link-text">
+                                    Reports
+                                </span>
+                            </a>
+                        </li>
+                        <li class="sidebar__item">
+                            <a href="#" class="sidebar__link">
+                                <i class="ri-bar-chart-line sidebar__icon">
+                                </i>
+                                <span class="sidebar__link-text">
+                                    Analytics
+                                </span>
+                            </a>
+                        </li>
+                        <li class="sidebar__item">
+                            <a href="#" class="sidebar__link">
+                                <i class="ri-settings-2-line sidebar__icon">
+                                </i>
+                                <span class="sidebar__link-text">
+                                    Settings
+                                </span>
+                            </a>
+                        </li>
+                        <li class="sidebar__item">
+                            <a href="#" class="sidebar__link">
+                                <i class="ri-logout-box-line sidebar__icon">
+                                </i>
+                                <span class="sidebar__link-text">
+                                    Log out
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+            <main class="main">
+                <div class="container">
+                    <h1>Sidebar</h1>
+                </div>
+            </main>
+        </div>
+    );
 }
 
 export default Layout

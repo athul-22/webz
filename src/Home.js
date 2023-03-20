@@ -1,13 +1,13 @@
 import React from 'react'
 import "./Styles/home.css"
-//import SideBar from './Components/SideBar'
+import SideBar from './Components/SideBar'
 
 function Home() {
   
   
   return (
     <div>
-     {/* // <SideBar/> */}
+     <SideBar/>
         <h1 id="h">home</h1>
         </div>
   )

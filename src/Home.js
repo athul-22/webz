@@ -68,7 +68,11 @@ function Home() {
 
      <div className='dash_main'>
       <div className='one'>
-        
+
+        <div className='progress1'>
+          
+        </div>
+
       </div>
      </div>
 

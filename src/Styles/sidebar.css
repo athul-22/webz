@@ -60,6 +60,7 @@ ul li {
   align-items: center;
   justify-content: flex-start;
   cursor: pointer;
+  padding-left: 10px;
 }
 
 ul li img {
@@ -114,8 +115,8 @@ ul li p {
 }
 
 .sidenav:hover ul li:hover{
-  border-left: 2px solid rgb(0, 0, 0);
+  border-left: 3px solid rgb(0, 0, 0);
   border-spacing: 20px;
-  
+  border-radius:5px;
   
 }

@@ -4,11 +4,27 @@ import SideBar from './Components/SideBar'
 
 function Home() {
 
+  let dashboard = document.getElementsByClassName("dashboard");
+  let trending = document.getElementsByClassName("trending");
+  let account = document.getElementsByClassName("account");
+
   return (
     <div>
       {/* ✅ SIDEBAR */}
       <SideBar />
-      <iframe src='https://www.adbit.in' className='frame' height="100vh" width="100%" title='s'>Not supported</iframe>
+     
+    <div className='dashboard'>
+      <h1>dashboard</h1>
+    </div>
+
+    <div className='trending'>
+      <h1>dashboard</h1>
+    </div>
+
+    <div className='account'>
+      <h1>dashboard</h1>
+    </div>
+
     </div>
   )
 }

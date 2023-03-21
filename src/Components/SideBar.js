@@ -20,11 +20,12 @@ function mySideNav(){
                     <li><img height="50px" width="50px" alt="" src={fire}/><p>Trending</p></li>
                     <li><img height="50px" width="50px" alt="" src={user}/><p>Account</p></li>
                 </ul>
+
             {/* ✅ LOGOUT - BOTTOM NAV */}
+
                 <ul>
                     <li>Logout</li>
                 </ul>
-                
             </div>
         </div>
     )

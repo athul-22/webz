@@ -20,8 +20,6 @@ function Signin() {
 
   });
 
-
-
   function fbFun() {
     //✅ ENTRY POINT CHECKING - NAME VALUE EMPTY OR NOT 
     //✅ NAME VALUE EMPTY

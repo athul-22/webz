@@ -10,7 +10,7 @@ function mySideNav(){
         <div className="main">
             <div className="sidenav">
                 <div className="user">
-                  <center><img className="profile" src={profile} height="70px" width="70px" alt=""/><br/></center> 
+                  <center><img className="profile" src={profile} height="60px" width="60px" alt=""/><br/></center> 
                     <center><p className="nam">Athul Nambiar</p></center>
                     <center><p className="mail">adbit.tesa@gmail.com</p></center>
                 </div>
@@ -20,10 +20,11 @@ function mySideNav(){
                     <li><img height="50px" width="50px" alt="" src={fire}/><p>Trending</p></li>
                     <li><img height="50px" width="50px" alt="" src={user}/><p>Account</p></li>
                 </ul>
-
+            {/* ✅ LOGOUT - BOTTOM NAV */}
                 <ul>
                     <li>Logout</li>
                 </ul>
+                
             </div>
         </div>
     )

@@ -12,14 +12,6 @@ import Notifications from "react-notifications-menu";
 
 function Home() {
 
-  // const DEFAULT_NOTIFICATION = {
-  //   image:
-  //     "https://cutshort-data.s3.amazonaws.com/cloudfront/public/companies/5809d1d8af3059ed5b346ed1/logo-1615367026425-logo-v6.png",
-  //   message: "Notification one.",
-  //   detailPage: "/events",
-  //   receivedTime: "12h ago"
-  // };
-  
 
   let home = document.getElementsByClassName("dashboard");
   let trending = document.getElementsByClassName("trending");
@@ -72,24 +64,32 @@ function Home() {
      <div className='dash_top'>
      <p id='header'>| Dashbaord</p>
      <img src={notification} alt="" className="notification"/>
-     <Notifications
-          
-          header={{
-            title: "Notifications",
-            option: { text: "View All", onClick: () => console.log("Clicked") }
-          }}/>
+     </div>
+
+     <div className='dash_main'>
+      <div className='one'>
+        
+      </div>
      </div>
 
     </div>
 
     {/* ✅ TRENDING */} 
     <div className='trending'>
-    <p id='header'>| Trending</p>
+     <div className='dash_top'>
+     <p id='header'>| Trending</p>
+     <img src={notification} alt="" className="notification"/>
+     </div>
+    
     </div>
 
     {/* ✅ ACCOUNT */} 
     <div className='account'>
-    <p id='header'>| My Account</p>
+    <div className='dash_top'>
+     <p id='header'>| Account</p>
+     <img src={notification} alt="" className="notification"/>
+     </div>
+   
     </div>
 
     </div>

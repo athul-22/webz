@@ -16,7 +16,7 @@ body {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  transition: width 0.5s;
+  transition: width 0.1s;
 }
 
 .user {

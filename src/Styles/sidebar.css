@@ -1,11 +1,11 @@
-body{
-background-color: #F3EFE5;
-opacity: 1;
-background-image: radial-gradient(#ffbb00 1.25px, #F3EFE5 1.25px);
-background-size: 25px 25px;
+body {
+  background-color: #f3efe5;
+  opacity: 1;
+  background-image: radial-gradient(#ffbb00 1.25px, #f3efe5 1.25px);
+  background-size: 25px 25px;
 }
 
-.sidenav{
+.sidenav {
   height: 100%;
   width: 110px;
   position: fixed;
@@ -17,21 +17,19 @@ background-size: 25px 25px;
   justify-content: space-between;
   flex-direction: column;
   transition: width 0.5s;
-  
 }
 
-.user{
+.user {
   width: 100px;
   margin-top: 30px;
 }
 
-.profile{
+.profile {
   margin-left: 10px;
   margin-top: 10px;
-
 }
 
-.nam{
+.nam {
   font-weight: bold;
   font-size: 17px;
   width: 250px;
@@ -43,7 +41,7 @@ background-size: 25px 25px;
   display: none;
 }
 
-.mail{
+.mail {
   margin-top: -15px;
   margin-left: 93px;
   font-size: 13px;
@@ -51,13 +49,12 @@ background-size: 25px 25px;
   display: none;
 }
 
-ul{
+ul {
   list-style: none;
-  padding:0 15px;
-  
+  padding: 0 15px;
 }
 
-ul li{
+ul li {
   margin: 10px 0;
   display: flex;
   align-items: center;
@@ -65,7 +62,7 @@ ul li{
   cursor: pointer;
 }
 
-ul li img{
+ul li img {
   margin-left: 30px;
   width: 20px;
   height: 20px;
@@ -73,52 +70,45 @@ ul li img{
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
-ul li p{
-  
- margin-left: 20px;
- margin-top: 20px;
- display: flex;
- align-items: center;
- justify-content: center;
+ul li p {
+ 
+  margin-left: 20px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   display: none;
 }
 
 /* HOVER  */
 
-.sidenav:hover{
+.sidenav:hover {
   width: 250px;
 }
 
-.sidenav:hover .nam{
-  display: block;
-  
-}
-
-.sidenav:hover .mail{
+.sidenav:hover .nam {
   display: block;
 }
 
-.sidenav:hover ul li p{
-  color:black;
+.sidenav:hover .mail {
   display: block;
-  
 }
 
-.sidenav:hover ul li img{
+.sidenav:hover ul li p {
+  color: black;
+  display: block;
+}
+
+.sidenav:hover ul li img {
   margin: 0;
 }
 
-.sidenav:hover ul{
+.sidenav:hover ul {
   margin-left: 30px;
-  
 }
 
-.sidenav:hover ul li p:hover{
+.sidenav:hover ul li p:hover {
   font-weight: bolder;
 }
-
-
-

@@ -4,9 +4,15 @@
 
 }
 
-.frame{
-    height:100vh;
-    width: 100vw;
-    margin-left: 110px;
-    border: none;
+.dashboard, .trending, .account{
+    margin-left: 130px;
 }
+
+.trending{
+    display: none;
+}
+
+.account{
+    display: none;
+}
+

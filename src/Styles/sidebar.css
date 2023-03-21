@@ -112,3 +112,10 @@ ul li p {
 .sidenav:hover ul li p:hover {
   font-weight: bolder;
 }
+
+.sidenav:hover ul li:hover{
+  border-left: 2px solid rgb(0, 0, 0);
+  border-spacing: 20px;
+  
+  
+}

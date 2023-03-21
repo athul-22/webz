@@ -12,13 +12,13 @@ import Notifications from "react-notifications-menu";
 
 function Home() {
 
-  const DEFAULT_NOTIFICATION = {
-    image:
-      "https://cutshort-data.s3.amazonaws.com/cloudfront/public/companies/5809d1d8af3059ed5b346ed1/logo-1615367026425-logo-v6.png",
-    message: "Notification one.",
-    detailPage: "/events",
-    receivedTime: "12h ago"
-  };
+  // const DEFAULT_NOTIFICATION = {
+  //   image:
+  //     "https://cutshort-data.s3.amazonaws.com/cloudfront/public/companies/5809d1d8af3059ed5b346ed1/logo-1615367026425-logo-v6.png",
+  //   message: "Notification one.",
+  //   detailPage: "/events",
+  //   receivedTime: "12h ago"
+  // };
   
 
   let home = document.getElementsByClassName("dashboard");

@@ -15,7 +15,21 @@ function Home() {
   let account = document.getElementsByClassName("account");
 
   function dashFun(){
-    $(".dashboard").css('display') = "none"
+    $(".dashboard").css("display", "block");
+    $(".trending").css("display", "none");
+    $(".account").css("display", "none");
+  }
+
+  function trendFun(){
+    $(".dashboard").css("display", "none");
+    $(".trending").css("display", "block");
+    $(".account").css("display", "none");
+  }
+
+  function accFun(){
+    $(".dashboard").css("display", "none");
+    $(".trending").css("display", "none");
+    $(".account").css("display", "block");
   }
 
   return (
@@ -30,9 +44,9 @@ function Home() {
                 </div>
                
                 <ul>
-                    <li><img height="50px" width="50px" alt="" src={dashboard}/><p>Dashboard</p></li>
-                    <li><img height="50px" width="50px" alt="" src={fire}/><p>Trending</p></li>
-                    <li><img height="50px" width="50px" alt="" src={user}/><p>Account</p></li>
+                    <li onClick={dashFun}><img height="50px" width="50px" alt="" src={dashboard}/><p>Dashboard</p></li>
+                    <li onClick={trendFun}><img height="50px" width="50px" alt="" src={fire}/><p>Trending</p></li>
+                    <li onClick={accFun}><img height="50px" width="50px" alt="" src={user}/><p>Account</p></li>
                 </ul>
 
             {/* ✅ LOGOUT - BOTTOM NAV */}
@@ -43,17 +57,17 @@ function Home() {
      
     {/* ✅ DASHBOARD */} 
     <div className='dashboard'>
-      <h1>DASHBOARD</h1>
+      <p id='header'>| Dashbaord</p>
     </div>
 
     {/* ✅ TRENDING */} 
     <div className='trending'>
-      <h1>TRENDING</h1>
+    <p id='header'>| Trending</p>
     </div>
 
     {/* ✅ ACCOUNT */} 
     <div className='account'>
-      <h1>ACCOUTN</h1>
+    <p id='header'>| My Account</p>
     </div>
 
     </div>

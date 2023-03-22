@@ -82,7 +82,7 @@ function Home() {
             </div>
           </div>   
 
-          <p id='premium'>| Premium</p>
+          <p id='premium'>| Tools</p>
           <div className='two'>
 
             <div className='pro1'>

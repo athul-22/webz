@@ -10,7 +10,9 @@ import $ from 'jquery';
 import Notifications from "react-notifications-menu";
 import premium from './Images/premium.png'
 import speedometer from './Images/speedometer.png'
-
+import twitter from './Images/twitter.png';
+import facebook from './Images/facebook.png';
+import instagram from './Images/instagram.png';
 
 function Home() {
 
@@ -82,12 +84,15 @@ function Home() {
             </div>
           </div>   
 
-          <p id='premium'>| Tools</p>
+          {/* ✅ TOOLS SECTION STARTS */}
+          <p id='premium'>| Twitter Tools</p>
           <div className='two'>
 
             <div className='pro1'>
-
+             <img className='twitter' src={twitter} height="60px" width="60px" alt=""/>
+             <p id='t_tool_name'>Profile Extractor</p>
             </div>
+
             <div className='pro1'>
 
             </div>

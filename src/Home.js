@@ -89,21 +89,28 @@ function Home() {
           <div className='two'>
 
             <div className='pro1'>
-             <img className='twitter' src={twitter} height="60px" width="60px" alt=""/>
-             <p id='t_tool_name'>Profile Extractor</p>
+             <center><img className='twitter' src={twitter} height="60px" width="60px" alt=""/><br/></center>
+             <center><p id='t_tool_name'>Profile Extractor</p></center>
             </div>
 
             <div className='pro1'>
-
+            <center><img className='twitter' src={twitter} height="60px" width="60px" alt=""/><br/></center>
+             <center><p id='t_tool_name'>Profile Extractor</p></center>
             </div>
-            <div className='pro1'>
 
+            <div className='pro1'>
+            <center><img className='twitter' src={twitter} height="60px" width="60px" alt=""/><br/></center>
+             <center><p id='t_tool_name'>Profile Extractor</p></center>
             </div>
-            <div className='pro1'>
 
+            <div className='pro1'>
+            <center><img className='twitter' src={twitter} height="60px" width="60px" alt=""/><br/></center>
+             <center><p id='t_tool_name'>Profile Extractor</p></center>
             </div>
-            <div className='pro1'>
 
+            <div className='pro1'>
+            <center><img className='twitter' src={twitter} height="60px" width="60px" alt=""/><br/></center>
+             <center><p id='t_tool_name'>Profile Extractor</p></center>
             </div>
           </div>   
         </div>

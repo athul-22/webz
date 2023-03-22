@@ -80,7 +80,7 @@
 }
 
 .pro1{
-    height: 100px;
+    height: 110px;
     width: 200px;
     background-color: white;
     margin-left: 30px;
@@ -88,12 +88,14 @@
     
 }
 
-..pro1{
-    
+.pro1:hover{
+    background-color: #f4f4f4;
+    cursor: pointer;
 }
 
 .twitter{
     margin-top: 10px;
+
     
 }
 

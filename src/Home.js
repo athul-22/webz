@@ -8,6 +8,8 @@ import profile from './Images/profile.png'
 import notification from './Images/notification.png'
 import $ from 'jquery';
 import Notifications from "react-notifications-menu";
+import premium from './Images/premium.png'
+import speedometer from './Images/speedometer.png'
 
 
 function Home() {
@@ -61,11 +63,12 @@ function Home() {
       {/* ✅ DASHBOARD */}
       <div className='dashboard'>
         <div className='dash_top'>
-          <p id='header'>| Dashbaord</p>
+          <p className='dashboard' id='header'>| Dashbaord</p>
           <img src={notification} alt="" className="notification" />
         </div>
 
         <div className='dash_main'>
+          
           <div className='one'>
 
             <div className='progress1'>

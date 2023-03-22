@@ -5,7 +5,7 @@ function Instagram() {
     const [imgUrl, setUrl] = ('');
 
     function igFun() {
-
+        
         const options = {
             method: 'GET',
             headers: {
@@ -18,19 +18,19 @@ function Instagram() {
             .then(response => response.json())
             .then(response => {
                 console.log(response);
-                console.log(response[0].profile_pic_url);
+                console.log(response[0].profile_pic_url_hd);
                 setUrl(response[0].profile_pic_url);
-                imgUrl = response[0].profile_pic_url;
+                console.log(imgUrl);
             })
             .catch(err => console.error(err));
 
-            document.getElementById("profile").src = imgUrl;
+            //document.getElementById("profile").src = imgUrl;
 
     }
     return (
         <div>
             <button onClick={igFun}> click me</button>
-            <img id='profile' height="100px" width="100px" src={imgUrl} alt="" />
+            <img id='profile'  src="https://instagram.flhr13-1.fna.fbcdn.net/v/t51.2885-19/274250588_1101859380610497_3463460270900219221_n.jpg?stp=dst-jpg_s150x150&_nc_ht=instagram.flhr13-1.fna.fbcdn.net&_nc_cat=109&_nc_ohc=aPy5rZOCjScAX8Ih901&edm=AJfeSrwBAAAA&ccb=7-5&oh=00_AfAUcniWrrZ8AQAPJgt0n3vtP1_CEXttd6D6GF6K8rMb-g&oe=641F45FA&_nc_sid=588073" alt="" />
         </div>
     )
 }

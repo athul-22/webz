@@ -5,7 +5,6 @@ function Instagram() {
     const [imgUrl, setUrl] = ('');
 
     function igFun() {
-
         const options = {
             method: 'GET',
             headers: {

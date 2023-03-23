@@ -53,9 +53,7 @@ function Instagram() {
         // Get a data URL string for the canvas
         const dataURL = canvas.toDataURL();
 
-        console.log("BELOW LOOK")
-        console.log(dataURL);
-
+       
 
 
     }

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 function Instagram() {
 
+    //STATE HOOKS
     const [imgUrl, setUrl] = ('');
 
     function igFun() {
@@ -53,6 +54,8 @@ function Instagram() {
         const dataURL = canvas.toDataURL();
 
         console.log("BELOW LOOK")
+        console.log(dataURL);
+
         console.log(dataURL);
 
 

@@ -69,7 +69,6 @@ function Home() {
       <div className='dashboard'>
         <div className='dash_top'>
           <p className='dashboard' id='header'>| Dashbaord</p>
-
           <img src={CalendarIcon} alt="" className="calender" />
           <img src={notification} alt="" className="notification" />
         </div>

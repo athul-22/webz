@@ -13,6 +13,8 @@ import speedometer from './Images/speedometer.png'
 import twitter from './Images/twitter.png';
 import facebook from './Images/facebook.png';
 import instagram from './Images/instagram.png';
+import Calender from './Components/Calender'
+import CalendarIcon from './Images/calendar.png';
 
 function Home() {
 
@@ -62,10 +64,13 @@ function Home() {
         </ul>
       </div>
 
+
       {/* ✅ DASHBOARD */}
       <div className='dashboard'>
         <div className='dash_top'>
           <p className='dashboard' id='header'>| Dashbaord</p>
+
+          <img src={CalendarIcon} alt="" className="calender" />
           <img src={notification} alt="" className="notification" />
         </div>
 
@@ -83,6 +88,8 @@ function Home() {
 
             </div>
           </div>   
+
+          <Calender/>
 
           {/* ✅ TOOLS SECTION STARTS */}
           <p id='premium'>| Twitter Tools</p>

@@ -60,7 +60,9 @@
 }
 
 
-
+.calender:hover, .notification:hover{
+    background-color: #eee;
+}
 
 .one{
     display: inline-flex;

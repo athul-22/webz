@@ -80,9 +80,11 @@ function Home() {
             <div className='progress1'>
 
             </div>
+
             <div className='progress1'>
 
             </div>
+            
             <div className='progress1'>
 
             </div>

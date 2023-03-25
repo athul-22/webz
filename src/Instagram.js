@@ -57,6 +57,8 @@ function Instagram() {
         console.log(dataURL);
 
 
+        
+
 
     }
     return (

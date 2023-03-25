@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import Modal from 'styled-react-modal'
-const Insta = require('scraper-instagram');
 
 function Instagram() {
 
-    const Insta = require('scraper-instagram');
-    const InstaClient = new Insta();
+    var ig = require('instagram-scraping');
 
-    InstaClient.authBySessionId(1679756450276)
-        .then(account => console.log(account))
-        .catch(err => console.error(err));
+    ig.deepScrapeTagPage('india').then((result) => {
+        console.dir(result);
+      });
 
     const StyledModal = Modal.styled`
         width: 500px;
@@ -29,50 +27,12 @@ function Instagram() {
 
 
     //STATE HOOKS
-    const [imgUrl, setUrl] = ('');
 
-    // function igFun() {
-    //     const options = {
-    //         method: 'GET',
-    //         headers: {
-    //             'X-RapidAPI-Key': '3b9fa0f696msh397d126ad98c4b5p1e518fjsn52c068954cc2',
-    //             'X-RapidAPI-Host': 'instagram-bulk-profile-scrapper.p.rapidapi.com'
-    //         }
-    //     };
-
-    //     fetch('https://instagram-bulk-profile-scrapper.p.rapidapi.com/clients/api/ig/ig_profile?ig=athulnambiar22&response_type=short&corsEnabled=false', options)
-    //         .then(response => response.json())
-    //         .then(response => {
-    //             console.log(response);
-    //             console.log(response[0].profile_pic_url_hd);
-    //             setUrl(response[0].profile_pic_url);
-    //             console.log(imgUrl);
-    //         })
-    //         .catch(err => console.error(err));
-
-    //     // document.getElementById("profile").src = imgUrl;
-    // }
-
-    function igFun() {
-
-        const options = {
-            method: 'GET',
-            headers: {
-                'X-RapidAPI-Key': '3b9fa0f696msh397d126ad98c4b5p1e518fjsn52c068954cc2',
-                'X-RapidAPI-Host': 'instagram28.p.rapidapi.com'
-            }
-        };
-
-        fetch('https://instagram28.p.rapidapi.com/media_info_v2?short_code=athulnambiar22', options)
-            .then(response => response.json())
-            .then(response => console.log(response))
-            .catch(err => console.error(err));
-    }
 
     return (
         <div>
-            <button onClick={igFun}> click me</button>
-            <img id='profile' height="100px" width="100px" src={imgUrl} alt="" />
+            <button> click me</button>
+            <img id='profile' height="100px" width="100px" alt="" />
             <img src='https://www.google.com/images/branding/googlelogo/1x/googlelogo_light_color_272x92dp.png
 ' alt='achu' />
 

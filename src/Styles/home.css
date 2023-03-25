@@ -41,7 +41,7 @@
     height: 30px;
     width:30px;
     margin-top: 30px;
-    margin-left:10px;
+   
     background-color: white;
     padding: 10px;
     border-radius: 20px;
@@ -51,9 +51,8 @@
 .calender{
     height: 30px;
     width:30px;
-    
+    float:right;
     margin-top: 30px;
-    margin-left:80%;
     background-color: white;
     padding: 10px;
     border-radius: 20px;

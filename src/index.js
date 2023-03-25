@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { GoogleOAuthProvider } from '@react-oauth/google';
+import { ModalProvider } from 'styled-react-modal'
 
 import {
   createBrowserRouter,
@@ -45,7 +46,9 @@ const router = createBrowserRouter([
 root.render(
   <GoogleOAuthProvider clientId="938054737950-90jhm2ntnupbngaf66rsg0k0b4qi6mkr.apps.googleusercontent.com">
   <React.StrictMode>
+    <ModalProvider>
         <RouterProvider router={router} />
+    </ModalProvider>
   </React.StrictMode></GoogleOAuthProvider>
   
 );

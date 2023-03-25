@@ -84,7 +84,7 @@ function Home() {
             <div className='progress1'>
 
             </div>
-            
+
             <div className='progress1'>
 
             </div>
@@ -95,7 +95,6 @@ function Home() {
           {/* ✅ TOOLS SECTION STARTS */}
           <p id='premium'>| Twitter Tools</p>
           <div className='two'>
-
             <div className='pro1'>
              <center><img className='twitter' src={twitter} height="60px" width="60px" alt=""/><br/></center>
              <center><p id='t_tool_name'>Profile Extractor</p></center>
@@ -129,7 +128,6 @@ function Home() {
       <div className='trending'>
         <div className='dash_top'>
           <p id='header'>| Trending</p>
-          <img src={notification} alt="" className="notification" />
         </div>
 
       </div>

@@ -39,9 +39,20 @@
 .notification{
     height: 30px;
     width:30px;
-    margin-right: 0px;
     margin-top: 30px;
-    margin-left:1000px;
+    margin-left:10px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.calender{
+    height: 30px;
+    width:30px;
+    
+    margin-top: 30px;
+    margin-left:80%;
     background-color: white;
     padding: 10px;
     border-radius: 20px;

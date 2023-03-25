@@ -24,10 +24,7 @@ function Instagram() {
     function toggleModal(e) {
         setIsOpen(!isOpen)
     }
-
-
-    //STATE HOOKS
-
+    
 
     return (
         <div>

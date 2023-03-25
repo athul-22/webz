@@ -56,9 +56,7 @@ function Instagram() {
         console.log("BELOW LOOK")
         console.log(dataURL);
 
-
         
-
 
     }
     return (

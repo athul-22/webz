@@ -1,16 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import Modal from 'styled-react-modal'
+const Insta = require('scraper-instagram');
 
 function Instagram() {
 
+    const Insta = require('scraper-instagram');
+    const InstaClient = new Insta();
+
+    InstaClient.authBySessionId(1679756450276)
+        .then(account => console.log(account))
+        .catch(err => console.error(err));
+
     const StyledModal = Modal.styled`
-  width: 500px;
-  height: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color:white;
-  border-radius:10px;
+        width: 500px;
+        height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color:white;
+        border-radius:10px;
   `
 
     const [isOpen, setIsOpen] = useState(false)
@@ -45,22 +53,22 @@ function Instagram() {
     //     // document.getElementById("profile").src = imgUrl;
     // }
 
-   function igFun(){
-    
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '3b9fa0f696msh397d126ad98c4b5p1e518fjsn52c068954cc2',
-            'X-RapidAPI-Host': 'instagram28.p.rapidapi.com'
-        }
-    };
-    
-    fetch('https://instagram28.p.rapidapi.com/media_info_v2?short_code=athulnambiar22', options)
-        .then(response => response.json())
-        .then(response => console.log(response))
-        .catch(err => console.error(err));
-   }
-   
+    function igFun() {
+
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': '3b9fa0f696msh397d126ad98c4b5p1e518fjsn52c068954cc2',
+                'X-RapidAPI-Host': 'instagram28.p.rapidapi.com'
+            }
+        };
+
+        fetch('https://instagram28.p.rapidapi.com/media_info_v2?short_code=athulnambiar22', options)
+            .then(response => response.json())
+            .then(response => console.log(response))
+            .catch(err => console.error(err));
+    }
+
     return (
         <div>
             <button onClick={igFun}> click me</button>

@@ -1,16 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { collection } from './mongodb';
+import { collection } from './db';
 
 function Instagram() {
 
   const [data, setData] = useState([]);
 
-  useEffect(() => {
-    collection.find().toArray((err, items) => {
-      setData(items);
-    });
-  }, []);
-
+  
   return (
     <div>
       {data.map(item => (

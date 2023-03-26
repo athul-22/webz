@@ -13,6 +13,7 @@ import speedometer from './Images/speedometer.png'
 import twitter from './Images/twitter.png';
 import facebook from './Images/facebook.png';
 import instagram from './Images/instagram.png';
+import empty from './Images/empty.jpg';
 import Calender from './Components/Calender'
 import CalendarIcon from './Images/calendar.png';
 import Modal from 'styled-react-modal'
@@ -21,16 +22,29 @@ function Home() {
 
 
   // ⭐️ STYLE FOR MODEL BOX
-  const StyledModal = Modal.styled`
-  width: 550px;
-  height: 350px;
-  display:block;
-  justify-content:center;
-  align-items: center;
-  justify-content: center;
-  background-color:white;
-  border-radius:10px;
-`
+  const CalenderModel = Modal.styled`
+    width: 550px;
+    height: 350px;
+    display:block;
+    justify-content:center;
+    align-items: center;
+    justify-content: center;
+    background-color:white;
+    border-radius:10px;
+  `
+
+  // ⭐️ STYLE FOR MODEL BOX
+  const NotificationModel = Modal.styled`
+    width: 550px;
+    height: 350px;
+    display:block;
+    justify-content:center;
+    align-items: center;
+    justify-content: center;
+    background-color:white;
+    border-radius:10px;
+  `
+
   // ⭐️ FUNCTION FOR MODEL BOX
   const [isOpen, setIsOpen] = useState(false)
 
@@ -92,16 +106,27 @@ function Home() {
           <img src={CalendarIcon} onClick={toggleModal} alt="" className="calender" />
 
           {/* ⭐️ CALENDER MODEL BOX */}
-          <StyledModal
+          <CalenderModel
                 isOpen={isOpen}
                 onBackgroundClick={toggleModal}
                 onEscapeKeydown={toggleModal}>
-                  <Calender/>
+                  <br></br>
+                  <center><Calender/></center>
                   <br/>
-                <button id='model-close' onClick={toggleModal}>Close me</button>
-            </StyledModal>
+               <center> <button id='model-close' onClick={toggleModal}>Close</button></center>
+            </CalenderModel>
 
-          <img src={notification} alt="" className="notification" />
+          {/* ⭐️ NOTIFICATION MODEL */}
+          <img onClick={toggleModal} src={notification} alt="" className="notification"  />
+          <NotificationModel
+                isOpen={isOpen}
+                onBackgroundClick={toggleModal}
+                onEscapeKeydown={toggleModal}>
+                  <center><img height="250px" width="250px" src={empty} alt="empty"/></center>
+                  <center><p id='notif-text'>Empty !</p></center>
+               <center> <button id='model-close' onClick={toggleModal}>Close</button></center>
+            </NotificationModel>
+
         </div>
 
         <div className='dash_main'>

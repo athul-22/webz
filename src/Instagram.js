@@ -3,12 +3,6 @@ import Modal from 'styled-react-modal'
 
 function Instagram() {
 
-    var ig = require('instagram-scraping');
-
-    ig.deepScrapeTagPage('india').then((result) => {
-        console.dir(result);
-      });
-
     const StyledModal = Modal.styled`
         width: 500px;
         height: 300px;

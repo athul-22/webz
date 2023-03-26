@@ -8,6 +8,7 @@
 
 .dashboard, .trending, .account{
     margin-left: 130px;
+    width: 110%;
 }
 
 .trending{
@@ -122,3 +123,13 @@
     margin-top: -3px;
 }
 
+#model-close{
+    height: 35px;
+    width: 120px;
+    background-color: rgb(255, 98, 98);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    bottom: 0px;
+}

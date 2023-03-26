@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Styles/home.css"
 import './Styles/sidebar.css';
 import dashboard from './Images/dashboard.png'
@@ -15,8 +15,28 @@ import facebook from './Images/facebook.png';
 import instagram from './Images/instagram.png';
 import Calender from './Components/Calender'
 import CalendarIcon from './Images/calendar.png';
+import Modal from 'styled-react-modal'
 
 function Home() {
+
+
+  // ⭐️ STYLE FOR MODEL BOX
+  const StyledModal = Modal.styled`
+  width: 550px;
+  height: 350px;
+  display:block;
+  justify-content:center;
+  align-items: center;
+  justify-content: center;
+  background-color:white;
+  border-radius:10px;
+`
+  // ⭐️ FUNCTION FOR MODEL BOX
+  const [isOpen, setIsOpen] = useState(false)
+
+  function toggleModal(e) {
+    setIsOpen(!isOpen)
+  }
 
 
   let home = document.getElementsByClassName("dashboard");
@@ -64,17 +84,28 @@ function Home() {
         </ul>
       </div>
 
-
+      {/* ⭐️ CONTENT SECTION STARTS */}
       {/* ✅ DASHBOARD */}
       <div className='dashboard'>
         <div className='dash_top'>
           <p className='dashboard' id='header'>| Dashbaord</p>
-          <img src={CalendarIcon} alt="" className="calender" />
+          <img src={CalendarIcon} onClick={toggleModal} alt="" className="calender" />
+
+          {/* ⭐️ CALENDER MODEL BOX */}
+          <StyledModal
+                isOpen={isOpen}
+                onBackgroundClick={toggleModal}
+                onEscapeKeydown={toggleModal}>
+                  <Calender/>
+                  <br/>
+                <button id='model-close' onClick={toggleModal}>Close me</button>
+            </StyledModal>
+
           <img src={notification} alt="" className="notification" />
         </div>
 
         <div className='dash_main'>
-          
+
           <div className='one'>
 
             <div className='progress1'>
@@ -88,59 +119,26 @@ function Home() {
             <div className='progress1'>
 
             </div>
-          </div>   
+          </div>
 
-          <Calender/>
 
-          {/* ✅ TOOLS SECTION STARTS */}
-          <p id='premium'>| Twitter Tools</p>
-          <div className='two'>
-            <div className='pro1'>
-             <center><img className='twitter' src={twitter} height="60px" width="60px" alt=""/><br/></center>
-             <center><p id='t_tool_name'>Profile Extractor</p></center>
+          {/* ✅ TRENDING */}
+          <div className='trending'>
+            <div className='dash_top'>
+              <p id='header'>| Trending</p>
             </div>
 
-            <div className='pro1'>
-            <center><img className='twitter' src={twitter} height="60px" width="60px" alt=""/><br/></center>
-             <center><p id='t_tool_name'>Profile Extractor</p></center>
+          </div>
+
+          {/* ✅ ACCOUNT */}
+          <div className='account'>
+            <div className='dash_top'>
+              <p id='header'>| Account</p>
+              <img src={notification} alt="" className="notification" />
             </div>
 
-            <div className='pro1'>
-            <center><img className='twitter' src={twitter} height="60px" width="60px" alt=""/><br/></center>
-             <center><p id='t_tool_name'>Profile Extractor</p></center>
-            </div>
-
-            <div className='pro1'>
-            <center><img className='twitter' src={twitter} height="60px" width="60px" alt=""/><br/></center>
-             <center><p id='t_tool_name'>Profile Extractor</p></center>
-            </div>
-
-            <div className='pro1'>
-            <center><img className='twitter' src={twitter} height="60px" width="60px" alt=""/><br/></center>
-             <center><p id='t_tool_name'>Profile Extractor</p></center>
-            </div>
-          </div>   
-        </div>
-
-      </div>
-
-      {/* ✅ TRENDING */}
-      <div className='trending'>
-        <div className='dash_top'>
-          <p id='header'>| Trending</p>
-        </div>
-
-      </div>
-
-      {/* ✅ ACCOUNT */}
-      <div className='account'>
-        <div className='dash_top'>
-          <p id='header'>| Account</p>
-          <img src={notification} alt="" className="notification" />
-        </div>
-
-      </div>
-
+          </div>
+        </div> </div>
     </div>
   )
 }

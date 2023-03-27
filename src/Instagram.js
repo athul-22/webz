@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MongoClient } from './db';
+import  MongoClient from './db';
 
 function App() {
   const [inputValue, setInputValue] = useState('');

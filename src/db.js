@@ -1,13 +1,19 @@
-const MongoClient = require('mongodb').MongoClient;
+import { MongoClient } from 'mongodb';
 
-const uri = 'mongodb+srv://athul:athul@athul.zzuss6q.mongodb.net/athul';
+const uri = 'mongodb+srv://athul:athul@athul.zzuss6q.mongodb.net/athul?retryWrites=true&w=majority';
+const client = new MongoClient(uri);
 
-const client = new MongoClient(uri, { useNewUrlParser: true });
+async function run() {
+  try {
+    // Connect the client to the server
+    await client.connect();
+    console.log("Connected successfully to MongoDB server");
+  } catch (err) {
+    console.log(err.stack);
+  } finally {
+    // Close the client when you're finished with it
+    await client.close();
+  }
+}
 
-client.connect(err => {
-  
-  const collection = client.db("athul").collection("users");
-  // perform actions on the collection object
-  client.close();
-});
-
+run().catch(console.dir);

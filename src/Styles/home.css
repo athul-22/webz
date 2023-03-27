@@ -1,3 +1,5 @@
+
+
 #h{
     color:red;
     margin-left: 130PX;
@@ -6,6 +8,7 @@
 
 .dashboard, .trending, .account{
     margin-left: 130px;
+    width: 110%;
 }
 
 .trending{
@@ -29,6 +32,7 @@
     padding-right: 20px;
     background-color:white ;
     border-radius: 20px;
+    width: auto;
 }
 
 .dash_top{
@@ -36,18 +40,32 @@
     width: 100%;
 }
 
-.notification{
+.calender{
     height: 30px;
     width:30px;
-    margin-right: 0px;
     margin-top: 30px;
-    margin-left:1000px;
+    margin-left:70%;
     background-color: white;
     padding: 10px;
     border-radius: 20px;
     cursor: pointer;
 }
 
+.notification{
+    height: 30px;
+    width:30px;
+    margin-top: 30px;
+   margin-left: 30px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+
+.calender:hover, .notification:hover{
+    background-color: #eee;
+}
 
 .one{
     display: inline-flex;
@@ -103,5 +121,16 @@
     font-size: 17px;
     font-weight: bold;
     margin-top: -3px;
+}
+
+#model-close{
+    height: 35px;
+    width: 120px;
+    background-color: rgb(255, 98, 98);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    bottom: 0px;
 }
 

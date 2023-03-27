@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Styles/home.css"
 import './Styles/sidebar.css';
 import dashboard from './Images/dashboard.png'
@@ -13,8 +13,44 @@ import speedometer from './Images/speedometer.png'
 import twitter from './Images/twitter.png';
 import facebook from './Images/facebook.png';
 import instagram from './Images/instagram.png';
+import empty from './Images/empty.jpg';
+import Calender from './Components/Calender'
+import CalendarIcon from './Images/calendar.png';
+import Modal from 'styled-react-modal'
 
 function Home() {
+
+
+  // ⭐️ STYLE FOR MODEL BOX
+  const CalenderModel = Modal.styled`
+    width: 550px;
+    height: 350px;
+    display:block;
+    justify-content:center;
+    align-items: center;
+    justify-content: center;
+    background-color:white;
+    border-radius:10px;
+  `
+
+  // ⭐️ STYLE FOR MODEL BOX
+  const NotificationModel = Modal.styled`
+    width: 550px;
+    height: 350px;
+    display:block;
+    justify-content:center;
+    align-items: center;
+    justify-content: center;
+    background-color:white;
+    border-radius:10px;
+  `
+
+  // ⭐️ FUNCTION FOR MODEL BOX
+  const [isOpen, setIsOpen] = useState(false)
+
+  function toggleModal(e) {
+    setIsOpen(!isOpen)
+  }
 
 
   let home = document.getElementsByClassName("dashboard");
@@ -62,79 +98,72 @@ function Home() {
         </ul>
       </div>
 
+      {/* ⭐️ CONTENT SECTION STARTS */}
       {/* ✅ DASHBOARD */}
       <div className='dashboard'>
         <div className='dash_top'>
           <p className='dashboard' id='header'>| Dashbaord</p>
-          <img src={notification} alt="" className="notification" />
+          <img src={CalendarIcon} onClick={toggleModal} alt="" className="calender" />
+
+          {/* ⭐️ CALENDER MODEL BOX */}
+          <CalenderModel
+                isOpen={isOpen}
+                onBackgroundClick={toggleModal}
+                onEscapeKeydown={toggleModal}>
+                  <br></br>
+                  <center><Calender/></center>
+                  <br/>
+               <center> <button id='model-close' onClick={toggleModal}>Close</button></center>
+            </CalenderModel>
+
+          {/* ⭐️ NOTIFICATION MODEL */}
+          <img onClick={toggleModal} src={notification} alt="" className="notification"  />
+          <NotificationModel
+                isOpen={isOpen}
+                onBackgroundClick={toggleModal}
+                onEscapeKeydown={toggleModal}>
+                  <center><img height="250px" width="250px" src={empty} alt="empty"/></center>
+                  <center><p id='notif-text'>Empty !</p></center>
+               <center> <button id='model-close' onClick={toggleModal}>Close</button></center>
+            </NotificationModel>
+
         </div>
 
         <div className='dash_main'>
-          
+
           <div className='one'>
 
             <div className='progress1'>
 
             </div>
+
             <div className='progress1'>
 
             </div>
+
             <div className='progress1'>
 
             </div>
-          </div>   
+          </div>
 
-          {/* ✅ TOOLS SECTION STARTS */}
-          <p id='premium'>| Twitter Tools</p>
-          <div className='two'>
 
-            <div className='pro1'>
-             <center><img className='twitter' src={twitter} height="60px" width="60px" alt=""/><br/></center>
-             <center><p id='t_tool_name'>Profile Extractor</p></center>
+          {/* ✅ TRENDING */}
+          <div className='trending'>
+            <div className='dash_top'>
+              <p id='header'>| Trending</p>
             </div>
 
-            <div className='pro1'>
-            <center><img className='twitter' src={twitter} height="60px" width="60px" alt=""/><br/></center>
-             <center><p id='t_tool_name'>Profile Extractor</p></center>
+          </div>
+
+          {/* ✅ ACCOUNT */}
+          <div className='account'>
+            <div className='dash_top'>
+              <p id='header'>| Account</p>
+              <img src={notification} alt="" className="notification" />
             </div>
 
-            <div className='pro1'>
-            <center><img className='twitter' src={twitter} height="60px" width="60px" alt=""/><br/></center>
-             <center><p id='t_tool_name'>Profile Extractor</p></center>
-            </div>
-
-            <div className='pro1'>
-            <center><img className='twitter' src={twitter} height="60px" width="60px" alt=""/><br/></center>
-             <center><p id='t_tool_name'>Profile Extractor</p></center>
-            </div>
-
-            <div className='pro1'>
-            <center><img className='twitter' src={twitter} height="60px" width="60px" alt=""/><br/></center>
-             <center><p id='t_tool_name'>Profile Extractor</p></center>
-            </div>
-          </div>   
-        </div>
-
-      </div>
-
-      {/* ✅ TRENDING */}
-      <div className='trending'>
-        <div className='dash_top'>
-          <p id='header'>| Trending</p>
-          <img src={notification} alt="" className="notification" />
-        </div>
-
-      </div>
-
-      {/* ✅ ACCOUNT */}
-      <div className='account'>
-        <div className='dash_top'>
-          <p id='header'>| Account</p>
-          <img src={notification} alt="" className="notification" />
-        </div>
-
-      </div>
-
+          </div>
+        </div> </div>
     </div>
   )
 }

@@ -6,6 +6,7 @@ body {
 }
 
 .sidenav {
+  overflow: hidden;
   height: 100%;
   width: 110px;
   position: fixed;

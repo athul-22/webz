@@ -19,6 +19,14 @@ import CalendarIcon from './Images/calendar.png';
 import Modal from 'styled-react-modal'
 
 function Home(){
+
+  
+
+  //LOCAL STORAGE VALUE GETTING FUNCTION
+  const nam = localStorage.getItem("name");
+  const mail = localStorage.getItem("email");
+  $(".nam").html(nam)
+  $(".mail").html(mail)
   // ⭐️ STYLE FOR MODEL BOX
   const CalenderModel = Modal.styled`
     width: 550px;
@@ -80,7 +88,7 @@ function Home(){
       <div className="sidenav">
         <div className="user">
           <center><img className="profile" src={profile} height="60px" width="60px" alt="" /><br /></center>
-          <center><p className="nam">Athul Nambiar</p></center>
+          <center><p className="nam"></p></center>
           <center><p className="mail">adbit.tesa@gmail.com</p></center>
         </div>
 

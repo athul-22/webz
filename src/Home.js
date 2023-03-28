@@ -18,9 +18,7 @@ import Calender from './Components/Calender'
 import CalendarIcon from './Images/calendar.png';
 import Modal from 'styled-react-modal'
 
-function Home() {
-
-
+function Home(){
   // ⭐️ STYLE FOR MODEL BOX
   const CalenderModel = Modal.styled`
     width: 550px;

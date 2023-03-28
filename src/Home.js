@@ -20,13 +20,13 @@ import Modal from 'styled-react-modal'
 
 function Home(){
 
-  
-
   // ⭐️ LOCAL STORAGE VALUE GETTING FUNCTION
-  const nam = localStorage.getItem("name");
-  const mail = localStorage.getItem("email");
-  $(".nam").html(nam);
-  $(".mail").html(mail);
+  const namDB = localStorage.getItem("name");
+  const mailDB = localStorage.getItem("email");
+  console.log(namDB);
+  console.log(mailDB);
+  $("#nam").innerHTML = namDB;
+  $("#mail").innerHTML = mailDB;
 
   // ⭐️ STYLE FOR MODEL BOX
   const CalenderModel = Modal.styled`
@@ -89,8 +89,8 @@ function Home(){
       <div className="sidenav">
         <div className="user">
           <center><img className="profile" src={profile} height="60px" width="60px" alt="" /><br /></center>
-          <center><p className="nam"></p></center>
-          <center><p className="mail">adbit.tesa@gmail.com</p></center>
+          <center><p id='nam' className="nam"></p></center>
+          <center><p id='mail' className="mail"></p></center>
         </div>
 
         <ul>

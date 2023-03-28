@@ -22,11 +22,12 @@ function Home(){
 
   
 
-  //LOCAL STORAGE VALUE GETTING FUNCTION
+  // ⭐️ LOCAL STORAGE VALUE GETTING FUNCTION
   const nam = localStorage.getItem("name");
   const mail = localStorage.getItem("email");
-  $(".nam").html(nam)
-  $(".mail").html(mail)
+  $(".nam").html(nam);
+  $(".mail").html(mail);
+
   // ⭐️ STYLE FOR MODEL BOX
   const CalenderModel = Modal.styled`
     width: 550px;

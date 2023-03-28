@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Styles/home.css"
 import './Styles/sidebar.css';
 import dashboard from './Images/dashboard.png'
@@ -18,8 +18,18 @@ import Calender from './Components/Calender'
 import CalendarIcon from './Images/calendar.png';
 import Modal from 'styled-react-modal'
 
-function Home() {
+function Home(){
 
+  // ⭐️ LOCAL STORAGE VALUE GETTING FUNCTION
+  const namDB = localStorage.getItem("name");
+  const mailDB = localStorage.getItem("email");
+  console.log(namDB);
+  console.log(mailDB);
+  
+  useEffect(()=>{
+    $("#nam").html(namDB);
+    $("#mail").html(mailDB);
+  },[])
 
   // ⭐️ STYLE FOR MODEL BOX
   const CalenderModel = Modal.styled`
@@ -82,8 +92,8 @@ function Home() {
       <div className="sidenav">
         <div className="user">
           <center><img className="profile" src={profile} height="60px" width="60px" alt="" /><br /></center>
-          <center><p className="nam">Athul Nambiar</p></center>
-          <center><p className="mail">adbit.tesa@gmail.com</p></center>
+          <center><p id='nam' className="nam"></p></center>
+          <center><p id='mail' className="mail"></p></center>
         </div>
 
         <ul>

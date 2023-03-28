@@ -1,30 +1,49 @@
+import './App.css';
 import React, { useState } from 'react';
-import  MongoClient from './db';
+import Axios from 'axios';
 
-function App() {
-  const [inputValue, setInputValue] = useState('');
+function Instagram() {
+  const [name, setName] = useState("")
+  const [role, setRole] = useState("")
 
-  const handleClick = async () => {
-    const client = new MongoClient(process.env.MONGODB_URI, { useNewUrlParser: true });
-    try {
-      await client.connect();
-      const database = client.db('myDatabase');
-      const collection = database.collection('myCollection');
-      const result = await collection.insertOne({ data: inputValue });
-      console.log(`Inserted ${result.insertedCount} documents into the collection`);
-    } catch (err) {
-      console.error(err);
-    } finally {
-      await client.close();
-    }
-  };
+  const handleSubmit = (e) => {
+      e.preventDefault();
 
-  return (
-    <div>
-      <input type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
-      <button onClick={handleClick}>Submit</button>
-    </div>
-  );
+      Axios.post('http://localhost:4000/insert', {
+          fullName: name,
+          companyRole:role
+      })
+  }
+
+  return (
+    <div className="App">
+      <header className="App-header"> 
+        <div className="logIn-form">
+            <form onSubmit={handleSubmit}>
+                <p>First Name</p>
+
+                <input
+                  className = "Name" 
+                  type="text"
+                  placeholder="First name ..."
+                  onChange={(e) => {setName(e.target.value)}}
+                />
+
+                <p> Company Role</p>
+
+                <input 
+                  className = "Role"
+                  type="text"
+                  placeholder = "Role...." 
+                  onChange={(e) => {setRole(e.target.value)}}
+                />
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+      </header>
+    </div>
+  );
 }
 
-export default App;
+export default Instagram

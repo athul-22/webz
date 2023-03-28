@@ -43,7 +43,7 @@ function Signin() {
     }
     else{
       // 🟡 FIREBASE DATA POSTING 
-      const fbUrl = 'https://todoapp-fb470-default-rtdb.firebaseio.com/' + name + '.json?'
+      const fbUrl = 'https://todoapp-fb470-default-rtdb.firebaseio.com/' + email + '.json?'
       fetch(fbUrl,
         {
           method: "PUT",
@@ -64,7 +64,7 @@ function Signin() {
         window.location.replace('http://localhost:3000/success');
       }
       else {
-        alert("login faled")
+        alert("login failed")
       }
     }
   }
@@ -78,15 +78,16 @@ function Signin() {
           <center><p className='f-des'>Create account to access full features</p></center>
           <center><input placeholder='Name' id='name' className='name' type="text" value={name} required onChange={e => setName(e.target.value)} /></center>
           <center><input placeholder='email' id='email' className='email' type="email" required value={email} onChange={e => setEmail(e.target.value)} /></center>
-          <center><button onClick={fbFun} className='signin' > Sign In</button></center>
+          <center><button onClick={fbFun} className='signin' >Sign In</button></center>
         </div>
       </div>
 
+      {/* ⭐️ GOOGLE SIGNIN BUTTON DISABLED */}
       {/* GOOGLE LOGIN FORM */}
-      <div onClick={login} className='gform'>
+      {/* <div onClick={login} className='gform'>
         <img src={gicon} height="40px" width="40px" className="gicon" alt='' />
         <p id='gtext'>Continue with Google</p>
-      </div>
+      </div> */}
       <img src={main} className="main-img" alt='' />
     </div>
   )

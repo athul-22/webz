@@ -61,7 +61,7 @@ function Signin() {
       // ✅ AFTER ACCOUNT CREATING REDIRECTING TO HOME PAGE
 
       if (localStorage.getItem("signin") === "1") {
-        window.location.replace('http://localhost:3000/success');
+        window.location.replace('/success');
       }
       else {
         alert("login failed")

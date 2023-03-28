@@ -19,7 +19,7 @@ function SuccessNavigate() {
     },[])
 
     function homeFun(){
-        window.location.replace('http://localhost:3000/home')
+        window.location.replace('/home')
     }
     
   return (

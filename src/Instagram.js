@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useState } from 'react';
 import Axios from 'axios';
+import './Styles/instagram.css'
 
 function Instagram() {
   const [name, setName] = useState("")

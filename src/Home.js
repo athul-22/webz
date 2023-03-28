@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Styles/home.css"
 import './Styles/sidebar.css';
 import dashboard from './Images/dashboard.png'
@@ -25,8 +25,11 @@ function Home(){
   const mailDB = localStorage.getItem("email");
   console.log(namDB);
   console.log(mailDB);
-  $("#nam").innerHTML = namDB;
-  $("#mail").innerHTML = mailDB;
+  
+  useEffect(()=>{
+    $("#nam").html(namDB);
+    $("#mail").html(mailDB);
+  },[])
 
   // ⭐️ STYLE FOR MODEL BOX
   const CalenderModel = Modal.styled`

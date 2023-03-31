@@ -23,7 +23,7 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    db.collection('myCollection').add({ input: inputValue });
+    db.collection('todos').add({ input: inputValue });
     setInputValue('');
   };
 

@@ -17,6 +17,8 @@ import empty from './Images/empty.jpg';
 import Calender from './Components/Calender'
 import CalendarIcon from './Images/calendar.png';
 import Modal from 'styled-react-modal'
+import HoverImage from 'react-hover-image/build';
+import addIcon from './Images/add.png'
 
 function Home() {
 
@@ -32,7 +34,7 @@ function Home() {
   const InputFile = useRef(null);
 
 
-  // IMAGE CLICK TO SHOW UPLOAD OPTION
+  // ✅ IMAGE CLICK TO SHOW UPLOAD OPTION
   const fileUpload = () => {
     InputFile.current.click();
   }
@@ -74,7 +76,6 @@ function Home() {
     setIsOpen(!isOpen)
   }
 
-
   let home = document.getElementsByClassName("dashboard");
   let trending = document.getElementsByClassName("trending");
   let account = document.getElementsByClassName("account");
@@ -98,16 +99,14 @@ function Home() {
   }
 
 
-
-
-
   return (
 
     <div>
       {/* ✅ SIDEBAR STARTING */}
       <div className="sidenav">
         <div className="user">
-          <center><img onClick={fileUpload} className="profile" src={profile} height="60px" width="60px" alt="" /><br /></center>
+          <center><HoverImage onClick={fileUpload} src={profile} hoverSrc={addIcon} className="profile" height="60px" width="60px" alt=""  /><br /></center>
+          {/* <center><img onClick={fileUpload} className="profile" src={profile} height="60px" width="60px" alt="" /><br /></center> */}
           <input ref={InputFile} type="file" className="uploadInput" style={{ display: 'none' }} />
           <center><p id='nam' className="nam"></p></center>
           <center><p id='mail' className="mail"></p></center>

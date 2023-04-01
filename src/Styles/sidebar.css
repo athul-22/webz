@@ -27,9 +27,13 @@ body {
 
 .profile {
   cursor: pointer;
-  
+  height: 60px;
+  width: 60px;
   margin-left: 10px;
   margin-top: 10px;
+}
+.profile:hover{
+  opacity: .5;
 }
 
 .nam {

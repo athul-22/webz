@@ -17,7 +17,6 @@ import empty from './Images/empty.jpg';
 import Calender from './Components/Calender'
 import CalendarIcon from './Images/calendar.png';
 import Modal from 'styled-react-modal'
-import FbDB from './Components/db'
 
 function Home(){
 

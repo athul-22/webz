@@ -1,12 +1,14 @@
 import React, { useEffect, useState, useRef } from 'react'
 import "./Styles/home.css"
 import './Styles/sidebar.css';
+import $ from 'jquery';
+import { getStorage } from firebase;
+// ✅ IMAGES
 import dashboard from './Images/dashboard.png'
 import user from './Images/user.png'
 import fire from './Images/fire.png'
 import profile from './Images/profile.png'
 import notification from './Images/notification.png'
-import $ from 'jquery';
 import Notifications from "react-notifications-menu";
 import premium from './Images/premium.png'
 import speedometer from './Images/speedometer.png'

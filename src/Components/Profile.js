@@ -24,9 +24,10 @@ const firebaseConfig = {
   const app = initializeApp(firebaseConfig)
   const storage = getStorage()
 
+let id = Math.floor(Math.random() * 10);
 
 export async function upload(profile,user_name){
-    const fileRef = ref(storage, user_name+".png");
+    const fileRef = ref(storage,  id +".png");
     const snapshot = await uploadBytes(fileRef , profile);
 
     alert("success")

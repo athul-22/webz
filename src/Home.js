@@ -85,13 +85,19 @@ function Home(){
     $(".account").css("display", "block");
   }
 
+  function fileUpload(){
+    $(".uploadInput").onClick();
+
+  }
+
   return (
 
     <div>
       {/* ✅ SIDEBAR STARTING */}
       <div className="sidenav">
         <div className="user">
-          <center><img className="profile" src={profile} height="60px" width="60px" alt="" /><br /></center>
+          <center><img onClick={fileUpload} className="profile" src={profile} height="60px" width="60px" alt="" /><br /></center>
+          <input type="file" className="uploadInput" style={{display:'none'}}/>
           <center><p id='nam' className="nam"></p></center>
           <center><p id='mail' className="mail"></p></center>
         </div>

@@ -2,8 +2,10 @@ import React, { useEffect, useState, useRef } from 'react'
 import "./Styles/home.css"
 import './Styles/sidebar.css';
 import $ from 'jquery';
+// ✅ FIREBASE
 import { initializeApp } from "firebase/app";
 import { getStorage } from "firebase/storage";
+import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage"
 // ✅ IMAGES
 import dashboard from './Images/dashboard.png'
 import user from './Images/user.png'
@@ -22,9 +24,11 @@ import CalendarIcon from './Images/calendar.png';
 import Modal from 'styled-react-modal'
 import HoverImage from 'react-hover-image/build';
 import addIcon from './Images/add.png'
+import { upload } from './Components/Profile'
 
 function Home() {
 
+  
   // ⭐️ LOCAL STORAGE VALUE GETTING FUNCTION
   const namDB = localStorage.getItem("name");
   const mailDB = localStorage.getItem("email");
@@ -33,19 +37,24 @@ function Home() {
 
   // ⭐️ STATES
 
+  const [ profile ,setProfile ] = useState(null);
+
   // ⭐️ REFS
   const InputFile = useRef(null);
 
-
   // ✅ IMAGE CLICK TO SHOW UPLOAD OPTION
+  const user_name = localStorage.getItem("name")
+  
   const fileUpload = () => {
     InputFile.current.click();
+    upload(profile,user_mail)
+
+  
   }
 
   function handleChange(e){
      if(e.target.files[0]){
-      console.log("success")
-
+      setProfile(e.target.files[0])
      }
      else{
       console.log("errro")

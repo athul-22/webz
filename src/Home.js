@@ -43,12 +43,12 @@ function Home() {
   const InputFile = useRef(null);
 
   // ✅ IMAGE CLICK TO SHOW UPLOAD OPTION
-  const user_name = localStorage.getItem("name")
+  const user_name_v1 = localStorage.getItem("name")
+  const user_name = user_name_v1.replace(/[^a-zA-Z]/g, "")
   
   const fileUpload = () => {
     InputFile.current.click();
-    upload(profile,user_mail)
-
+    upload(profile,user_name)
   
   }
 

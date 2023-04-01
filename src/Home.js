@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react'
 import "./Styles/home.css"
 import './Styles/sidebar.css';
 import $ from 'jquery';
-import { getStorage } from firebase;
+import { getStorage } from firebase/storage;
 // ✅ IMAGES
 import dashboard from './Images/dashboard.png'
 import user from './Images/user.png'
@@ -39,6 +39,16 @@ function Home() {
   // ✅ IMAGE CLICK TO SHOW UPLOAD OPTION
   const fileUpload = () => {
     InputFile.current.click();
+  }
+
+  function handleChange(e){
+     if(e.target.files[0]){
+      console.log("success")
+
+     }
+     else{
+      console.log("errro")
+     }
   }
 
 
@@ -109,7 +119,7 @@ function Home() {
         <div className="user">
           <center><HoverImage onClick={fileUpload} src={profile} hoverSrc={addIcon} className="profile" height="60px" width="60px" alt=""  /><br /></center>
           {/* <center><img onClick={fileUpload} className="profile" src={profile} height="60px" width="60px" alt="" /><br /></center> */}
-          <input ref={InputFile} type="file" className="uploadInput" style={{ display: 'none' }} />
+          <input onChange={handleChange} ref={InputFile} type="file" className="uploadInput" style={{ display: 'none' }} />
           <center><p id='nam' className="nam"></p></center>
           <center><p id='mail' className="mail"></p></center>
         </div>

@@ -2,7 +2,8 @@ import React, { useEffect, useState, useRef } from 'react'
 import "./Styles/home.css"
 import './Styles/sidebar.css';
 import $ from 'jquery';
-import { getStorage } from firebase/storage;
+import { initializeApp } from "firebase/app";
+import { getStorage } from "firebase/storage";
 // ✅ IMAGES
 import dashboard from './Images/dashboard.png'
 import user from './Images/user.png'

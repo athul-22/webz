@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import "./Styles/home.css"
 import './Styles/sidebar.css';
 import dashboard from './Images/dashboard.png'
@@ -18,18 +18,30 @@ import Calender from './Components/Calender'
 import CalendarIcon from './Images/calendar.png';
 import Modal from 'styled-react-modal'
 
-function Home(){
+function Home() {
 
   // ⭐️ LOCAL STORAGE VALUE GETTING FUNCTION
   const namDB = localStorage.getItem("name");
   const mailDB = localStorage.getItem("email");
   console.log(namDB);
   console.log(mailDB);
-  
-  useEffect(()=>{
+
+  // ⭐️ STATES
+
+  // ⭐️ REFS
+  const InputFile = useRef(null);
+
+
+  // IMAGE CLICK TO SHOW UPLOAD OPTION
+  const fileUpload = () => {
+    InputFile.current.click();
+  }
+
+
+  useEffect(() => {
     $("#nam").html(namDB);
     $("#mail").html(mailDB);
-  },[])
+  }, [])
 
   // ⭐️ STYLE FOR MODEL BOX
   const CalenderModel = Modal.styled`
@@ -85,10 +97,9 @@ function Home(){
     $(".account").css("display", "block");
   }
 
-  function fileUpload(){
-    $(".uploadInput").onClick();
 
-  }
+
+
 
   return (
 
@@ -97,7 +108,7 @@ function Home(){
       <div className="sidenav">
         <div className="user">
           <center><img onClick={fileUpload} className="profile" src={profile} height="60px" width="60px" alt="" /><br /></center>
-          <input type="file" className="uploadInput" style={{display:'none'}}/>
+          <input ref={InputFile} type="file" className="uploadInput" style={{ display: 'none' }} />
           <center><p id='nam' className="nam"></p></center>
           <center><p id='mail' className="mail"></p></center>
         </div>
@@ -123,25 +134,25 @@ function Home(){
 
           {/* ⭐️ CALENDER MODEL BOX */}
           <CalenderModel
-                isOpen={isOpen}
-                onBackgroundClick={toggleModal}
-                onEscapeKeydown={toggleModal}>
-                  <br></br>
-                  <center><Calender/></center>
-                  <br/>
-               <center> <button id='model-close' onClick={toggleModal}>Close</button></center>
-            </CalenderModel>
+            isOpen={isOpen}
+            onBackgroundClick={toggleModal}
+            onEscapeKeydown={toggleModal}>
+            <br></br>
+            <center><Calender /></center>
+            <br />
+            <center> <button id='model-close' onClick={toggleModal}>Close</button></center>
+          </CalenderModel>
 
           {/* ⭐️ NOTIFICATION MODEL */}
-          <img onClick={toggleModal} src={notification} alt="" className="notification"  />
+          <img onClick={toggleModal} src={notification} alt="" className="notification" />
           <NotificationModel
-                isOpen={isOpen}
-                onBackgroundClick={toggleModal}
-                onEscapeKeydown={toggleModal}>
-                  <center><img height="250px" width="250px" src={empty} alt="empty"/></center>
-                  <center><p id='notif-text'>Empty !</p></center>
-               <center> <button id='model-close' onClick={toggleModal}>Close</button></center>
-            </NotificationModel>
+            isOpen={isOpen}
+            onBackgroundClick={toggleModal}
+            onEscapeKeydown={toggleModal}>
+            <center><img height="250px" width="250px" src={empty} alt="empty" /></center>
+            <center><p id='notif-text'>Empty !</p></center>
+            <center> <button id='model-close' onClick={toggleModal}>Close</button></center>
+          </NotificationModel>
 
         </div>
 

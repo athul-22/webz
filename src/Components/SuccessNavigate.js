@@ -1,13 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import '../Styles/signinSuccess.css'
 import successImg from '../Images/account.svg'
 import verify from '../Images/verified.png'
-import { useEffect } from 'react'
 
 function SuccessNavigate() {
 
     useEffect(()=>{
-
         let name = localStorage.getItem("name");
         let nameText = document.getElementById("names");
         nameText.innerText = name;
@@ -19,7 +17,7 @@ function SuccessNavigate() {
     },[])
 
     function homeFun(){
-        window.location.replace('http://localhost:3000/home')
+        window.location.replace('/home')
     }
     
   return (

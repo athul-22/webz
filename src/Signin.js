@@ -75,7 +75,7 @@ function Signin() {
       const namo = name;
      const emailo = email;
       // 🟡 FIREBASE DATA POSTING 
-      const fbUrl = 'https://todoapp-fb470-default-rtdb.firebaseio.com/' + 1 + '.json?'
+      const fbUrl = 'https://todoapp-fb470-default-rtdb.firebaseio.com/1.json?'
       fetch(fbUrl,
         {
           method: "PUT",

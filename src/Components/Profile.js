@@ -3,6 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getStorage, uploadBytes } from "firebase/storage";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage"
 import { uid } from 'react-uid';
+import { response } from 'express';
 
 
 const firebaseConfig = {
@@ -27,4 +28,14 @@ export async function upload(profile,user_name){
     const photoURL = getDownloadURL(fileRef);
     console.log("success");
     console.log(photoURL);
+    fetch(photoURL)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+    })
+    
+    
+   
 }

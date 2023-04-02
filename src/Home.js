@@ -65,7 +65,7 @@ function Home() {
   useEffect(() => {
     $("#nam").html(namDB);
     $("#mail").html(mailDB);
-  }, [])
+  },[])
 
   // ⭐️ STYLE FOR MODEL BOX
   const CalenderModel = Modal.styled`

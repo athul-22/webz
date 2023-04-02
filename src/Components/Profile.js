@@ -35,7 +35,4 @@ export async function upload(profile,user_name){
     .then((data) => {
       console.log(data);
     })
-    
-
-   
 }

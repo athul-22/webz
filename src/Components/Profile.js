@@ -4,11 +4,6 @@ import { getStorage, uploadBytes } from "firebase/storage";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage"
 import { uid } from 'react-uid';
 
-function Profile() {
-  return (
-    <div></div>
-  )
-}
 
 const firebaseConfig = {
     apiKey: "AIzaSyAl9sbbgwxkyeh1rfQMVxbPnvNvX6SlS4s",
@@ -29,9 +24,7 @@ var id = Math.floor(Math.random() * 101);
 export async function upload(profile,user_name){
     const fileRef = ref(storage,  id +".png");
     const snapshot = await uploadBytes(fileRef , profile);
-    const photoURL = getDownloadURL();
+    const photoURL = getDownloadURL(fileRef);
     console.log("success");
     console.log(photoURL);
 }
-
-export default Profile

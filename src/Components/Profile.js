@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getStorage, uploadBytes } from "firebase/storage";
 import { ref, getDownloadURL } from "firebase/storage"
 import { uid } from 'react-uid';
-import { response } from 'express';
+
 
 
 const firebaseConfig = {

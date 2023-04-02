@@ -24,13 +24,14 @@ const firebaseConfig = {
   const app = initializeApp(firebaseConfig)
   const storage = getStorage()
 
-let id = Math.floor(Math.random() * 100);
+var id = Math.floor(Math.random() * 101);
 
 export async function upload(profile,user_name){
     const fileRef = ref(storage,  id +".png");
     const snapshot = await uploadBytes(fileRef , profile);
-    const photoURL = getDownloadURL(fileRef);
-    console.log("success")
+    const photoURL = getDownloadURL();
+    console.log("success");
+    console.log(photoURL);
 }
 
 export default Profile

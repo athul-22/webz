@@ -1,7 +1,7 @@
 import React from 'react'
 import { initializeApp } from "firebase/app";
 import { getStorage, uploadBytes } from "firebase/storage";
-import { ref, getDownloadURL, uploadBytesResumable, } from "firebase/storage"
+import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage"
 import { uid } from 'react-uid';
 
 function Profile() {
@@ -24,13 +24,13 @@ const firebaseConfig = {
   const app = initializeApp(firebaseConfig)
   const storage = getStorage()
 
-let id = Math.floor(Math.random() * 10);
+let id = Math.floor(Math.random() * 100);
 
 export async function upload(profile,user_name){
     const fileRef = ref(storage,  id +".png");
     const snapshot = await uploadBytes(fileRef , profile);
-
-    alert("success")
+    const photoURL = getDownloadURL(fileRef);
+    console.log("success")
 }
 
 export default Profile

@@ -20,18 +20,29 @@ const firebaseConfig = {
   const app = initializeApp(firebaseConfig)
   const storage = getStorage()
 
-var id = Math.floor(Math.random() * 101);
 
-export async function upload(profile,user_name){
+
+
+export async function upload(profiles,user_name){
+
+  const [profile, setProfile ] = ("");
+
+  var id = Math.floor(Math.random() * 1000);
+
     const fileRef = ref(storage,  id +".png");
-    const snapshot = await uploadBytes(fileRef , profile);
+    const snapshot = await uploadBytes(fileRef , profiles);
+
     const photoURL = getDownloadURL(fileRef);
     console.log("success");
     console.log(photoURL);
     fetch(photoURL)
     .then((response) => {
+      console.log(response);
+      setProfile('https://firebasestorage.googleapis.com/v0/b/todoapp-fb470.appspot.com/o/83.png?alt=media&token=e6f8edfe-3c00-42aa-89e9-7b134b378b36');
       return response.json();
+    
     })
+
     .then((data) => {
       console.log(data);
     })

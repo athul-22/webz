@@ -37,7 +37,7 @@ function Home() {
 
   // ⭐️ STATES
 
-  const [ profile ,setProfile ] = useState(null);
+  const [ profiles ,setProfile ] = useState(null);
 
   // ⭐️ REFS
   const InputFile = useRef(null);
@@ -48,8 +48,7 @@ function Home() {
   
   const fileUpload = () => {
     InputFile.current.click();
-    upload(profile,user_name)
-  
+    upload(profiles,user_name)
   }
 
   function handleChange(e){
@@ -127,7 +126,7 @@ function Home() {
       {/* ✅ SIDEBAR STARTING */}
       <div className="sidenav">
         <div className="user">
-          <center><HoverImage onClick={fileUpload} src={profile} hoverSrc={addIcon} className="profile" height="60px" width="60px" alt=""  /><br /></center>
+          <center><HoverImage profile={profile} setProfile={setProfile} onClick={fileUpload} src={profiles} hoverSrc={addIcon} className="profile" height="60px" width="60px" alt=""  /><br /></center>
           {/* <center><img onClick={fileUpload} className="profile" src={profile} height="60px" width="60px" alt="" /><br /></center> */}
           <input onChange={handleChange} ref={InputFile} type="file" className="uploadInput" style={{ display: 'none' }} />
           <center><p id='nam' className="nam"></p></center>

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { json, useNavigate } from 'react-router-dom';
 import './Styles/signin.css';
 import main from './Images/MAIN.png'
 import gicon from './Images/gicon.webp'
 import { useGoogleLogin } from '@react-oauth/google';
 import Swal from 'sweetalert2'
+import { uid } from 'react-uid';
 
 function Signin() {
 
@@ -19,6 +20,34 @@ function Signin() {
     onChange: tokenResponse => console.log(tokenResponse),
 
   });
+
+  const postdataFun = async (e) =>{
+    e.preventDefault();
+
+     const namo = name;
+     const emailo = email;
+
+     const fbUrlo = 'https://todoapp-fb470-default-rtdb.firebaseio.com/' + uid + '.json?'
+
+     const res = await fetch(fbUrlo,
+      {
+        method:'PUT',
+        headers:{
+          'Contenttype':'application/json'
+        },
+        body: JSON.stringify({
+          name,
+          email,
+        })
+      })
+      Swal.fire({
+        title: 'Success',
+        text: 'Successfully Submited',
+        icon: 'success',
+        confirmButtonText: 'Close'
+      });
+  }
+
 
   function fbFun() {
     //✅ ENTRY POINT CHECKING - NAME VALUE EMPTY OR NOT 
@@ -40,18 +69,23 @@ function Signin() {
         icon: 'error',
         confirmButtonText: 'Close'
       })
+
     }
     else{
+      const namo = name;
+     const emailo = email;
       // 🟡 FIREBASE DATA POSTING 
-      const fbUrl = 'https://todoapp-fb470-default-rtdb.firebaseio.com/' + email + '.json?'
+      const fbUrl = 'https://todoapp-fb470-default-rtdb.firebaseio.com/1.json?'
       fetch(fbUrl,
         {
           method: "PUT",
           body: JSON.stringify({
-            name,
-            email,
+            namo,
+            emailo,
           })
         })
+
+        
       // ✅ SIGNIN VALUE DB = 1
       localStorage.setItem("signin", "1");
       // ✅ NAME DB -> NAME 

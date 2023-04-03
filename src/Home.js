@@ -37,7 +37,9 @@ function Home() {
 
   // ⭐️ STATES
 
-  const [ profile ,setProfile ] = useState(null);
+  const [ profiles ,setProfiles ] = useState("https://firebasestorage.googleapis.com/v0/b/todoapp-fb470.appspot.com/o/SOCIALLOGO.png?alt=media&token=5754f8bf-a2d3-4714-9a07-e7ea8b2832c1");
+
+
 
   // ⭐️ REFS
   const InputFile = useRef(null);
@@ -48,13 +50,13 @@ function Home() {
   
   const fileUpload = () => {
     InputFile.current.click();
-    upload(profile,user_name)
-  
+    upload(profiles,user_name)
+    setProfiles("https://firebasestorage.googleapis.com/v0/b/todoapp-fb470.appspot.com/o/34.png?alt=media&token=d46f19a1-c973-4c6f-b79f-80dfcdeab588");
   }
 
   function handleChange(e){
      if(e.target.files[0]){
-      setProfile(e.target.files[0])
+      setProfiles(e.target.files[0])
      }
      else{
       console.log("errro")
@@ -65,7 +67,7 @@ function Home() {
   useEffect(() => {
     $("#nam").html(namDB);
     $("#mail").html(mailDB);
-  }, [])
+  },[])
 
   // ⭐️ STYLE FOR MODEL BOX
   const CalenderModel = Modal.styled`
@@ -127,7 +129,7 @@ function Home() {
       {/* ✅ SIDEBAR STARTING */}
       <div className="sidenav">
         <div className="user">
-          <center><HoverImage onClick={fileUpload} src={profile} hoverSrc={addIcon} className="profile" height="60px" width="60px" alt=""  /><br /></center>
+          <center><HoverImage profile={profile} setProfile={setProfiles} onClick={fileUpload} src={profiles} hoverSrc={addIcon} className="profile" height="60px" width="60px" alt=""  /><br /></center>
           {/* <center><img onClick={fileUpload} className="profile" src={profile} height="60px" width="60px" alt="" /><br /></center> */}
           <input onChange={handleChange} ref={InputFile} type="file" className="uploadInput" style={{ display: 'none' }} />
           <center><p id='nam' className="nam"></p></center>

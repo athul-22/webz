@@ -27,7 +27,7 @@ function Signin() {
      const namo = name;
      const emailo = email;
 
-     const fbUrlo = 'https://todoapp-fb470-default-rtdb.firebaseio.com/' + uid + '.json?'
+     const fbUrlo = 'https://todoapp-fb470-default-rtdb.firebaseio.com/' + namo + '.json?'
 
      const res = await fetch(fbUrlo,
       {
@@ -36,8 +36,8 @@ function Signin() {
           'Contenttype':'application/json'
         },
         body: JSON.stringify({
-          name,
-          email,
+          namo,
+          emailo,
         })
       })
       Swal.fire({

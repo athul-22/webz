@@ -32,13 +32,21 @@ function Signin() {
   const database = firebase.database();
 
   function success(){
-    if (localStorage.getItem("signin") === "1") {
-      window.location.replace('/success');
+      // ✅ SIGNIN VALUE DB = 1
+      localStorage.setItem("signin", "1");
+      // ✅ NAME DB -> NAME 
+      localStorage.setItem("name", name);
+      // ✅ EMAIL DM -> EMAIL
+      localStorage.setItem("email", email);
+      // ✅ AFTER ACCOUNT CREATING REDIRECTING TO HOME PAGE
+  
+      if (localStorage.getItem("signin") === "1") {
+        window.location.replace('/success');
+      }
+      else {
+        alert("login failed")
+      }
     }
-    else {
-      alert("login failed")
-    }
-  }
 
 
   const handleSubmit = (event) => {
@@ -74,12 +82,15 @@ function Signin() {
         database.ref(name).set(newData)
           .then(() => {
             console.log('Data sent successfully');
+            success();
           })
           .catch((error) => {
             console.error('Error sending data:', error);
           });
-        }}
+        }
+      }
  
+
 
 const login = useGoogleLogin({
   onSuccess: tokenResponse => console.log(tokenResponse),

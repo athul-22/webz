@@ -51,7 +51,6 @@ function Home() {
   const fileUpload = () => {
     InputFile.current.click();
     upload(profiles,user_name)
-    setProfiles("https://firebasestorage.googleapis.com/v0/b/todoapp-fb470.appspot.com/o/34.png?alt=media&token=d46f19a1-c973-4c6f-b79f-80dfcdeab588");
   }
 
   function handleChange(e){

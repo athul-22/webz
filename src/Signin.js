@@ -31,6 +31,15 @@ function Signin() {
 
   const database = firebase.database();
 
+  function success(){
+    if (localStorage.getItem("signin") === "1") {
+      window.location.replace('/success');
+    }
+    else {
+      alert("login failed")
+    }
+  }
+
 
   const handleSubmit = (event) => {
     const newData = {
@@ -53,12 +62,7 @@ function Signin() {
   // ✅ EMAIL DM -> EMAIL
   localStorage.setItem("email", email);
   // ✅ AFTER ACCOUNT CREATING REDIRECTING TO HOME PAGE
-  if (localStorage.getItem("signin") === "1") {
-    window.location.replace('/success');
-  }
-  else {
-    alert("login failed")
-  }
+  
 }
  
 

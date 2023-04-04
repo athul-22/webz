@@ -1,14 +1,11 @@
 
-
 #h{
     color:red;
     margin-left: 130PX;
-
 }
 
 .dashboard, .trending, .account{
-    margin-left: 130px;
-    width: 130%;
+    margin-left: 130px;   
 }
 
 .trending{
@@ -36,8 +33,8 @@
 }
 
 .dash_top{
-    display: inline;
-   width: 100%;
+    display: inline-flex;
+    width: auto;
 }
 
 .calender{

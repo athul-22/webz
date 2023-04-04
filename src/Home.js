@@ -28,7 +28,6 @@ import { upload } from './Components/Profile'
 
 function Home() {
 
-
   // ⭐️ LOCAL STORAGE VALUE GETTING FUNCTION
   const namDB = localStorage.getItem("name");
   const mailDB = localStorage.getItem("email");
@@ -48,6 +47,12 @@ function Home() {
   const user_name_v1 = localStorage.getItem("name")
   const user_name = user_name_v1.replace(/[^a-zA-Z]/g, "")
 
+  // ✅ NAME AND EMAIL SETTING FROM LOCAL STORAGE
+  useEffect(() => {
+    $("#nam").html(namDB);
+    $("#mail").html(mailDB);
+  }, [])
+
   const fileUpload = () => {
     InputFile.current.click();
     upload(profiles, user_name)
@@ -62,11 +67,6 @@ function Home() {
     }
   }
 
-
-  useEffect(() => {
-    $("#nam").html(namDB);
-    $("#mail").html(mailDB);
-  }, [])
 
   // ⭐️ STYLE FOR MODEL BOX
   const CalenderModel = Modal.styled`
@@ -99,6 +99,10 @@ function Home() {
     setIsOpen(!isOpen)
   }
 
+  function notifModal(e) {
+    setIsOpen(!isOpen)
+  }
+
   let home = document.getElementsByClassName("dashboard");
   let trending = document.getElementsByClassName("trending");
   let account = document.getElementsByClassName("account");
@@ -120,7 +124,6 @@ function Home() {
     $(".trending").css("display", "none");
     $(".account").css("display", "block");
   }
-
 
   return (
 
@@ -153,29 +156,16 @@ function Home() {
       <div className='dashboard'>
       <p className='dashboards' id='header'>| Dashbaord</p>
         <div className='dash_top'>
-         
-
-          <img src={CalendarIcon} onClick={toggleModal} alt="" className="calender" />
-          {/* ⭐️ CALENDER MODEL BOX */}
-          <CalenderModel
-            isOpen={isOpen}
-            onBackgroundClick={toggleModal}
-            onEscapeKeydown={toggleModal}>
-            <br></br>
-            <center><Calender /></center>
-            <br />
-            <center> <button id='model-close' onClick={toggleModal}>Close</button></center>
-          </CalenderModel>
 
           {/* ⭐️ NOTIFICATION MODEL */}
-          <img onClick={toggleModal} src={notification} alt="" className="notification" />
+          <img onClick={notifModal} src={notification} alt="" className="notification" />
           <NotificationModel
             isOpen={isOpen}
-            onBackgroundClick={toggleModal}
-            onEscapeKeydown={toggleModal}>
+            onBackgroundClick={notifModal}
+            onEscapeKeydown={notifModal}>
             <center><img height="250px" width="250px" src={empty} alt="empty" /></center>
             <center><p id='notif-text'>Empty !</p></center>
-            <center> <button id='model-close' onClick={toggleModal}>Close</button></center>
+            <center> <button id='model-close' onClick={notifModal}>Close</button></center>
           </NotificationModel>
 
         </div>
@@ -191,7 +181,6 @@ function Home() {
            <div className='account'>
            <p id='header'>| Account</p>
               <img src={notification} alt="" className="notification" />
-
           </div>
 
       {/* ✅ END */}

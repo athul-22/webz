@@ -6,8 +6,37 @@ import gicon from './Images/gicon.webp'
 import { useGoogleLogin } from '@react-oauth/google';
 import Swal from 'sweetalert2'
 import { uid } from 'react-uid';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
+
+
 
 function Signin() {
+
+  //✅ FIREBASE FIRESTORE DATA SENDING
+  const firebaseConfig = {
+    apiKey: "AIzaSyAl9sbbgwxkyeh1rfQMVxbPnvNvX6SlS4s",
+    authDomain: "todoapp-fb470.firebaseapp.com",
+    databaseURL: "https://todoapp-fb470-default-rtdb.firebaseio.com",
+    projectId: "todoapp-fb470",
+    storageBucket: "todoapp-fb470.appspot.com",
+    messagingSenderId: "453121987629",
+    appId: "1:453121987629:web:923cc5722fa474bef314a4"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+
+  const db = firebase.firestore();
+
+  const sendDataToFirestore = async (users, data) => {
+    try {
+      const docRef = await db.collection(users).add(data);
+      console.log(`Document written with ID: ${docRef.id}`);
+    } catch (error) {
+      console.error(`Error adding document: ${error}`);
+    }
+  };
+
 
   const [name, setName] = useState();
   const [email, setEmail] = useState();
@@ -21,35 +50,45 @@ function Signin() {
 
   });
 
-  const postdataFun = async (e) =>{
-    e.preventDefault();
+ 
 
-     const namo = name;
-     const emailo = email;
+  
 
-     const fbUrlo = 'https://todoapp-fb470-default-rtdb.firebaseio.com/' + namo + '.json?'
+  // ⬇️ FB DATA SENTING
+  // const postdataFun = async (e) =>{
+  //   e.preventDefault();
 
-     const res = await fetch(fbUrlo,
-      {
-        method:'PUT',
-        headers:{
-          'Contenttype':'application/json'
-        },
-        body: JSON.stringify({
-          namo,
-          emailo,
-        })
-      })
-      Swal.fire({
-        title: 'Success',
-        text: 'Successfully Submited',
-        icon: 'success',
-        confirmButtonText: 'Close'
-      });
-  }
+  //    const namo = name;
+  //    const emailo = email;
+
+  //    const fbUrlo = 'https://todoapp-fb470-default-rtdb.firebaseio.com/' + namo + '.json?'
+
+  //    const res = await fetch(fbUrlo,
+  //     {
+  //       method:'PUT',
+  //       headers:{
+  //         'Contenttype':'application/json'
+  //       },
+  //       body: JSON.stringify({
+  //         namo,
+  //         emailo,
+  //       })
+  //     })
+  //     Swal.fire({
+  //       title: 'Success',
+  //       text: 'Successfully Submited',
+  //       icon: 'success',
+  //       confirmButtonText: 'Close'
+  //     });
+  // }
 
 
   function fbFun() {
+    sendDataToFirestore('myCustomCollection', {
+      firstName: 'John',
+      lastName: 'Doe',
+      email: 'johndoe@example.com'
+      });
     //✅ ENTRY POINT CHECKING - NAME VALUE EMPTY OR NOT 
     //✅ NAME VALUE EMPTY
     if (document.getElementById("name").value === "") {
@@ -61,7 +100,7 @@ function Signin() {
       });
     }
     //✅ MAIL VALUE EMPTY
-    else if(document.getElementById("email").value === ""){
+    else if (document.getElementById("email").value === "") {
 
       Swal.fire({
         title: 'Error!',
@@ -71,9 +110,9 @@ function Signin() {
       })
 
     }
-    else{
+    else {
       const namo = name;
-     const emailo = email;
+      const emailo = email;
       // 🟡 FIREBASE DATA POSTING 
       const fbUrl = 'https://todoapp-fb470-default-rtdb.firebaseio.com/1.json?'
       fetch(fbUrl,
@@ -85,7 +124,7 @@ function Signin() {
           })
         })
 
-        
+
       // ✅ SIGNIN VALUE DB = 1
       localStorage.setItem("signin", "1");
       // ✅ NAME DB -> NAME 

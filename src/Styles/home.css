@@ -8,7 +8,7 @@
 
 .dashboard, .trending, .account{
     margin-left: 130px;
-    width: 110%;
+    width: 130%;
 }
 
 .trending{
@@ -32,12 +32,12 @@
     padding-right: 20px;
     background-color:white ;
     border-radius: 20px;
-    width: auto;
+    width: fit-content;
 }
 
 .dash_top{
-    display: inline-flex;
-    width: 100%;
+    display: inline;
+   width: 100%;
 }
 
 .calender{
@@ -71,15 +71,9 @@
     display: inline-flex;
 }
 
-.progress1{
-    height: 150px;
-    width: 300px;
-    background-color: white;
-    margin-left: 30px;
-    border-radius: 20PX;
-}
 
-#premium{
+
+/* #premium{
     font-size: 20px;
     font-weight: bolder;
     margin-top:30px;
@@ -115,7 +109,7 @@
     margin-top: 10px;
 
     
-}
+} */
 
 #t_tool_name{
     font-size: 17px;

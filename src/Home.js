@@ -28,7 +28,7 @@ import { upload } from './Components/Profile'
 
 function Home() {
 
-  
+
   // ⭐️ LOCAL STORAGE VALUE GETTING FUNCTION
   const namDB = localStorage.getItem("name");
   const mailDB = localStorage.getItem("email");
@@ -37,7 +37,7 @@ function Home() {
 
   // ⭐️ STATES
 
-  const [ profiles ,setProfiles ] = useState("https://firebasestorage.googleapis.com/v0/b/todoapp-fb470.appspot.com/o/SOCIALLOGO.png?alt=media&token=5754f8bf-a2d3-4714-9a07-e7ea8b2832c1");
+  const [profiles, setProfiles] = useState("https://cdn-icons-png.flaticon.com/512/141/141739.png");
 
 
 
@@ -47,26 +47,26 @@ function Home() {
   // ✅ IMAGE CLICK TO SHOW UPLOAD OPTION
   const user_name_v1 = localStorage.getItem("name")
   const user_name = user_name_v1.replace(/[^a-zA-Z]/g, "")
-  
+
   const fileUpload = () => {
     InputFile.current.click();
-    upload(profiles,user_name)
+    upload(profiles, user_name)
   }
 
-  function handleChange(e){
-     if(e.target.files[0]){
-      setProfiles(e.target.files[0])
-     }
-     else{
+  function handleChange(e) {
+    if (e.target.files[0]) {
+      // setProfiles(e.target.files[0])
+    }
+    else {
       console.log("errro")
-     }
+    }
   }
 
 
   useEffect(() => {
     $("#nam").html(namDB);
     $("#mail").html(mailDB);
-  },[])
+  }, [])
 
   // ⭐️ STYLE FOR MODEL BOX
   const CalenderModel = Modal.styled`
@@ -128,7 +128,7 @@ function Home() {
       {/* ✅ SIDEBAR STARTING */}
       <div className="sidenav">
         <div className="user">
-          <center><HoverImage profile={profile} setProfile={setProfiles} onClick={fileUpload} src={profiles} hoverSrc={addIcon} className="profile" height="60px" width="60px" alt=""  /><br /></center>
+          <center><HoverImage profile={profile} setProfile={setProfiles} onClick={fileUpload} src={profiles} hoverSrc={addIcon} className="profile" height="60px" width="60px" alt="" /><br /></center>
           {/* <center><img onClick={fileUpload} className="profile" src={profile} height="60px" width="60px" alt="" /><br /></center> */}
           <input onChange={handleChange} ref={InputFile} type="file" className="uploadInput" style={{ display: 'none' }} />
           <center><p id='nam' className="nam"></p></center>
@@ -148,10 +148,11 @@ function Home() {
       </div>
 
       {/* ⭐️ CONTENT SECTION STARTS */}
+
       {/* ✅ DASHBOARD */}
       <div className='dashboard'>
         <div className='dash_top'>
-          <p className='dashboard' id='header'>| Dashbaord</p>
+          <p className='dashboards' id='header'>| Dashbaord</p>
           <img src={CalendarIcon} onClick={toggleModal} alt="" className="calender" />
 
           {/* ⭐️ CALENDER MODEL BOX */}
@@ -177,42 +178,26 @@ function Home() {
           </NotificationModel>
 
         </div>
+      </div>
 
-        <div className='dash_main'>
-
-          <div className='one'>
-
-            <div className='progress1'>
-
-            </div>
-
-            <div className='progress1'>
-
-            </div>
-
-            <div className='progress1'>
-
-            </div>
-          </div>
-
-
-          {/* ✅ TRENDING */}
-          <div className='trending'>
+       {/* ✅ TRENDING */}
+       <div className='trending'>
             <div className='dash_top'>
               <p id='header'>| Trending</p>
             </div>
 
           </div>
 
-          {/* ✅ ACCOUNT */}
-          <div className='account'>
+           {/* ✅ ACCOUNT */}
+           <div className='account'>
             <div className='dash_top'>
               <p id='header'>| Account</p>
               <img src={notification} alt="" className="notification" />
             </div>
 
           </div>
-        </div> </div>
+
+      {/* ✅ END */}
     </div>
   )
 }

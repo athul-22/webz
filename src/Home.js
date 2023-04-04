@@ -86,7 +86,7 @@ function Home() {
 
   const postSubmit = (event) => {
 
-    setNewpost(...post, newpost);
+    setNewpost([...post, newpost]);
     console.log(newpost);
 
     event.preventDefault();
@@ -104,6 +104,7 @@ function Home() {
       // Data object to be sent to the database
       const newData = {
         post: post,
+       
       };
       // Send data to the database
       database.ref(namDB).update(newData)

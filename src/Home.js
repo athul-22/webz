@@ -6,7 +6,7 @@ import Swal from 'sweetalert2'
 // ✅ FIREBASE
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
-import 'firebase/compat/database';
+import {update} from 'firebase/compat/database';
 // ✅ IMAGES
 import add from './Images/more.png'
 import dashboard from './Images/dashboard.png'
@@ -101,7 +101,7 @@ function Home() {
         post: post,
       };
       // Send data to the database
-      database.ref(namDB).set(newData)
+      database.ref(namDB).update(newData)
         .then(() => {
           console.log('Data sent successfully');
         })

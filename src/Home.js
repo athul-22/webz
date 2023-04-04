@@ -6,7 +6,7 @@ import Swal from 'sweetalert2'
 // ✅ FIREBASE
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
-import {update} from 'firebase/compat/database';
+import {update , child} from 'firebase/compat/database';
 // ✅ IMAGES
 import add from './Images/more.png'
 import dashboard from './Images/dashboard.png'
@@ -39,7 +39,7 @@ function Home() {
   // ⭐️ STATES
 
   const [profiles, setProfiles] = useState("https://cdn-icons-png.flaticon.com/512/141/141739.png");
-  const [ post , setPost ] = useState([]);
+  const [ post , setPost ] = useState({});
 
 
   // ⭐️ REFS

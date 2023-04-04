@@ -29,13 +29,13 @@ export async function upload(profiles,user_name){
     const photoURL = getDownloadURL(fileRef);
     console.log("success");
     console.log(photoURL);
+    
     fetch(photoURL)
-    .then((response) => {
-      console.log(response);
-      console.log(response.PromiseResult)
+    .then((response) =>{
+      return response.json();
     })
 
     .then((data) => {
-      console.log(data);
+      console.log(data.PromiseResult);
     })
 }

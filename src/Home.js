@@ -151,10 +151,11 @@ function Home() {
 
       {/* ✅ DASHBOARD */}
       <div className='dashboard'>
+      <p className='dashboards' id='header'>| Dashbaord</p>
         <div className='dash_top'>
-          <p className='dashboards' id='header'>| Dashbaord</p>
-          <img src={CalendarIcon} onClick={toggleModal} alt="" className="calender" />
+         
 
+          <img src={CalendarIcon} onClick={toggleModal} alt="" className="calender" />
           {/* ⭐️ CALENDER MODEL BOX */}
           <CalenderModel
             isOpen={isOpen}
@@ -182,18 +183,14 @@ function Home() {
 
        {/* ✅ TRENDING */}
        <div className='trending'>
-            <div className='dash_top'>
-              <p id='header'>| Trending</p>
-            </div>
+       <p id='header'>| Trending</p>
 
           </div>
 
            {/* ✅ ACCOUNT */}
            <div className='account'>
-            <div className='dash_top'>
-              <p id='header'>| Account</p>
+           <p id='header'>| Account</p>
               <img src={notification} alt="" className="notification" />
-            </div>
 
           </div>
 

@@ -87,7 +87,7 @@ function Home() {
   const postSubmit = (event) => {
 
     setNewpost([...post, newpost]);
-    console.log(newpost);
+    console.log([newpost]);
 
     event.preventDefault();
     //✅ ENTRY POINT CHECKING - NAME VALUE EMPTY OR NOT 
@@ -222,7 +222,6 @@ function Home() {
         <input id='post' type='text' placeholder='enter your thoughts' value={post} onChange={ e => setPost(e.target.value)} className='postField'/>
         <button onClick={postSubmit} id='postButton'>Post</button>
       </div>
-
 
        {/* ✅ TRENDING */}
        <div className='trending'>

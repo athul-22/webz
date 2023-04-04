@@ -51,6 +51,16 @@
   cursor: pointer;
 }
 
+.addpost{
+  height: 30px;
+  width: 30px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
 .notification {
   height: 30px;
   width: 30px;

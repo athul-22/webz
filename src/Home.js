@@ -7,6 +7,7 @@ import { initializeApp } from "firebase/app";
 import { getStorage } from "firebase/storage";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage"
 // ✅ IMAGES
+import add from './Images/more.png'
 import dashboard from './Images/dashboard.png'
 import user from './Images/user.png'
 import fire from './Images/fire.png'
@@ -159,6 +160,7 @@ function Home() {
         <div className='dash_top'>
 
           {/* ⭐️ NOTIFICATION MODEL */}
+          <img  src={add} alt="" className="addpost" />
           <img onClick={notifModal} src={notification} alt="" className="notification" />
           <NotificationModel
             isOpen={isOpen}

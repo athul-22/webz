@@ -25,6 +25,7 @@ import Modal from 'styled-react-modal'
 import HoverImage from 'react-hover-image/build';
 import addIcon from './Images/add.png'
 import { upload } from './Components/Profile'
+// ✅ BOOTSTRAP
 
 function Home() {
 

@@ -2,10 +2,11 @@ import React, { useEffect, useState, useRef } from 'react'
 import "./Styles/home.css"
 import './Styles/sidebar.css';
 import $ from 'jquery';
+import Swal from 'sweetalert2'
 // ✅ FIREBASE
-import { initializeApp } from "firebase/app";
-import { getStorage } from "firebase/storage";
-import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage"
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
+import 'firebase/compat/database';
 // ✅ IMAGES
 import add from './Images/more.png'
 import dashboard from './Images/dashboard.png'
@@ -29,7 +30,6 @@ import { upload } from './Components/Profile'
 // ✅ BOOTSTRAP
 
 function Home() {
-
   // ⭐️ LOCAL STORAGE VALUE GETTING FUNCTION
   const namDB = localStorage.getItem("name");
   const mailDB = localStorage.getItem("email");
@@ -39,7 +39,7 @@ function Home() {
   // ⭐️ STATES
 
   const [profiles, setProfiles] = useState("https://cdn-icons-png.flaticon.com/512/141/141739.png");
-
+  const [ post , setPost ] = useState([]);
 
 
   // ⭐️ REFS
@@ -68,6 +68,48 @@ function Home() {
       console.log("errro")
     }
   }
+
+  // ✅ FIREBASE REALTIME DATABASE FOR POST 
+  const firebaseConfig = {
+    apiKey: "AIzaSyAl9sbbgwxkyeh1rfQMVxbPnvNvX6SlS4s",
+    authDomain: "todoapp-fb470.firebaseapp.com",
+    databaseURL: "https://todoapp-fb470-default-rtdb.firebaseio.com",
+    projectId: "todoapp-fb470",
+    storageBucket: "todoapp-fb470.appspot.com",
+    messagingSenderId: "453121987629",
+    appId: "1:453121987629:web:923cc5722fa474bef314a4"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const database = firebase.database();
+
+  const postSubmit = (event) => {
+    event.preventDefault();
+    //✅ ENTRY POINT CHECKING - NAME VALUE EMPTY OR NOT 
+    //✅ NAME VALUE EMPTY
+    if (document.getElementById("post").value === "") {
+      Swal.fire({
+        title: 'Error!',
+        text: 'Enter Your Name to continue',
+        icon: 'error',
+        confirmButtonText: 'Close'
+      });
+    }
+    else {
+      // Data object to be sent to the database
+      const newData = {
+        post: post,
+      };
+      // Send data to the database
+      database.ref(namDB).set(newData)
+        .then(() => {
+          console.log('Data sent successfully');
+        })
+        .catch((error) => {
+          console.error('Error sending data:', error);
+        });
+      }
+    }
 
 
   // ⭐️ STYLE FOR MODEL BOX
@@ -158,7 +200,6 @@ function Home() {
       <div className='dashboard'>
       <p className='dashboards' id='header'>| Dashbaord</p>
         <div className='dash_top'>
-
           {/* ⭐️ NOTIFICATION MODEL */}
           <img  src={add} alt="" className="addpost" />
           <img onClick={notifModal} src={notification} alt="" className="notification" />
@@ -170,9 +211,12 @@ function Home() {
             <center><p id='notif-text'>Empty !</p></center>
             <center> <button id='model-close' onClick={notifModal}>Close</button></center>
           </NotificationModel>
-
         </div>
+
+        <input id='post' type='text' placeholder='enter your thoughts' value={post} onChange={ e => setPost(e.target.value)} className='postField'/>
+        <button onClick={postSubmit} id='postButton'>Post</button>
       </div>
+
 
        {/* ✅ TRENDING */}
        <div className='trending'>

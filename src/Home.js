@@ -39,7 +39,8 @@ function Home() {
   // ⭐️ STATES
 
   const [profiles, setProfiles] = useState("https://cdn-icons-png.flaticon.com/512/141/141739.png");
-  const [ post , setPost ] = useState({});
+  const [ post , setPost ] = useState([]);
+  const [ newpost , setNewpost ] = useState([]);
 
 
   // ⭐️ REFS
@@ -84,6 +85,10 @@ function Home() {
   const database = firebase.database();
 
   const postSubmit = (event) => {
+
+    setNewpost(...post, newpost);
+    console.log(newpost);
+
     event.preventDefault();
     //✅ ENTRY POINT CHECKING - NAME VALUE EMPTY OR NOT 
     //✅ NAME VALUE EMPTY

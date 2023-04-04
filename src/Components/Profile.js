@@ -18,8 +18,6 @@ const firebaseConfig = {
   const storage = getStorage()
 
 
-
-
 export async function upload(profiles,user_name){
 
 

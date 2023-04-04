@@ -42,30 +42,44 @@ function Signin() {
 
 
   const handleSubmit = (event) => {
-    const newData = {
-      name: name,
-      email: email,
-    };
-    // Send data to the database
-    database.ref(name).set(newData)
-      .then(() => {
-        console.log('Data sent successfully');
-      })
-      .catch((error) => {
-        console.error('Error sending data:', error);
+    event.preventDefault();
+    //✅ ENTRY POINT CHECKING - NAME VALUE EMPTY OR NOT 
+    //✅ NAME VALUE EMPTY
+    if (document.getElementById("name").value === "") {
+      Swal.fire({
+        title: 'Error!',
+        text: 'Enter Your Name to continue',
+        icon: 'error',
+        confirmButtonText: 'Close'
       });
- 
-  // ✅ SIGNIN VALUE DB = 1
-  localStorage.setItem("signin", "1");
-  // ✅ NAME DB -> NAME 
-  localStorage.setItem("name", name);
-  // ✅ EMAIL DM -> EMAIL
-  localStorage.setItem("email", email);
-  // ✅ AFTER ACCOUNT CREATING REDIRECTING TO HOME PAGE
+    }
+    //✅ MAIL VALUE EMPTY
+    else if (document.getElementById("email").value === "") {
   
-}
+      Swal.fire({
+        title: 'Error!',
+        text: 'Enter Your Mail id to coontinue',
+        icon: 'error',
+        confirmButtonText: 'Close'
+      })
+  
+    }
+    else {
+        // Data object to be sent to the database
+        const newData = {
+          name: name,
+          email: email,
+        };
+        // Send data to the database
+        database.ref(name).set(newData)
+          .then(() => {
+            console.log('Data sent successfully');
+          })
+          .catch((error) => {
+            console.error('Error sending data:', error);
+          });
+        }}
  
-
 
 const login = useGoogleLogin({
   onSuccess: tokenResponse => console.log(tokenResponse),

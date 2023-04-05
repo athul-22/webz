@@ -121,7 +121,6 @@ return (
       </div> */}
     <img src={main} className="main-img" alt='' />
   </div>
-)
-}
+)}
 
 export default Signin;

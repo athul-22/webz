@@ -104,7 +104,6 @@ const login = useGoogleLogin({
 
 });
 
-
 return (
   <div>
     {/* MANUAL LOGIN FORM */}

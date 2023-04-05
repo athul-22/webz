@@ -28,7 +28,6 @@ function Signin() {
     appId: "1:453121987629:web:923cc5722fa474bef314a4"
   };
   
-
   firebase.initializeApp(firebaseConfig);
 
   const database = firebase.database();

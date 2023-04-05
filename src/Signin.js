@@ -17,7 +17,6 @@ function Signin() {
   const [email, setEmail] = useState();
 
 
-
   //✅ FIREBASE FIRESTORE DATA SENDING
   const firebaseConfig = {
     apiKey: "AIzaSyAl9sbbgwxkyeh1rfQMVxbPnvNvX6SlS4s",

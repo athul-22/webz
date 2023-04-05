@@ -100,7 +100,6 @@ const login = useGoogleLogin({
   onClick: tokenResponse => console.log(tokenResponse),
   onNonOAuthError: tokenResponse => alert(tokenResponse),
   onChange: tokenResponse => console.log(tokenResponse),
-
 });
 
 return (

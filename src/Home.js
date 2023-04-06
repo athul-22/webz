@@ -107,13 +107,15 @@ function Home() {
       // };
 
       const newpost = {
+
         id: Math.floor(Math.random() * 1000),
         value: post,
         user: namDB,
       };
 
       // Send data to the database
-      database.ref(namDB).update(newpost)
+      database.ref(namDB).child(newpost)
+      .update(newpost)
         .then(() => {
           console.log('Data sent successfully');
         })

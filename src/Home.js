@@ -107,7 +107,6 @@ function Home() {
       // };
 
       const newpost = {
-
         id: Math.floor(Math.random() * 1000),
         value: post,
         user: namDB,

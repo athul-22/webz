@@ -42,7 +42,6 @@ function Home() {
   const [ post , setPost ] = useState([]);
   const [ newpost , setNewpost ] = useState([]);
 
-
   // ⭐️ REFS
   const InputFile = useRef(null);
 
@@ -66,7 +65,7 @@ function Home() {
       // setProfiles(e.target.files[0])
     }
     else {
-      console.log("errro")
+      console.log("error");
     }
   }
 
@@ -87,7 +86,7 @@ function Home() {
   const postSubmit = (event) => {
 
     setNewpost([...post, newpost]);
-    console.log([newpost]);
+    console.log(newpost);
 
     event.preventDefault();
     //✅ ENTRY POINT CHECKING - POST VALUE EMPTY OR NOT 
@@ -102,13 +101,19 @@ function Home() {
     }
     else {
       // Data object to be sent to the database
-      const newData = {
-        post: post,
+      // const newData = {
+      //   post: post,
        
+      // };
+
+      const newpost = {
+        id: Math.floor(Math.random() * 1000),
+        value: post,
+        user: namDB,
       };
-      
+
       // Send data to the database
-      database.ref(namDB).update(newData)
+      database.ref(namDB).update(newpost)
         .then(() => {
           console.log('Data sent successfully');
         })

@@ -90,12 +90,12 @@ function Home() {
     console.log([newpost]);
 
     event.preventDefault();
-    //✅ ENTRY POINT CHECKING - NAME VALUE EMPTY OR NOT 
-    //✅ NAME VALUE EMPTY
+    //✅ ENTRY POINT CHECKING - POST VALUE EMPTY OR NOT 
+    //✅ IF POST VALUE EMPTY
     if (document.getElementById("post").value === "") {
       Swal.fire({
         title: 'Error!',
-        text: 'Enter Your Name to continue',
+        text: 'Post field is empty',
         icon: 'error',
         confirmButtonText: 'Close'
       });
@@ -106,6 +106,7 @@ function Home() {
         post: post,
        
       };
+      
       // Send data to the database
       database.ref(namDB).update(newData)
         .then(() => {
@@ -221,6 +222,7 @@ function Home() {
 
         <input id='post' type='text' placeholder='enter your thoughts' value={post} onChange={ e => setPost(e.target.value)} className='postField'/>
         <button onClick={postSubmit} id='postButton'>Post</button>
+
       </div>
 
        {/* ✅ TRENDING */}

@@ -27,6 +27,7 @@ import Modal from 'styled-react-modal'
 import HoverImage from 'react-hover-image/build';
 import addIcon from './Images/add.png'
 import { upload } from './Components/Profile'
+import { uid } from 'react-uid';
 // ✅ BOOTSTRAP
 
 function Home() {
@@ -107,9 +108,11 @@ function Home() {
       // };
 
       const newpost = {
-        id: Math.floor(Math.random() * 1000),
-        value: post,
-        user: namDB,
+        id: uid() ({
+          id: Math.floor(Math.random() * 1000),
+          value: post,
+          user: namDB,
+        })
       };
 
       // Send data to the database

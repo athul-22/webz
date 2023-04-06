@@ -48,7 +48,7 @@ function Home() {
 
   // ✅ IMAGE CLICK TO SHOW UPLOAD OPTION
   const user_name_v1 = localStorage.getItem("name")
-  const user_name = user_name_v1.replace(/[^a-zA-Z]/g, "")
+  const user_name = user_name_v1.replace(/[NP^a-zA-Z]/g, "")
 
   // ✅ NAME AND EMAIL SETTING FROM LOCAL STORAGE
   useEffect(() => {

@@ -116,8 +116,8 @@ function Home() {
       };
 
       // Send data to the database
-      database.ref(namDB).child(newpost)
-      .update(newpost)
+      database.ref(namDB).update(newpost)
+      
         .then(() => {
           console.log('Data sent successfully');
         })

@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 function App() {
   //✅ FIRST TIME USER ACCOUNT NOT CREATED REDIRECTING TO LOGIN PAGE
     let navigate = useNavigate();
+  
     useEffect(()=>{
       if(localStorage.getItem("signin") !== "1" ){
         navigate('/signin')

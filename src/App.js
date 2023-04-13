@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router'
 import { useEffect } from 'react';
 
 function App() {
-
   //✅ FIRST TIME USER ACCOUNT NOT CREATED REDIRECTING TO LOGIN PAGE
     let navigate = useNavigate();
     useEffect(()=>{

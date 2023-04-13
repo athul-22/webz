@@ -10,6 +10,7 @@ function App() {
       if(localStorage.getItem("signin") !== "1" ){
         navigate('/signin')
       }
+      
       else{
         navigate('/home')
       }

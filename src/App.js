@@ -17,7 +17,7 @@ function App() {
       
   return (
     <div className="App">
-      <h1>app</h1>
+      <h1>App</h1>
     <button ></button>
     </div>
   );

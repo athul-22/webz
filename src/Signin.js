@@ -11,7 +11,6 @@ import 'firebase/compat/firestore';
 import 'firebase/compat/database';
 
 function Signin() {
-  
 
   //✅ STATES 
   const [name, setName] = useState();
@@ -64,6 +63,7 @@ function Signin() {
       });
     }
     //✅ MAIL VALUE EMPTY
+    
     else if (document.getElementById("email").value === "") {
   
       Swal.fire({

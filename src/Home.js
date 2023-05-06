@@ -6,7 +6,7 @@ import Swal from 'sweetalert2'
 // ✅ FIREBASE
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
-import {update , child} from 'firebase/compat/database';
+import { update, child } from 'firebase/compat/database';
 // ✅ IMAGES
 import add from './Images/more.png'
 import dashboard from './Images/dashboard.png'
@@ -41,7 +41,7 @@ function Home() {
   // ⭐️ STATES
 
   const [profiles, setProfiles] = useState("https://cdn-icons-png.flaticon.com/512/141/141739.png");
-  
+
 
   // ⭐️ REFS
   const InputFile = useRef(null);
@@ -86,7 +86,7 @@ function Home() {
 
   const postSubmit = (event) => {
 
-    
+
 
     event.preventDefault();
     //✅ ENTRY POINT CHECKING - POST VALUE EMPTY OR NOT 
@@ -100,19 +100,31 @@ function Home() {
       });
     }
     else {
-      
+
       // 🔥🎯 WORKING ON HERE
 
       // ⭐️ 1 - DATA STORE IN ARRAY 
       // ⭐️ 2 - DISPLAY WHOLE ARRAY IN CONSOLE
       // ⭐️ 3 - SENT WHOLE ARRAY UOPDATING WISE TO FIREBASE  ➡ UNDER USER SPECIFIC NAME  ➡ LOCAL STORAGE (NAME)  ➡ USING CHILD
       // ⭐️ 4 - RETRIVE DATA FROM FIREBASE ➡ DISPLAY ON PROFILE  ➡ USE CSS POST STYLE / POST TEMPLATE
-      
 
-      
 
-      }
+      const CustomKeyArray = () => {
+        const [items, setItems] = useState([]);
+        const [newItem, setNewItem] = useState('');
+        const [newKey, setNewKey] = useState('');
+      
+        const handleInputChange = (event) => {
+          if (event.target.name === 'newItem') {
+            setNewItem(event.target.value);
+          } else if (event.target.name === 'newKey') {
+            setNewKey(event.target.value);
+          }
+        };
+
+
     }
+  }
 
   // ⭐️ STYLE FOR MODEL BOX
   const CalenderModel = Modal.styled`
@@ -172,7 +184,6 @@ function Home() {
   }
 
   return (
-
     <div>
       {/* ✅ SIDEBAR STARTING */}
       <div className="sidenav">
@@ -200,10 +211,10 @@ function Home() {
 
       {/* ✅ DASHBOARD */}
       <div className='dashboard'>
-      <p className='dashboards' id='header'>| Dashbaord</p>
+        <p className='dashboards' id='header'>| Dashbaord</p>
         <div className='dash_top'>
           {/* ⭐️ NOTIFICATION MODEL */}
-          <img  src={add} alt="" className="addpost" />
+          <img src={add} alt="" className="addpost" />
           <img onClick={notifModal} src={notification} alt="" className="notification" />
           <NotificationModel
             isOpen={isOpen}
@@ -215,38 +226,38 @@ function Home() {
           </NotificationModel>
         </div>
 
-      {/* ❗️ WORKING AREA */}
+        {/* ❗️ WORKING AREA */}
 
-     <form onSubmit={handleSubmit}>
-        <label htmlFor="newKey">Enter a custom key name:</label>
-        <input type="text" name="newKey" value={newKey} onChange={handleInputChange} />
-        <br />
-        <label htmlFor="newItem">Enter a new item:</label>
-        <input type="text" name="newItem" value={newItem} onChange={handleInputChange} />
-        <br />
-        <button type="submit">Add</button>
-      </form>
-      <ul>
-        {items.map((item, index) => (
-          <li key={index}>{Object.keys(item)}: {Object.values(item)}</li>
-        ))}
-      </ul>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="newKey">Enter a custom key name:</label>
+          <input type="text" name="newKey" value={newKey} onChange={handleInputChange} />
+          <br />
+          <label htmlFor="newItem">Enter a new item:</label>
+          <input type="text" name="newItem" value={newItem} onChange={handleInputChange} />
+          <br />
+          <button type="submit">Add</button>
+        </form>
+        <ul>
+          {items.map((item, index) => (
+            <li key={index}>{Object.keys(item)}: {Object.values(item)}</li>
+          ))}
+        </ul>
 
 
-       {/* ✅ TRENDING */}
-       <div className='trending'>
-       <p id='header'>| Trending</p>
+        {/* ✅ TRENDING */}
+        <div className='trending'>
+          <p id='header'>| Trending</p>
 
-          </div>
+        </div>
 
-           {/* ✅ ACCOUNT */}
-           <div className='account'>
-           <p id='header'>| Account</p>
-              <img src={notification} alt="" className="notification" />
-          </div>
+        {/* ✅ ACCOUNT */}
+        <div className='account'>
+          <p id='header'>| Account</p>
+          <img src={notification} alt="" className="notification" />
+        </div>
 
-      {/* ✅ END */}
-    </div>
+        {/* ✅ END */}
+      </div>
     </div>
   )
 }

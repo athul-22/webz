@@ -108,12 +108,11 @@ function Home() {
       // ⭐️ 3 - SENT WHOLE ARRAY UOPDATING WISE TO FIREBASE  ➡ UNDER USER SPECIFIC NAME  ➡ LOCAL STORAGE (NAME)  ➡ USING CHILD
       // ⭐️ 4 - RETRIVE DATA FROM FIREBASE ➡ DISPLAY ON PROFILE  ➡ USE CSS POST STYLE / POST TEMPLATE
       
-      
-      
-      }
-      
-    }
 
+      
+
+      }
+    }
 
   // ⭐️ STYLE FOR MODEL BOX
   const CalenderModel = Modal.styled`
@@ -216,12 +215,22 @@ function Home() {
           </NotificationModel>
         </div>
 
-    <form>
-        <input id='post' type='text' placeholder='enter your thoughts' className='postField'/>
-       </form>
-        <button id='postButton'>Post</button>
+      {/* ❗️ WORKING AREA */}
 
-      </div>
+     <form onSubmit={handleSubmit}>
+        <label htmlFor="newKey">Enter a custom key name:</label>
+        <input type="text" name="newKey" value={newKey} onChange={handleInputChange} />
+        <br />
+        <label htmlFor="newItem">Enter a new item:</label>
+        <input type="text" name="newItem" value={newItem} onChange={handleInputChange} />
+        <br />
+        <button type="submit">Add</button>
+      </form>
+      <ul>
+        {items.map((item, index) => (
+          <li key={index}>{Object.keys(item)}: {Object.values(item)}</li>
+        ))}
+      </ul>
 
 
        {/* ✅ TRENDING */}
@@ -237,6 +246,7 @@ function Home() {
           </div>
 
       {/* ✅ END */}
+    </div>
     </div>
   )
 }

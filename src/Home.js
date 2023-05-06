@@ -28,6 +28,7 @@ import HoverImage from 'react-hover-image/build';
 import addIcon from './Images/add.png'
 import { upload } from './Components/Profile'
 import { uid } from 'react-uid';
+import { Component } from "react";
 // ✅ BOOTSTRAP
 
 function Home() {
@@ -42,6 +43,8 @@ function Home() {
   const [profiles, setProfiles] = useState("https://cdn-icons-png.flaticon.com/512/141/141739.png");
   const [ post , setPost ] = useState([]);
   const [ newpost , setNewpost ] = useState([]);
+  const [todos, setTodos] = useState([]);
+  const [newTodo, setNewTodo] = useState('');
 
   // ⭐️ REFS
   const InputFile = useRef(null);
@@ -104,27 +107,39 @@ function Home() {
       // Data object to be sent to the database
       // const newData = {
       //   post: post,
+
+      // 🔥🎯 WORKING ON HERE
+
+      const handleInputChange = (event) => {
+        setNewTodo(event.target.value);
+      };
+      
+      const handleSubmit = (event) => {
+        event.preventDefault();
+        const currentUser = localStorage.getElementById()
+        if (currentUser) {
+          const dbRef = firebase.database().ref(`todos/${currentUser.uid}`);
+          dbRef.push({ text: newTodo });
+          setNewTodo('');
+        }
+      };
+
        
       // };
 
-      const newpost = {
-        id: uid() ({
-          id: Math.floor(Math.random() * 1000),
-          value: post,
-          user: namDB,
-        })
-      };
+      // const newpost = {
+      //   id: uid() ({
+      //     id: Math.floor(Math.random() * 1000),
+      //     value: post,
+      //     user: namDB,
+      //   })
+      // };
 
 
       // Send data to the database
-      database.ref(namDB).update(newpost)
-        .then(() => {
-          console.log('Data sent successfully');
-        })
-        .catch((error) => {
-          console.error('Error sending data:', error);
-        });
+      
       }
+      
     }
 
 
@@ -229,10 +244,13 @@ function Home() {
           </NotificationModel>
         </div>
 
-        <input id='post' type='text' placeholder='enter your thoughts' value={post} onChange={ e => setPost(e.target.value)} className='postField'/>
-        <button onClick={postSubmit} id='postButton'>Post</button>
+    <form>
+        <input id='post' type='text' placeholder='enter your thoughts' value={newTodo} onChange={handleInputChange} className='postField'/>
+       </form>
+        <button onClick={handleSubmit} id='postButton'>Post</button>
 
       </div>
+
 
        {/* ✅ TRENDING */}
        <div className='trending'>

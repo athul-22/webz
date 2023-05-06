@@ -41,10 +41,7 @@ function Home() {
   // ⭐️ STATES
 
   const [profiles, setProfiles] = useState("https://cdn-icons-png.flaticon.com/512/141/141739.png");
-  const [ post , setPost ] = useState([]);
-  const [ newpost , setNewpost ] = useState([]);
-  const [todos, setTodos] = useState([]);
-  const [newTodo, setNewTodo] = useState('');
+  
 
   // ⭐️ REFS
   const InputFile = useRef(null);
@@ -89,8 +86,7 @@ function Home() {
 
   const postSubmit = (event) => {
 
-    setNewpost([...post, newpost]);
-    console.log(newpost);
+    
 
     event.preventDefault();
     //✅ ENTRY POINT CHECKING - POST VALUE EMPTY OR NOT 
@@ -104,39 +100,15 @@ function Home() {
       });
     }
     else {
-      // Data object to be sent to the database
-      // const newData = {
-      //   post: post,
-
+      
       // 🔥🎯 WORKING ON HERE
 
-      const handleInputChange = (event) => {
-        setNewTodo(event.target.value);
-      };
+      // ⭐️ 1 - DATA STORE IN ARRAY 
+      // ⭐️ 2 - DISPLAY WHOLE ARRAY IN CONSOLE
+      // ⭐️ 3 - SENT WHOLE ARRAY UOPDATING WISE TO FIREBASE  ➡ UNDER USER SPECIFIC NAME  ➡ LOCAL STORAGE (NAME)  ➡ USING CHILD
+      // ⭐️ 4 - RETRIVE DATA FROM FIREBASE ➡ DISPLAY ON PROFILE  ➡ USE CSS POST STYLE / POST TEMPLATE
       
-      const handleSubmit = (event) => {
-        event.preventDefault();
-        const currentUser = localStorage.getElementById()
-        if (currentUser) {
-          const dbRef = firebase.database().ref(`todos/${currentUser.uid}`);
-          dbRef.push({ text: newTodo });
-          setNewTodo('');
-        }
-      };
-
-       
-      // };
-
-      // const newpost = {
-      //   id: uid() ({
-      //     id: Math.floor(Math.random() * 1000),
-      //     value: post,
-      //     user: namDB,
-      //   })
-      // };
-
-
-      // Send data to the database
+      
       
       }
       
@@ -245,9 +217,9 @@ function Home() {
         </div>
 
     <form>
-        <input id='post' type='text' placeholder='enter your thoughts' value={newTodo} onChange={handleInputChange} className='postField'/>
+        <input id='post' type='text' placeholder='enter your thoughts' className='postField'/>
        </form>
-        <button onClick={handleSubmit} id='postButton'>Post</button>
+        <button id='postButton'>Post</button>
 
       </div>
 

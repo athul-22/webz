@@ -83,11 +83,25 @@ function Home() {
 
   firebase.initializeApp(firebaseConfig);
   const database = firebase.database();
+  
+
+   // 🔥 STARTING
+
+   const CustomKeyArray = () => {
+    const [items, setItems] = useState([]);
+    const [newItem, setNewItem] = useState('');
+    const [newKey, setNewKey] = useState('');
+  
+    const handleInputChange = (event) => {
+      if (event.target.name === 'newItem') {
+        setNewItem(event.target.value);
+      } else if (event.target.name === 'newKey') {
+        setNewKey(event.target.value);
+      }
+    };
+  
 
   const postSubmit = (event) => {
-
-
-
     event.preventDefault();
     //✅ ENTRY POINT CHECKING - POST VALUE EMPTY OR NOT 
     //✅ IF POST VALUE EMPTY
@@ -109,22 +123,22 @@ function Home() {
       // ⭐️ 4 - RETRIVE DATA FROM FIREBASE ➡ DISPLAY ON PROFILE  ➡ USE CSS POST STYLE / POST TEMPLATE
 
 
-      const CustomKeyArray = () => {
-        const [items, setItems] = useState([]);
-        const [newItem, setNewItem] = useState('');
-        const [newKey, setNewKey] = useState('');
-      
-        const handleInputChange = (event) => {
-          if (event.target.name === 'newItem') {
-            setNewItem(event.target.value);
-          } else if (event.target.name === 'newKey') {
-            setNewKey(event.target.value);
-          }
-        };
-
-
+      CustomKeyArray();
+     
     }
   }
+
+  
+
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      setItems((prevItems) => [...prevItems, { [newKey]: newItem }]);
+      setNewKey('');
+      setNewItem('');
+    };
+  
+
+    // END 🔥  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 
   // ⭐️ STYLE FOR MODEL BOX
   const CalenderModel = Modal.styled`
@@ -260,6 +274,7 @@ function Home() {
       </div>
     </div>
   )
+}
 }
 
 export default Home

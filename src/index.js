@@ -34,11 +34,14 @@ const router = createBrowserRouter([
     path: "success",
     element: <SuccessNavigate/>
   },
-  {
-    path: "db",
-    element: <DB/>
-  },
+  
 ]);
+
+console.log('/', App);
+console.log('home', Home);
+console.log('signin', Signin);
+console.log('success', SuccessNavigate);
+console.log('db', DB);
 
 root.render(
   <GoogleOAuthProvider clientId="938054737950-90jhm2ntnupbngaf66rsg0k0b4qi6mkr.apps.googleusercontent.com">

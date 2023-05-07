@@ -42,6 +42,12 @@ function Home() {
 
   const [profiles, setProfiles] = useState("https://cdn-icons-png.flaticon.com/512/141/141739.png");
 
+  //🟡  POST STATES
+  const [items, setItems] = useState([]);
+  const [newItem, setNewItem] = useState('');
+  const [newKey, setNewKey] = useState('');
+
+  const [isOpen, setIsOpen] = useState(false);
 
   // ⭐️ REFS
   const InputFile = useRef(null);
@@ -83,65 +89,40 @@ function Home() {
 
   firebase.initializeApp(firebaseConfig);
   const database = firebase.database();
-  
-
-   // 🔥 STARTING
-
-   const CustomKeyArray = () => {
-    const [items, setItems] = useState([]);
-    const [newItem, setNewItem] = useState('');
-    const [newKey, setNewKey] = useState('');
-  
-    const handleInputChange = (event) => {
-      if (event.target.name === 'newItem') {
-        setNewItem(event.target.value);
-      } else if (event.target.name === 'newKey') {
-        setNewKey(event.target.value);
-      }
-    };
-  
-
-  const postSubmit = (event) => {
-    event.preventDefault();
-    //✅ ENTRY POINT CHECKING - POST VALUE EMPTY OR NOT 
-    //✅ IF POST VALUE EMPTY
-    if (document.getElementById("post").value === "") {
-      Swal.fire({
-        title: 'Error!',
-        text: 'Post field is empty',
-        icon: 'error',
-        confirmButtonText: 'Close'
-      });
-    }
-    else {
-
-      // 🔥🎯 WORKING ON HERE
-
-      // ⭐️ 1 - DATA STORE IN ARRAY 
-      // ⭐️ 2 - DISPLAY WHOLE ARRAY IN CONSOLE
-      // ⭐️ 3 - SENT WHOLE ARRAY UOPDATING WISE TO FIREBASE  ➡ UNDER USER SPECIFIC NAME  ➡ LOCAL STORAGE (NAME)  ➡ USING CHILD
-      // ⭐️ 4 - RETRIVE DATA FROM FIREBASE ➡ DISPLAY ON PROFILE  ➡ USE CSS POST STYLE / POST TEMPLATE
 
 
-      CustomKeyArray();
-     
-    }
-  }
+  // 🔥 STARTING
 
-  
 
-    const handleSubmit = (event) => {
+
+
+    const postSubmit = (event) => {
       event.preventDefault();
-      setItems((prevItems) => [...prevItems, { [newKey]: newItem }]);
-      setNewKey('');
-      setNewItem('');
-    };
-  
+      //✅ ENTRY POINT CHECKING - POST VALUE EMPTY OR NOT 
+      //✅ IF POST VALUE EMPTY
+      if (document.getElementById("post").value === "") {
+        Swal.fire({
+          title: 'Error!',
+          text: 'Post field is empty',
+          icon: 'error',
+          confirmButtonText: 'Close'
+        });
+      }
+      else {
+
+        // 🔥🎯 WORKING ON HERE
+
+        // ⭐️ 1 - DATA STORE IN ARRAY 
+        // ⭐️ 2 - DISPLAY WHOLE ARRAY IN CONSOLE
+        // ⭐️ 3 - SENT WHOLE ARRAY UOPDATING WISE TO FIREBASE  ➡ UNDER USER SPECIFIC NAME  ➡ LOCAL STORAGE (NAME)  ➡ USING CHILD
+        // ⭐️ 4 - RETRIVE DATA FROM FIREBASE ➡ DISPLAY ON PROFILE  ➡ USE CSS POST STYLE / POST TEMPLATE
+      }
+    
 
     // END 🔥  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 
-  // ⭐️ STYLE FOR MODEL BOX
-  const CalenderModel = Modal.styled`
+    // ⭐️ STYLE FOR MODEL BOX
+    const CalenderModel = Modal.styled`
     width: 550px;
     height: 350px;
     display:block;
@@ -152,8 +133,8 @@ function Home() {
     border-radius:10px;
   `
 
-  // ⭐️ STYLE FOR MODEL BOX
-  const NotificationModel = Modal.styled`
+    // ⭐️ STYLE FOR MODEL BOX
+    const NotificationModel = Modal.styled`
     width: 550px;
     height: 350px;
     display:block;
@@ -164,117 +145,101 @@ function Home() {
     border-radius:10px;
   `
 
-  // ⭐️ FUNCTION FOR MODEL BOX
-  const [isOpen, setIsOpen] = useState(false)
+    // ⭐️ FUNCTION FOR MODEL BOX
+    
 
-  function toggleModal(e) {
-    setIsOpen(!isOpen)
-  }
+    function toggleModal(e) {
+      setIsOpen(!isOpen)
+    }
 
-  function notifModal(e) {
-    setIsOpen(!isOpen)
-  }
+    function notifModal(e) {
+      setIsOpen(!isOpen)
+    }
 
-  let home = document.getElementsByClassName("dashboard");
-  let trending = document.getElementsByClassName("trending");
-  let account = document.getElementsByClassName("account");
+    let home = document.getElementsByClassName("dashboard");
+    let trending = document.getElementsByClassName("trending");
+    let account = document.getElementsByClassName("account");
 
-  function dashFun() {
-    $(".dashboard").css("display", "block");
-    $(".trending").css("display", "none");
-    $(".account").css("display", "none");
-  }
+    function dashFun() {
+      $(".dashboard").css("display", "block");
+      $(".trending").css("display", "none");
+      $(".account").css("display", "none");
+    }
 
-  function trendFun() {
-    $(".dashboard").css("display", "none");
-    $(".trending").css("display", "block");
-    $(".account").css("display", "none");
-  }
+    function trendFun() {
+      $(".dashboard").css("display", "none");
+      $(".trending").css("display", "block");
+      $(".account").css("display", "none");
+    }
 
-  function accFun() {
-    $(".dashboard").css("display", "none");
-    $(".trending").css("display", "none");
-    $(".account").css("display", "block");
-  }
+    function accFun() {
+      $(".dashboard").css("display", "none");
+      $(".trending").css("display", "none");
+      $(".account").css("display", "block");
+    }
 
-  return (
-    <div>
-      {/* ✅ SIDEBAR STARTING */}
-      <div className="sidenav">
-        <div className="user">
-          <center><HoverImage profile={profile} setProfile={setProfiles} onClick={fileUpload} src={profiles} hoverSrc={addIcon} className="profile" height="60px" width="60px" alt="" /><br /></center>
-          {/* <center><img onClick={fileUpload} className="profile" src={profile} height="60px" width="60px" alt="" /><br /></center> */}
-          <input onChange={handleChange} ref={InputFile} type="file" className="uploadInput" style={{ display: 'none' }} />
-          <center><p id='nam' className="nam"></p></center>
-          <center><p id='mail' className="mail"></p></center>
+    return (
+      <div>
+        {/* ✅ SIDEBAR STARTING */}
+        <div className="sidenav">
+          <div className="user">
+            <center><HoverImage profile={profile} setProfile={setProfiles} onClick={fileUpload} src={profiles} hoverSrc={addIcon} className="profile" height="60px" width="60px" alt="" /><br /></center>
+            {/* <center><img onClick={fileUpload} className="profile" src={profile} height="60px" width="60px" alt="" /><br /></center> */}
+            <input onChange={handleChange} ref={InputFile} type="file" className="uploadInput" style={{ display: 'none' }} />
+            <center><p id='nam' className="nam"></p></center>
+            <center><p id='mail' className="mail"></p></center>
+          </div>
+
+          <ul>
+            <li onClick={dashFun}><img height="50px" width="50px" alt="" src={dashboard} /><p>Dashboard</p></li>
+            <li onClick={trendFun}><img height="50px" width="50px" alt="" src={fire} /><p>Trending</p></li>
+            <li onClick={accFun}><img height="50px" width="50px" alt="" src={user} /><p>Account</p></li>
+          </ul>
+
+          {/* ✅ LOGOUT - BOTTOM NAV */}
+          <ul>
+            <li>Logout</li>
+          </ul>
         </div>
 
-        <ul>
-          <li onClick={dashFun}><img height="50px" width="50px" alt="" src={dashboard} /><p>Dashboard</p></li>
-          <li onClick={trendFun}><img height="50px" width="50px" alt="" src={fire} /><p>Trending</p></li>
-          <li onClick={accFun}><img height="50px" width="50px" alt="" src={user} /><p>Account</p></li>
-        </ul>
+        {/* ⭐️ CONTENT SECTION STARTS */}
 
-        {/* ✅ LOGOUT - BOTTOM NAV */}
-        <ul>
-          <li>Logout</li>
-        </ul>
+        {/* ✅ DASHBOARD */}
+        <div className='dashboard'>
+          <p className='dashboards' id='header'>| Dashbaord</p>
+          <div className='dash_top'>
+            {/* ⭐️ NOTIFICATION MODEL */}
+            <img src={add} alt="" className="addpost" />
+            <img onClick={notifModal} src={notification} alt="" className="notification" />
+            <NotificationModel
+              isOpen={isOpen}
+              onBackgroundClick={notifModal}
+              onEscapeKeydown={notifModal}>
+              <center><img height="250px" width="250px" src={empty} alt="empty" /></center>
+              <center><p id='notif-text'>Empty !</p></center>
+              <center> <button id='model-close' onClick={notifModal}>Close</button></center>
+            </NotificationModel>
+          </div>
+
+          {/* ❗️ WORKING AREA */}
+
+          {/* ✅ TRENDING */}
+          <div className='trending'>
+            <p id='header'>| Trending</p>
+
+          </div>
+
+          {/* ✅ ACCOUNT */}
+          <div className='account'>
+            <p id='header'>| Account</p>
+            <img src={notification} alt="" className="notification" />
+          </div>
+
+          {/* ✅ END */}
+        </div>
       </div>
-
-      {/* ⭐️ CONTENT SECTION STARTS */}
-
-      {/* ✅ DASHBOARD */}
-      <div className='dashboard'>
-        <p className='dashboards' id='header'>| Dashbaord</p>
-        <div className='dash_top'>
-          {/* ⭐️ NOTIFICATION MODEL */}
-          <img src={add} alt="" className="addpost" />
-          <img onClick={notifModal} src={notification} alt="" className="notification" />
-          <NotificationModel
-            isOpen={isOpen}
-            onBackgroundClick={notifModal}
-            onEscapeKeydown={notifModal}>
-            <center><img height="250px" width="250px" src={empty} alt="empty" /></center>
-            <center><p id='notif-text'>Empty !</p></center>
-            <center> <button id='model-close' onClick={notifModal}>Close</button></center>
-          </NotificationModel>
-        </div>
-
-        {/* ❗️ WORKING AREA */}
-
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="newKey">Enter a custom key name:</label>
-          <input type="text" name="newKey" value={newKey} onChange={handleInputChange} />
-          <br />
-          <label htmlFor="newItem">Enter a new item:</label>
-          <input type="text" name="newItem" value={newItem} onChange={handleInputChange} />
-          <br />
-          <button type="submit">Add</button>
-        </form>
-        <ul>
-          {items.map((item, index) => (
-            <li key={index}>{Object.keys(item)}: {Object.values(item)}</li>
-          ))}
-        </ul>
-
-
-        {/* ✅ TRENDING */}
-        <div className='trending'>
-          <p id='header'>| Trending</p>
-
-        </div>
-
-        {/* ✅ ACCOUNT */}
-        <div className='account'>
-          <p id='header'>| Account</p>
-          <img src={notification} alt="" className="notification" />
-        </div>
-
-        {/* ✅ END */}
-      </div>
-    </div>
-  )
-}
+    )
+  }
 }
 
 export default Home

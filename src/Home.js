@@ -93,9 +93,6 @@ function Home() {
 
   // 🔥 STARTING
 
-
-
-
     const postSubmit = (event) => {
       event.preventDefault();
       //✅ ENTRY POINT CHECKING - POST VALUE EMPTY OR NOT 

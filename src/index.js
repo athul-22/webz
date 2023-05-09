@@ -13,10 +13,8 @@ import App from './App';
 import Home from './Home';
 import Signin from './Signin'
 import SuccessNavigate from './Components/SuccessNavigate';
-import DB from './Components/db'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
 const router = createBrowserRouter([
   {
     path: "/",

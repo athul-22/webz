@@ -13,6 +13,8 @@ import App from './App';
 import Home from './Home';
 import Signin from './Signin'
 import SuccessNavigate from './Components/SuccessNavigate';
+import { ErrorBoundary } from "react-error-boundary";
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
@@ -34,11 +36,6 @@ const router = createBrowserRouter([
   }
 ]);
 
-console.log('/', App);
-console.log('home', Home);
-console.log('signin', Signin);
-console.log('success', SuccessNavigate);
-
 root.render(
   <GoogleOAuthProvider clientId="938054737950-90jhm2ntnupbngaf66rsg0k0b4qi6mkr.apps.googleusercontent.com">
   <React.StrictMode>
@@ -46,7 +43,6 @@ root.render(
         <RouterProvider router={router} />
     </ModalProvider>
   </React.StrictMode></GoogleOAuthProvider>
-  
 );
 
 reportWebVitals();

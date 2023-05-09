@@ -1,6 +1,12 @@
-#h {
+
+#h{
   color: red;
   margin-left: 130px;
+}
+
+#h{
+    color:red;
+    margin-left: 130PX;
 }
 
 .dashboard,
@@ -10,8 +16,13 @@
   width: 100%;
 }
 
+
 .trending {
   display: none;
+}
+
+.trending{
+    display: none;
 }
 
 .account {
@@ -114,7 +125,7 @@
 .twitter{
     margin-top: 10px;
 
-    
+
 } */
 
 #t_tool_name {
@@ -141,6 +152,7 @@
   border:none;
   border-radius: 20px;
 }
+
 #postButton{
   height: 50px;
   width: 100px;
@@ -149,4 +161,21 @@
   border: none;
   font-size: 20px;
   cursor: pointer;
+}
+
+#t_tool_name{
+    font-size: 17px;
+    font-weight: bold;
+    margin-top: -3px;
+}
+
+#model-close{
+    height: 35px;
+    width: 120px;
+    background-color: rgb(255, 98, 98);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    bottom: 0px;
 }

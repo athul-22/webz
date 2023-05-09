@@ -29,7 +29,6 @@ import addIcon from './Images/add.png'
 import { upload } from './Components/Profile'
 import { uid } from 'react-uid';
 import { Component } from "react";
-// ✅ BOOTSTRAP
 
 function Home() {
   // ⭐️ LOCAL STORAGE VALUE GETTING FUNCTION
@@ -97,7 +96,7 @@ function Home() {
       event.preventDefault();
       //✅ ENTRY POINT CHECKING - POST VALUE EMPTY OR NOT 
       //✅ IF POST VALUE EMPTY
-      if (document.getElementById("post").value === "") {
+      if(document.getElementById("post").value === "") {
         Swal.fire({
           title: 'Error!',
           text: 'Post field is empty',
@@ -113,6 +112,9 @@ function Home() {
         // ⭐️ 2 - DISPLAY WHOLE ARRAY IN CONSOLE
         // ⭐️ 3 - SENT WHOLE ARRAY UOPDATING WISE TO FIREBASE  ➡ UNDER USER SPECIFIC NAME  ➡ LOCAL STORAGE (NAME)  ➡ USING CHILD
         // ⭐️ 4 - RETRIVE DATA FROM FIREBASE ➡ DISPLAY ON PROFILE  ➡ USE CSS POST STYLE / POST TEMPLATE
+
+
+      
       }
     
 

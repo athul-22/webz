@@ -112,13 +112,10 @@ function Home() {
         // ⭐️ 2 - DISPLAY WHOLE ARRAY IN CONSOLE
         // ⭐️ 3 - SENT WHOLE ARRAY UOPDATING WISE TO FIREBASE  ➡ UNDER USER SPECIFIC NAME  ➡ LOCAL STORAGE (NAME)  ➡ USING CHILD
         // ⭐️ 4 - RETRIVE DATA FROM FIREBASE ➡ DISPLAY ON PROFILE  ➡ USE CSS POST STYLE / POST TEMPLATE
-
-
       
       }
-    
-
-    // END 🔥  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+  
+    // END 🔥
 
     // ⭐️ STYLE FOR MODEL BOX
     const CalenderModel = Modal.styled`
@@ -147,9 +144,7 @@ function Home() {
     // ⭐️ FUNCTION FOR MODEL BOX
     
 
-    function toggleModal(e) {
-      setIsOpen(!isOpen)
-    }
+   
 
     function notifModal(e) {
       setIsOpen(!isOpen)

@@ -33,7 +33,7 @@ const router = createBrowserRouter([
   {
     path: "success",
     element: <SuccessNavigate/>
-  }
+  },
 ]);
 
 root.render(

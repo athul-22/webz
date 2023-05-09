@@ -1,85 +1,96 @@
 
+#h{
+  color: red;
+  margin-left: 130px;
+}
 
 #h{
     color:red;
     margin-left: 130PX;
 }
 
-.dashboard, .trending, .account{
-    margin-left: 130px;
-    width: 110%;
+.dashboard,
+.trending,
+.account {
+  margin-left: 130px;
+  width: 100%;
+}
+
+
+.trending {
+  display: none;
 }
 
 .trending{
-    
     display: none;
 }
 
-.account{
-    display: none;
+.account {
+  display: none;
 }
 
 /* ✅ CONTENT SIDE CSS */
 
-#header{
-    font-size: 20px;
-    font-weight: bolder;
-    margin-top:30px;
-    margin-left: 30px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    background-color:white ;
-    border-radius: 20px;
-    width: auto;
+#header {
+  font-size: 20px;
+  font-weight: bolder;
+  margin-top: 30px;
+  margin-left: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: white;
+  border-radius: 20px;
+  width: fit-content;
 }
 
-.dash_top{
-    display: inline-flex;
-    width: 100%;
+.dash_top {
+  display: inline-flex;
+  float: right;
+  margin-top: -65px;
+  margin-left: 800px;
 }
 
-.calender{
-    height: 30px;
-    width:30px;
-    margin-top: 30px;
-    margin-left:70%;
-    background-color: white;
-    padding: 10px;
-    border-radius: 20px;
-    cursor: pointer;
+.calender {
+  height: 30px;
+  width: 30px;
+  margin-right: 20px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 20px;
+  cursor: pointer;
 }
 
-.notification{
-    height: 30px;
-    width:30px;
-    margin-top: 30px;
-   margin-left: 30px;
-    background-color: white;
-    padding: 10px;
-    border-radius: 20px;
-    cursor: pointer;
+.addpost{
+  height: 30px;
+  width: 30px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-right: 20px;
 }
 
-
-.calender:hover, .notification:hover{
-    background-color: #eee;
+.notification {
+  height: 30px;
+  width: 30px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 20px;
+  cursor: pointer;
 }
 
-.one{
-    display: inline-flex;
+.calender:hover,
+.notification:hover {
+  background-color: #eee;
 }
 
-.progress1{
-    height: 150px;
-    width: 300px;
-    background-color: white;
-    margin-left: 30px;
-    border-radius: 20PX;
+.one {
+  display: inline-flex;
 }
 
-#premium{
+/* #premium{
     font-size: 20px;
     font-weight: bolder;
     margin-top:30px;
@@ -114,7 +125,42 @@
 .twitter{
     margin-top: 10px;
 
-    
+
+} */
+
+#t_tool_name {
+  font-size: 17px;
+  font-weight: bold;
+  margin-top: -3px;
+}
+
+#model-close {
+  height: 35px;
+  width: 120px;
+  background-color: rgb(255, 98, 98);
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  bottom: 0px;
+}
+
+
+.postField{
+  height: 50px;
+  width: 200px;
+  border:none;
+  border-radius: 20px;
+}
+
+#postButton{
+  height: 50px;
+  width: 100px;
+  background-color: black;
+  color: white;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 #t_tool_name{
@@ -133,5 +179,3 @@
     cursor: pointer;
     bottom: 0px;
 }
-
-

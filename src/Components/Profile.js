@@ -2,9 +2,6 @@ import React from 'react'
 import { initializeApp } from "firebase/app";
 import { getStorage, uploadBytes } from "firebase/storage";
 import { ref, getDownloadURL } from "firebase/storage"
-import { uid } from 'react-uid';
-
-
 
 const firebaseConfig = {
     apiKey: "AIzaSyAl9sbbgwxkyeh1rfQMVxbPnvNvX6SlS4s",
@@ -21,11 +18,8 @@ const firebaseConfig = {
   const storage = getStorage()
 
 
-
-
 export async function upload(profiles,user_name){
 
-  const [profile, setProfile ] = ("");
 
   var id = Math.floor(Math.random() * 1000);
 
@@ -35,15 +29,13 @@ export async function upload(profiles,user_name){
     const photoURL = getDownloadURL(fileRef);
     console.log("success");
     console.log(photoURL);
-    fetch(photoURL)
-    .then((response) => {
-      console.log(response);
-      setProfile('https://firebasestorage.googleapis.com/v0/b/todoapp-fb470.appspot.com/o/83.png?alt=media&token=e6f8edfe-3c00-42aa-89e9-7b134b378b36');
-      return response.json();
     
+    fetch(photoURL)
+    .then((response) =>{
+      return response.json();
     })
 
     .then((data) => {
-      console.log(data);
+      console.log(data.PromiseResult);
     })
 }

@@ -3,12 +3,11 @@
       margin: 0;
       box-sizing: border-box;
     }
-    
     body {
       font-family: 'Poppins', sans-serif;
       background-color: #8EC1D6;
     }
-    
+
     .logIn-form {
       margin: 100px auto;
       width: 200px;
@@ -16,7 +15,7 @@
       background-color: #fff;
       border-radius: 10px; 
     }
-    
+
     .logIn-form p {
       text-align: center;
       font-size: 12px;
@@ -24,6 +23,7 @@
       color: #B8BFC6;
       padding: 10px 10px;
     }
+
     
     .logIn-form input {
       display: block;
@@ -36,6 +36,7 @@
       font-size: 16px;
       color: black;
     }
+
     
     .logIn-form button {
       background-color: #8EC1D6;

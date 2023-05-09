@@ -4,7 +4,6 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { ModalProvider } from 'styled-react-modal'
-
 import {
   createBrowserRouter,
   RouterProvider,
@@ -14,7 +13,7 @@ import App from './App';
 import Home from './Home';
 import Signin from './Signin'
 import SuccessNavigate from './Components/SuccessNavigate';
-import Db from './Components/db'
+import DB from './Components/db'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -35,17 +34,14 @@ const router = createBrowserRouter([
     path: "success",
     element: <SuccessNavigate/>
   },
-  {
-    path: "db",
-    element: <Db/>
-  },
-  // {
-  //   path: "instagram",
-  //   element: <Instagram/>
-  // }
-
+  
 ]);
 
+console.log('/', App);
+console.log('home', Home);
+console.log('signin', Signin);
+console.log('success', SuccessNavigate);
+console.log('db', DB);
 
 root.render(
   <GoogleOAuthProvider clientId="938054737950-90jhm2ntnupbngaf66rsg0k0b4qi6mkr.apps.googleusercontent.com">

@@ -1,10 +1,10 @@
+import React from 'react';
 import './App.css';
 import { useNavigate } from 'react-router'
 // import swal from 'sweetalert';
 import { useEffect } from 'react';
 
 function App() {
-
   //✅ FIRST TIME USER ACCOUNT NOT CREATED REDIRECTING TO LOGIN PAGE
     let navigate = useNavigate();
     useEffect(()=>{
@@ -18,7 +18,7 @@ function App() {
       
   return (
     <div className="App">
-      <h1>app</h1>
+      <h1>App</h1>
     <button ></button>
     </div>
   );

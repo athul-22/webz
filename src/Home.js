@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React from 'react';
+import { useEffect, useState, useRef } from 'react';
 import "./Styles/home.css"
 import './Styles/sidebar.css';
 import $ from 'jquery';

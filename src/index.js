@@ -15,7 +15,6 @@ import Signin from './Signin'
 import SuccessNavigate from './Components/SuccessNavigate';
 import { ErrorBoundary } from "react-error-boundary";
 
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
   {

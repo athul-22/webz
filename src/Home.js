@@ -46,11 +46,11 @@ function Home() {
   const [isOpen, setIsOpen] = useState(false);
 
   // ⭐️ REFS
-  const InputFile = useRef(null);
+  const InputFile = useRef();
 
   // ✅ IMAGE CLICK TO SHOW UPLOAD OPTION
   const usernamev1 = localStorage.getItem("name")
-  const user_name = usernamev1.replace(/[NP^a-zA-Z]/g, "")
+  const user_name = usernamev1.replace(/[NP^a-zA-Z]/g,"")
 
   // ✅ NAME AND EMAIL SETTING FROM LOCAL STORAGE
   useEffect(() => {
@@ -93,7 +93,7 @@ function Home() {
       event.preventDefault();
       //✅ ENTRY POINT CHECKING - POST VALUE EMPTY OR NOT 
       //✅ IF POST VALUE EMPTY
-      if(document.getElementById("post").value === "") {
+      if(document.getElementById("post").value === " ") {
         Swal.fire({
           title: 'Error!',
           text: 'Post field is empty',
@@ -143,7 +143,7 @@ function Home() {
 
    
 
-    function notifModal(e) {
+    function notifModal(e){
       setIsOpen(!isOpen)
     }
 
@@ -213,6 +213,8 @@ function Home() {
           </div>
 
           {/* ❗️ WORKING AREA */}
+
+          kkk
 
           {/* ✅ TRENDING */}
           <div className='trending'>

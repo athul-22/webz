@@ -42,10 +42,7 @@ function Home() {
   const [profiles, setProfiles] = useState("https://cdn-icons-png.flaticon.com/512/141/141739.png");
 
   //🟡  POST STATES
-  const [items, setItems] = useState([]);
-  const [newItem, setNewItem] = useState('');
-  const [newKey, setNewKey] = useState('');
-
+  
   const [isOpen, setIsOpen] = useState(false);
 
   // ⭐️ REFS

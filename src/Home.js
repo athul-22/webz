@@ -87,7 +87,6 @@ function Home() {
   firebase.initializeApp(firebaseConfig);
   const database = firebase.database();
 
-
   // 🔥 STARTING
 
     const postSubmit = (event) => {

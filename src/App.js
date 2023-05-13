@@ -14,7 +14,7 @@ function App() {
       else{
         navigate('/home')
       }
-    },[]);
+    },[navigate]);
       
   return (
     <div className="App">

@@ -35,12 +35,12 @@ const router = createBrowserRouter([
 ]);
 
 root.render(
- // <GoogleOAuthProvider clientId="938054737950-90jhm2ntnupbngaf66rsg0k0b4qi6mkr.apps.googleusercontent.com">
+  <GoogleOAuthProvider clientId="938054737950-90jhm2ntnupbngaf66rsg0k0b4qi6mkr.apps.googleusercontent.com">
   <React.StrictMode>
     <ModalProvider>
         <RouterProvider router={router} />
     </ModalProvider>
-  </React.StrictMode>
+  </React.StrictMode></GoogleOAuthProvider>
 );
 
 reportWebVitals();

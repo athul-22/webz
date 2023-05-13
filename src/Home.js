@@ -32,6 +32,7 @@ import { uid } from 'react-uid';
 import { Component } from "react";
 
 function Home() {
+
   // ⭐️ LOCAL STORAGE VALUE GETTING FUNCTION
   const namDB = localStorage.getItem("name");
   const mailDB = localStorage.getItem("email");
@@ -39,7 +40,6 @@ function Home() {
   console.log(mailDB);
 
   // ⭐️ STATES
-
   const [profiles, setProfiles] = useState("https://cdn-icons-png.flaticon.com/512/141/141739.png");
 
   //🟡  POST STATES
@@ -50,6 +50,19 @@ function Home() {
 
   // ⭐️ REFS
   const InputFile = useRef();
+
+  // ✅ VIP FUNCTIONS
+  // if(newPost.length == "0"){
+  //   setNewPost([""]);
+  // }
+  
+  useEffect(()=>{
+    
+    console.log(newPost);
+    
+  },[newPost])
+
+
 
   // ✅ IMAGE CLICK TO SHOW UPLOAD OPTION
   const usernamev1 = localStorage.getItem("name")
@@ -108,10 +121,8 @@ function Home() {
 
       // ⭐️ 1 - DATA STORE IN ARRAY 
 
-     
       posting()
-      
-
+  
       // Swal.fire({
       //   title: 'success!',
       //   text: 'Posted Successfully',
@@ -127,21 +138,10 @@ function Home() {
 }
 
 function posting(){
-  if(newPost.length == "0"){
-    Swal.fire({
-      title: 'Error!',
-      text: '0',
-      icon: 'error',
-      confirmButtonText: 'Close'
-    });
-  }
   setNewPost([post,...newPost])
-  console.log(newPost);
 }
 
-function sentPost(){
-  console.log(post);
-}
+
   
     // END 🔥
 

@@ -108,8 +108,9 @@ function Home() {
 
       // ⭐️ 1 - DATA STORE IN ARRAY 
 
-      setNewPost([post,...newPost])
-      console.log(newPost);
+     
+      posting()
+      
 
       // Swal.fire({
       //   title: 'success!',
@@ -123,6 +124,19 @@ function Home() {
       // ⭐️ 4 - RETRIVE DATA FROM FIREBASE ➡ DISPLAY ON PROFILE  ➡ USE CSS POST STYLE / POST TEMPLATE
     
     }
+}
+
+function posting(){
+  if(newPost.length == "0"){
+    Swal.fire({
+      title: 'Error!',
+      text: '0',
+      icon: 'error',
+      confirmButtonText: 'Close'
+    });
+  }
+  setNewPost([post,...newPost])
+  console.log(newPost);
 }
 
 function sentPost(){

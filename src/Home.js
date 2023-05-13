@@ -43,7 +43,9 @@ function Home() {
   const [profiles, setProfiles] = useState("https://cdn-icons-png.flaticon.com/512/141/141739.png");
 
   //🟡  POST STATES
-  
+  const [ post , setPost ] = useState();
+ const [ newPost , setNewPost ] = useState([]);
+
   const [isOpen, setIsOpen] = useState(false);
 
   // ⭐️ REFS
@@ -93,7 +95,7 @@ function Home() {
     event.preventDefault();
     //✅ ENTRY POINT CHECKING - POST VALUE EMPTY OR NOT 
     //✅ IF POST VALUE EMPTY
-    if(document.getElementById("post").value === " ") {
+    if(document.getElementById("post_input").value === "") {
       Swal.fire({
         title: 'Error!',
         text: 'Post field is empty',
@@ -102,15 +104,29 @@ function Home() {
       });
     }
     else {
-
       // 🔥🎯 WORKING ON HERE
 
       // ⭐️ 1 - DATA STORE IN ARRAY 
+
+      setNewPost([post,...newPost])
+      console.log(newPost);
+
+      // Swal.fire({
+      //   title: 'success!',
+      //   text: 'Posted Successfully',
+      //   icon: 'success',
+      //   confirmButtonText: 'Done'
+      // });
+
       // ⭐️ 2 - DISPLAY WHOLE ARRAY IN CONSOLE
       // ⭐️ 3 - SENT WHOLE ARRAY UOPDATING WISE TO FIREBASE  ➡ UNDER USER SPECIFIC NAME  ➡ LOCAL STORAGE (NAME)  ➡ USING CHILD
       // ⭐️ 4 - RETRIVE DATA FROM FIREBASE ➡ DISPLAY ON PROFILE  ➡ USE CSS POST STYLE / POST TEMPLATE
     
     }
+}
+
+function sentPost(){
+  console.log(post);
 }
   
     // END 🔥
@@ -197,9 +213,12 @@ function Home() {
         <div className='dashboard'>
           <p className='dashboards' id='header'>| Dashbaord</p>
           <div className='dash_top'>
+
             {/* ⭐️ NOTIFICATION MODEL */}
             <img src={add} alt="" className="addpost" />
             <img onClick={notifModal} src={notification} alt="" className="notification" />
+
+            {/* ✅ NOTIFICATION MODEL */}
             <NotificationModel
               isOpen={isOpen}
               onBackgroundClick={notifModal}
@@ -208,6 +227,12 @@ function Home() {
               <center><p id='notif-text'>Empty !</p></center>
               <center> <button id='model-close' onClick={notifModal}>Close</button></center>
             </NotificationModel>
+     
+          <div className='post'>
+            <input id='post_input' type='text' placeholder='enter your post here' value={post} onChange={e => setPost(e.target.value)}/>
+            <button onClick={postSubmit} >POST</button>
+          </div>
+
           </div>
 
           {/* ❗️ WORKING AREA */}

@@ -13,10 +13,8 @@ import App from './App';
 import Home from './Home';
 import Signin from './Signin'
 import SuccessNavigate from './Components/SuccessNavigate';
-import DB from './Components/db'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -34,14 +32,7 @@ const router = createBrowserRouter([
     path: "success",
     element: <SuccessNavigate/>
   },
-  
 ]);
-
-console.log('/', App);
-console.log('home', Home);
-console.log('signin', Signin);
-console.log('success', SuccessNavigate);
-console.log('db', DB);
 
 root.render(
   <GoogleOAuthProvider clientId="938054737950-90jhm2ntnupbngaf66rsg0k0b4qi6mkr.apps.googleusercontent.com">
@@ -50,7 +41,6 @@ root.render(
         <RouterProvider router={router} />
     </ModalProvider>
   </React.StrictMode></GoogleOAuthProvider>
-  
 );
 
 reportWebVitals();

@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React from 'react';
+import { useEffect, useState, useRef } from 'react';
 import "./Styles/home.css"
 import './Styles/sidebar.css';
 import $ from 'jquery';
@@ -29,7 +30,6 @@ import addIcon from './Images/add.png'
 import { upload } from './Components/Profile'
 import { uid } from 'react-uid';
 import { Component } from "react";
-// ✅ BOOTSTRAP
 
 function Home() {
   // ⭐️ LOCAL STORAGE VALUE GETTING FUNCTION
@@ -43,18 +43,15 @@ function Home() {
   const [profiles, setProfiles] = useState("https://cdn-icons-png.flaticon.com/512/141/141739.png");
 
   //🟡  POST STATES
-  const [items, setItems] = useState([]);
-  const [newItem, setNewItem] = useState('');
-  const [newKey, setNewKey] = useState('');
-
+  
   const [isOpen, setIsOpen] = useState(false);
 
   // ⭐️ REFS
-  const InputFile = useRef(null);
+  const InputFile = useRef();
 
   // ✅ IMAGE CLICK TO SHOW UPLOAD OPTION
-  const user_name_v1 = localStorage.getItem("name")
-  const user_name = user_name_v1.replace(/[NP^a-zA-Z]/g, "")
+  const usernamev1 = localStorage.getItem("name")
+  const user_name = usernamev1.replace(/[NP^a-zA-Z]/g,"")
 
   // ✅ NAME AND EMAIL SETTING FROM LOCAL STORAGE
   useEffect(() => {
@@ -90,17 +87,13 @@ function Home() {
   firebase.initializeApp(firebaseConfig);
   const database = firebase.database();
 
-
   // 🔥 STARTING
-
-
-
 
     const postSubmit = (event) => {
       event.preventDefault();
       //✅ ENTRY POINT CHECKING - POST VALUE EMPTY OR NOT 
       //✅ IF POST VALUE EMPTY
-      if (document.getElementById("post").value === "") {
+      if(document.getElementById("post").value === " ") {
         Swal.fire({
           title: 'Error!',
           text: 'Post field is empty',
@@ -116,10 +109,10 @@ function Home() {
         // ⭐️ 2 - DISPLAY WHOLE ARRAY IN CONSOLE
         // ⭐️ 3 - SENT WHOLE ARRAY UOPDATING WISE TO FIREBASE  ➡ UNDER USER SPECIFIC NAME  ➡ LOCAL STORAGE (NAME)  ➡ USING CHILD
         // ⭐️ 4 - RETRIVE DATA FROM FIREBASE ➡ DISPLAY ON PROFILE  ➡ USE CSS POST STYLE / POST TEMPLATE
+      
       }
-    
-
-    // END 🔥  ⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+  
+    // END 🔥
 
     // ⭐️ STYLE FOR MODEL BOX
     const CalenderModel = Modal.styled`
@@ -148,11 +141,9 @@ function Home() {
     // ⭐️ FUNCTION FOR MODEL BOX
     
 
-    function toggleModal(e) {
-      setIsOpen(!isOpen)
-    }
+   
 
-    function notifModal(e) {
+    function notifModal(e){
       setIsOpen(!isOpen)
     }
 
@@ -222,6 +213,8 @@ function Home() {
           </div>
 
           {/* ❗️ WORKING AREA */}
+
+          kkk
 
           {/* ✅ TRENDING */}
           <div className='trending'>

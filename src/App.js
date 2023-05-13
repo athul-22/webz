@@ -1,12 +1,12 @@
-import React from 'react';
+import React ,{ useEffect }  from 'react';
 import './App.css';
 import { useNavigate } from 'react-router'
-// import swal from 'sweetalert';
-import { useEffect } from 'react';
+import { Switch, Route } from 'react-router-dom';
+// import swal from 'sweetalert';w
 
 function App() {
   //✅ FIRST TIME USER ACCOUNT NOT CREATED REDIRECTING TO LOGIN PAGE
-    let navigate = useNavigate();
+  const navigate = useNavigate();
     useEffect(()=>{
       if(localStorage.getItem("signin") !== "1" ){
         navigate('/signin')
@@ -19,7 +19,6 @@ function App() {
   return (
     <div className="App">
       <h1>App</h1>
-    <button ></button>
     </div>
   );
 }

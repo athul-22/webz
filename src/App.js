@@ -1,7 +1,6 @@
 import React ,{ useEffect }  from 'react';
 import './App.css';
 import { useNavigate } from 'react-router'
-import { Switch, Route } from 'react-router-dom';
 // import swal from 'sweetalert';w
 
 function App() {
@@ -14,7 +13,7 @@ function App() {
       else{
         navigate('/home')
       }
-    },[]);
+    },[navigate]);
       
   return (
     <div className="App">

@@ -13,6 +13,7 @@ import App from './App';
 import Home from './Home';
 import Signin from './Signin'
 import SuccessNavigate from './Components/SuccessNavigate';
+import Dashboard from './dashboard';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
   {
     path: "success",
     element: <SuccessNavigate/>
+  },
+  {
+    path: "dashboard",
+    element: <Dashboard/>
   },
 ]);
 

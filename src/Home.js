@@ -52,120 +52,114 @@ function Home() {
   const InputFile = useRef();
 
   // ✅ VIP FUNCTIONS
-  // if(newPost.length == "0"){
-  //   setNewPost([""]);
-  // }
+  // ✅ DATE GETTING FUNCTION
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  let mm = today.getMonth() + 1; // Months start at 0!
+  let dd = today.getDate();
 
+  if (dd < 10) dd = '0' + dd;
+  if (mm < 10) mm = '0' + mm;
+
+  const formattedToday = dd + '/' + mm + '/' + yyyy;
+
+  // ✅ CURRENT TIME ( FOR USERS LAST USE DATA)
+  const time = new Date().toLocaleTimeString();
+
+  // ✅ ⭐️ 3 - SENT WHOLE ARRAY UOPDATING WISE TO FIREBASE  ➡ UNDER USER SPECIFIC NAME  ➡ LOCAL STORAGE (NAME)  ➡ USING CHILD
+
+  
   useEffect(() => {
-
     console.log(newPost);
 
     const newData = {
-      post: newPost
+      post: newPost,
+      time: time,
+      mail: mailDB,
     };
-    // Send data to the database
-    database.ref(namDB).set(newData)
+
+    database.ref(namDB).update(newData)
       .then(() => {
         console.log('Data sent successfully');
-
-        Swal.fire({
-          title: 'Success!',
-          text: 'Posted successfully',
-          icon: 'success',
-          confirmButtonText: 'Close'
-        });
-        
       })
       .catch((error) => {
         console.error('Error sending data:', error);
       });
-  },[newPost])
+  }, [newPost])
 
 
 
-// ✅ IMAGE CLICK TO SHOW UPLOAD OPTION
-const usernamev1 = localStorage.getItem("name")
-const user_name = usernamev1.replace(/[NP^a-zA-Z]/g, "")
+  // ✅ IMAGE CLICK TO SHOW UPLOAD OPTION
+  const usernamev1 = localStorage.getItem("name")
+  const user_name = usernamev1.replace(/[NP^a-zA-Z]/g, "")
 
-// ✅ NAME AND EMAIL SETTING FROM LOCAL STORAGE
-useEffect(() => {
-  $("#nam").html(namDB);
-  $("#mail").html(mailDB);
-}, [])
+  // ✅ NAME AND EMAIL SETTING FROM LOCAL STORAGE
+  useEffect(() => {
+    $("#nam").html(namDB);
+    $("#mail").html(mailDB);
+  }, [])
 
-const fileUpload = () => {
-  InputFile.current.click();
-  upload(profiles, user_name)
-}
-
-function handleChange(e) {
-  if (e.target.files[0]) {
-    // setProfiles(e.target.files[0])
+  const fileUpload = () => {
+    InputFile.current.click();
+    upload(profiles, user_name)
   }
-  else {
-    console.log("error");
+
+  function handleChange(e) {
+    if (e.target.files[0]) {
+      // setProfiles(e.target.files[0])
+    }
+    else {
+      console.log("error");
+    }
   }
-}
 
-// ✅ FIREBASE REALTIME DATABASE FOR POST 
-const firebaseConfig = {
-  apiKey: "AIzaSyAl9sbbgwxkyeh1rfQMVxbPnvNvX6SlS4s",
-  authDomain: "todoapp-fb470.firebaseapp.com",
-  databaseURL: "https://todoapp-fb470-default-rtdb.firebaseio.com",
-  projectId: "todoapp-fb470",
-  storageBucket: "todoapp-fb470.appspot.com",
-  messagingSenderId: "453121987629",
-  appId: "1:453121987629:web:923cc5722fa474bef314a4"
-};
+  // ✅ FIREBASE REALTIME DATABASE FOR POST 
+  const firebaseConfig = {
+    apiKey: "AIzaSyAl9sbbgwxkyeh1rfQMVxbPnvNvX6SlS4s",
+    authDomain: "todoapp-fb470.firebaseapp.com",
+    databaseURL: "https://todoapp-fb470-default-rtdb.firebaseio.com",
+    projectId: "todoapp-fb470",
+    storageBucket: "todoapp-fb470.appspot.com",
+    messagingSenderId: "453121987629",
+    appId: "1:453121987629:web:923cc5722fa474bef314a4"
+  };
 
-firebase.initializeApp(firebaseConfig);
-const database = firebase.database();
+  firebase.initializeApp(firebaseConfig);
+  const database = firebase.database();
 
-// 🔥 STARTING
+  // 🔥 STARTING
 
-const postSubmit = (event) => {
-  event.preventDefault();
-  //✅ ENTRY POINT CHECKING - POST VALUE EMPTY OR NOT 
-  //✅ IF POST VALUE EMPTY
-  if (document.getElementById("post_input").value === "") {
-    Swal.fire({
-      title: 'Error!',
-      text: 'Post field is empty',
-      icon: 'error',
-      confirmButtonText: 'Close'
-    });
+  const postSubmit = (event) => {
+    event.preventDefault();
+    //✅ ENTRY POINT CHECKING - POST VALUE EMPTY OR NOT 
+    //✅ IF POST VALUE EMPTY
+    if (document.getElementById("post_input").value === "") {
+      Swal.fire({
+        title: 'Error!',
+        text: 'Post field is empty',
+        icon: 'error',
+        confirmButtonText: 'Close'
+      });
+    }
+    else {
+      posting();
+
+      // ⭐️ 4 - RETRIVE DATA FROM FIREBASE ➡ DISPLAY ON PROFILE  ➡ USE CSS POST STYLE / POST TEMPLATE
+
+    }
   }
-  else {
-    // 🔥🎯 WORKING ON HERE
-
-    // ⭐️ 1 - DATA STORE IN ARRAY 
-
-    posting()
-
-    // Swal.fire({
-    //   title: 'success!',
-    //   text: 'Posted Successfully',
-    //   icon: 'success',
-    //   confirmButtonText: 'Done'
-    // });
-
-    // ⭐️ 2 - DISPLAY WHOLE ARRAY IN CONSOLE
-    // ⭐️ 3 - SENT WHOLE ARRAY UOPDATING WISE TO FIREBASE  ➡ UNDER USER SPECIFIC NAME  ➡ LOCAL STORAGE (NAME)  ➡ USING CHILD
-    // ⭐️ 4 - RETRIVE DATA FROM FIREBASE ➡ DISPLAY ON PROFILE  ➡ USE CSS POST STYLE / POST TEMPLATE
-
+  //✅ ⭐️ 1 - DATA STORE IN ARRAY 
+  // ✅ ⭐️ 2 - COPY AND ADD NEW ITEMS TO  WHOLE ARRAY 
+  function posting() {
+    setNewPost([post + " "+ formattedToday, ...newPost])
   }
-}
-
-function posting() {
-  setNewPost([post, ...newPost])
-}
 
 
 
-// END 🔥
+  // END 🔥
 
-// ⭐️ STYLE FOR MODEL BOX
-const CalenderModel = Modal.styled`
+  // ⭐️ STYLE FOR MODEL BOX
+  const CalenderModel = Modal.styled`
     width: 550px;
     height: 350px;
     display:block;
@@ -176,8 +170,8 @@ const CalenderModel = Modal.styled`
     border-radius:10px;
   `
 
-// ⭐️ STYLE FOR MODEL BOX
-const NotificationModel = Modal.styled`
+  // ⭐️ STYLE FOR MODEL BOX
+  const NotificationModel = Modal.styled`
     width: 550px;
     height: 350px;
     display:block;
@@ -188,107 +182,107 @@ const NotificationModel = Modal.styled`
     border-radius:10px;
   `
 
-// ⭐️ FUNCTION FOR MODEL BOX
+  // ⭐️ FUNCTION FOR MODEL BOX
 
-function notifModal(e) {
-  setIsOpen(!isOpen)
-}
+  function notifModal(e) {
+    setIsOpen(!isOpen)
+  }
 
-let home = document.getElementsByClassName("dashboard");
-let trending = document.getElementsByClassName("trending");
-let account = document.getElementsByClassName("account");
+  let home = document.getElementsByClassName("dashboard");
+  let trending = document.getElementsByClassName("trending");
+  let account = document.getElementsByClassName("account");
 
-function dashFun() {
-  $(".dashboard").css("display", "block");
-  $(".trending").css("display", "none");
-  $(".account").css("display", "none");
-}
+  function dashFun() {
+    $(".dashboard").css("display", "block");
+    $(".trending").css("display", "none");
+    $(".account").css("display", "none");
+  }
 
-function trendFun() {
-  $(".dashboard").css("display", "none");
-  $(".trending").css("display", "block");
-  $(".account").css("display", "none");
-}
+  function trendFun() {
+    $(".dashboard").css("display", "none");
+    $(".trending").css("display", "block");
+    $(".account").css("display", "none");
+  }
 
-function accFun() {
-  $(".dashboard").css("display", "none");
-  $(".trending").css("display", "none");
-  $(".account").css("display", "block");
-}
+  function accFun() {
+    $(".dashboard").css("display", "none");
+    $(".trending").css("display", "none");
+    $(".account").css("display", "block");
+  }
 
-return (
-  <div>
-    {/* ✅ SIDEBAR STARTING */}
-    <div className="sidenav">
-      <div className="user">
-        <center><HoverImage profile={profile} setProfile={setProfiles} onClick={fileUpload} src={profiles} hoverSrc={addIcon} className="profile" height="60px" width="60px" alt="" /><br /></center>
-        {/* <center><img onClick={fileUpload} className="profile" src={profile} height="60px" width="60px" alt="" /><br /></center> */}
-        <input onChange={handleChange} ref={InputFile} type="file" className="uploadInput" style={{ display: 'none' }} />
-        <center><p id='nam' className="nam"></p></center>
-        <center><p id='mail' className="mail"></p></center>
-      </div>
-
-      <ul>
-        <li onClick={dashFun}><img height="50px" width="50px" alt="" src={dashboard} /><p>Dashboard</p></li>
-        <li onClick={trendFun}><img height="50px" width="50px" alt="" src={fire} /><p>Trending</p></li>
-        <li onClick={accFun}><img height="50px" width="50px" alt="" src={user} /><p>Account</p></li>
-      </ul>
-
-      {/* ✅ LOGOUT - BOTTOM NAV */}
-      <ul>
-        <li>Logout</li>
-      </ul>
-    </div>
-
-    {/* ⭐️ CONTENT SECTION STARTS */}
-
-    {/* ✅ DASHBOARD */}
-    <div className='dashboard'>
-      <p className='dashboards' id='header'>| Dashbaord</p>
-      <div className='dash_top'>
-
-        {/* ⭐️ NOTIFICATION MODEL */}
-        <img src={add} alt="" className="addpost" />
-        <img onClick={notifModal} src={notification} alt="" className="notification" />
-
-        {/* ✅ NOTIFICATION MODEL */}
-        <NotificationModel
-          isOpen={isOpen}
-          onBackgroundClick={notifModal}
-          onEscapeKeydown={notifModal}>
-          <center><img height="250px" width="250px" src={empty} alt="empty" /></center>
-          <center><p id='notif-text'>Empty !</p></center>
-          <center> <button id='model-close' onClick={notifModal}>Close</button></center>
-        </NotificationModel>
-
-        <div className='post'>
-          <input id='post_input' type='text' placeholder='enter your post here' value={post} onChange={e => setPost(e.target.value)} />
-          <button onClick={postSubmit} >POST</button>
+  return (
+    <div>
+      {/* ✅ SIDEBAR STARTING */}
+      <div className="sidenav">
+        <div className="user">
+          <center><HoverImage profile={profile} setProfile={setProfiles} onClick={fileUpload} src={profiles} hoverSrc={addIcon} className="profile" height="60px" width="60px" alt="" /><br /></center>
+          {/* <center><img onClick={fileUpload} className="profile" src={profile} height="60px" width="60px" alt="" /><br /></center> */}
+          <input onChange={handleChange} ref={InputFile} type="file" className="uploadInput" style={{ display: 'none' }} />
+          <center><p id='nam' className="nam"></p></center>
+          <center><p id='mail' className="mail"></p></center>
         </div>
 
+        <ul>
+          <li onClick={dashFun}><img height="50px" width="50px" alt="" src={dashboard} /><p>Dashboard</p></li>
+          <li onClick={trendFun}><img height="50px" width="50px" alt="" src={fire} /><p>Trending</p></li>
+          <li onClick={accFun}><img height="50px" width="50px" alt="" src={user} /><p>Account</p></li>
+        </ul>
+
+        {/* ✅ LOGOUT - BOTTOM NAV */}
+        <ul>
+          <li>Logout</li>
+        </ul>
       </div>
 
-      {/* ❗️ WORKING AREA */}
+      {/* ⭐️ CONTENT SECTION STARTS */}
+
+      {/* ✅ DASHBOARD */}
+      <div className='dashboard'>
+        <p className='dashboards' id='header'>| Dashbaord</p>
+        <div className='dash_top'>
+
+          {/* ⭐️ NOTIFICATION MODEL */}
+          <img src={add} alt="" className="addpost" />
+          <img onClick={notifModal} src={notification} alt="" className="notification" />
+
+          {/* ✅ NOTIFICATION MODEL */}
+          <NotificationModel
+            isOpen={isOpen}
+            onBackgroundClick={notifModal}
+            onEscapeKeydown={notifModal}>
+            <center><img height="250px" width="250px" src={empty} alt="empty" /></center>
+            <center><p id='notif-text'>Empty !</p></center>
+            <center> <button id='model-close' onClick={notifModal}>Close</button></center>
+          </NotificationModel>
+
+          <div className='post'>
+            <input id='post_input' type='text' placeholder='enter your post here' value={post} onChange={e => setPost(e.target.value)} />
+            <button onClick={postSubmit} >POST</button>
+          </div>
+
+        </div>
+
+        {/* ❗️ WORKING AREA */}
 
 
 
-      {/* ✅ TRENDING */}
-      <div className='trending'>
-        <p id='header'>| Trending</p>
+        {/* ✅ TRENDING */}
+        <div className='trending'>
+          <p id='header'>| Trending</p>
 
+        </div>
+
+        {/* ✅ ACCOUNT */}
+        <div className='account'>
+          <p id='header'>| Account</p>
+          <img src={notification} alt="" className="notification" />
+        </div>
+
+        {/* ✅ END */}
       </div>
-
-      {/* ✅ ACCOUNT */}
-      <div className='account'>
-        <p id='header'>| Account</p>
-        <img src={notification} alt="" className="notification" />
-      </div>
-
-      {/* ✅ END */}
     </div>
-  </div>
-)
-  }
+  )
+}
 
 
 export default Home

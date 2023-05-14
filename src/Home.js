@@ -56,10 +56,6 @@ function Home() {
   //   setNewPost([""]);
   // }
 
-  function success(){
-    alert("successfully posted !");
-  }
-
   useEffect(() => {
 
     console.log(newPost);
@@ -71,7 +67,14 @@ function Home() {
     database.ref(namDB).set(newData)
       .then(() => {
         console.log('Data sent successfully');
-        success();
+
+        Swal.fire({
+          title: 'Success!',
+          text: 'Posted successfully',
+          icon: 'success',
+          confirmButtonText: 'Close'
+        });
+        
       })
       .catch((error) => {
         console.error('Error sending data:', error);

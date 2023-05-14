@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useState, useRef } from 'react';
 import "./Styles/home.css"
 import './Styles/sidebar.css';
+import './Styles/post_popup.css'
 import $ from 'jquery';
 import Swal from 'sweetalert2'
 // ✅ FIREBASE
@@ -68,7 +69,7 @@ function Home() {
 
   // ✅ ⭐️ 3 - SENT WHOLE ARRAY UOPDATING WISE TO FIREBASE  ➡ UNDER USER SPECIFIC NAME  ➡ LOCAL STORAGE (NAME)  ➡ USING CHILD
 
-  
+
   useEffect(() => {
     console.log(newPost);
 
@@ -145,7 +146,7 @@ function Home() {
       posting();
 
       // ✅ AFTER POSTING MAKING TEXTBOX EMPTY
-      
+
 
       // ⭐️ 4 - RETRIVE DATA FROM FIREBASE ➡ DISPLAY ON PROFILE  ➡ USE CSS POST STYLE / POST TEMPLATE
 
@@ -154,11 +155,11 @@ function Home() {
   //✅ ⭐️ 1 - DATA STORE IN ARRAY 
   // ✅ ⭐️ 2 - COPY AND ADD NEW ITEMS TO  WHOLE ARRAY 
   function posting() {
-    setNewPost([post + " "+ formattedToday, ...newPost]);
+    setNewPost([post + " " + formattedToday, ...newPost]);
     let p_i = document.getElementById("post_input").value === "";
   }
 
-  
+
   // END 🔥
 
   // ⭐️ STYLE FOR MODEL BOX
@@ -213,6 +214,19 @@ function Home() {
     $(".account").css("display", "block");
   }
 
+  // 📍 POPUP
+
+  var popup = document.getElementById(popup);
+  
+  
+  function show(){
+    popup.style.display = "block";
+  } 
+
+  function hide(){
+    popup.style.display = "hidden";
+  }
+
   return (
     <div>
       {/* ✅ SIDEBAR STARTING */}
@@ -245,7 +259,7 @@ function Home() {
         <div className='dash_top'>
 
           {/* ⭐️ NOTIFICATION MODEL */}
-          <img src={add} alt="" className="addpost" />
+          <img src={add} alt="" onclick={show} className="addpost" />
           <img onClick={notifModal} src={notification} alt="" className="notification" />
 
           {/* ✅ NOTIFICATION MODEL */}
@@ -282,7 +296,18 @@ function Home() {
         </div>
 
         {/* ✅ END */}
+
       </div>
+
+      {/* 📍 POPUP INSIDE */}
+
+      <div class="popup" id="popup">
+        <p>This is a popup!</p>
+        <p>Overlay uses <b>:before</b> and <b>:after</b> pseudo-classes.</p>
+        <p>Website will still remain visible behind this popup.</p>
+        <a href="#" onclick={hide}>Close</a>
+      </div>
+
     </div>
   )
 }

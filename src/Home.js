@@ -144,6 +144,9 @@ function Home() {
     else {
       posting();
 
+      // ✅ AFTER POSTING MAKING TEXTBOX EMPTY
+      
+
       // ⭐️ 4 - RETRIVE DATA FROM FIREBASE ➡ DISPLAY ON PROFILE  ➡ USE CSS POST STYLE / POST TEMPLATE
 
     }
@@ -151,11 +154,11 @@ function Home() {
   //✅ ⭐️ 1 - DATA STORE IN ARRAY 
   // ✅ ⭐️ 2 - COPY AND ADD NEW ITEMS TO  WHOLE ARRAY 
   function posting() {
-    setNewPost([post + " "+ formattedToday, ...newPost])
+    setNewPost([post + " "+ formattedToday, ...newPost]);
+    let p_i = document.getElementById("post_input").value === "";
   }
 
-
-
+  
   // END 🔥
 
   // ⭐️ STYLE FOR MODEL BOX

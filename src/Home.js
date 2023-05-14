@@ -274,7 +274,7 @@ function Home() {
 
           <div className='post'>
             <input id='post_input' type='text' placeholder='enter your post here' value={post} onChange={e => setPost(e.target.value)} />
-            <button onClick={postSubmit} >POST</button>
+            <button id='post_btn' onClick={postSubmit} >POST</button>
           </div>
 
         </div>

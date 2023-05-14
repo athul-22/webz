@@ -1,7 +1,7 @@
 ## WEBZ - AI INTEGRATED SOCIAL MEDIA - FEEL THE AI INTELLIGENCE
-### 🎨 [FIGMA USER FLOW DIAGRAM.](https://www.figma.com/file/CRrqewigYPDzITlhgUTdwj/SOCIAL-MEDIA?node-id=0%3A1&t=tfwtBat4F7JYUyYD-1)
+##### 🎨 [FIGMA USER FLOW DIAGRAM.](https://www.figma.com/file/CRrqewigYPDzITlhgUTdwj/SOCIAL-MEDIA?node-id=0%3A1&t=tfwtBat4F7JYUyYD-1)
 
-###  ✅ V1 : 
+####  ✅ V1 : 
 ##### USER LOGIN - CONNECTED TO FIREBASE DATABASE
 ##### HOME PAGE WITH SIDEBAR
 ##### CALENDER SECTION
@@ -10,7 +10,7 @@
 ![USER ENTRY](https://github.com/athul-22/athul-22/blob/MAIN/WEBZ/Screenshot%202023-05-14%20at%206.56.35%20AM.png)
 ![HOME PAGE](https://github.com/athul-22/athul-22/blob/MAIN/WEBZ/Screenshot%202023-05-14%20at%206.56.57%20AM.png)
 
-### ✅ V2 : 
+#### ✅ V2 : 
 ##### TEXT POSTING SECTION [ USER MAIL , NAME , TIME WILL BE STORE ]
 ##### DISPLAYING POST COMMON TO ALL USERS & SPECIFICALLY TO EACH USERS ACCOUNT SECTION
  

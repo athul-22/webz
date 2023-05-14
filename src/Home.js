@@ -144,10 +144,7 @@ function Home() {
     }
     else {
       posting();
-
       // ✅ AFTER POSTING MAKING TEXTBOX EMPTY
-
-
       // ⭐️ 4 - RETRIVE DATA FROM FIREBASE ➡ DISPLAY ON PROFILE  ➡ USE CSS POST STYLE / POST TEMPLATE
 
     }

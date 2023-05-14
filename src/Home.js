@@ -216,16 +216,6 @@ function Home() {
 
   // 📍 POPUP
 
-  var popup = document.getElementById(popup);
-  
-  
-  function show(){
-    popup.style.display = "block";
-  } 
-
-  function hide(){
-    popup.style.display = "hidden";
-  }
 
   return (
     <div>
@@ -259,8 +249,8 @@ function Home() {
         <div className='dash_top'>
 
           {/* ⭐️ NOTIFICATION MODEL */}
-          <img src={add} alt="" onclick={show} className="addpost" />
-          <img onClick={notifModal} src={notification} alt="" className="notification" />
+          <img onClick={notifModal} src={add} alt="" className="addpost" />
+          <img  src={notification} alt="" className="notification" />
 
           {/* ✅ NOTIFICATION MODEL */}
           <NotificationModel
@@ -268,15 +258,18 @@ function Home() {
             onBackgroundClick={notifModal}
             onEscapeKeydown={notifModal}>
             <center><img height="250px" width="250px" src={empty} alt="empty" /></center>
-            <center><p id='notif-text'>Empty !</p></center>
-            <center> <button id='model-close' onClick={notifModal}>Close</button></center>
-          </NotificationModel>
-
-          <div className='post'>
+           
+            <div className='post'>
             <input id='post_input' type='text' placeholder='enter your post here' value={post} onChange={e => setPost(e.target.value)} />
+              <br/>
             <button id='post_btn' onClick={postSubmit} >POST</button>
           </div>
 
+
+            <center> <button id='model-close' onClick={notifModal}>Close</button></center>
+          </NotificationModel>
+
+         
         </div>
 
         {/* ❗️ WORKING AREA */}
@@ -301,12 +294,7 @@ function Home() {
 
       {/* 📍 POPUP INSIDE */}
 
-      <div class="popup" id="popup">
-        <p>This is a popup!</p>
-        <p>Overlay uses <b>:before</b> and <b>:after</b> pseudo-classes.</p>
-        <p>Website will still remain visible behind this popup.</p>
-        <a href="#" onclick={hide}>Close</a>
-      </div>
+      
 
     </div>
   )

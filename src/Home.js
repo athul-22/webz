@@ -31,6 +31,7 @@ import addIcon from './Images/add.png'
 import { upload } from './Components/Profile'
 import { uid } from 'react-uid';
 import { Component } from "react";
+import Popups from './Components/PopUp'
 
 function Home() {
 
@@ -44,7 +45,7 @@ function Home() {
   const [profiles, setProfiles] = useState("https://cdn-icons-png.flaticon.com/512/141/141739.png");
 
   //🟡  POST STATES
-  const [post, setPost] = useState();
+  const [post, setPost] = useState('');
   const [newPost, setNewPost] = useState([]);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -72,7 +73,6 @@ function Home() {
 
   useEffect(() => {
     console.log(newPost);
-
     const newData = {
       post: newPost,
       time: time,
@@ -86,8 +86,7 @@ function Home() {
       .catch((error) => {
         console.error('Error sending data:', error);
       });
-  }, [newPost])
-
+  },[newPost])
 
 
   // ✅ IMAGE CLICK TO SHOW UPLOAD OPTION
@@ -144,10 +143,7 @@ function Home() {
     }
     else {
       posting();
-
       // ✅ AFTER POSTING MAKING TEXTBOX EMPTY
-
-
       // ⭐️ 4 - RETRIVE DATA FROM FIREBASE ➡ DISPLAY ON PROFILE  ➡ USE CSS POST STYLE / POST TEMPLATE
 
     }
@@ -156,7 +152,7 @@ function Home() {
   // ✅ ⭐️ 2 - COPY AND ADD NEW ITEMS TO  WHOLE ARRAY 
   function posting() {
     setNewPost([post + " " + formattedToday, ...newPost]);
-    let p_i = document.getElementById("post_input").value === "";
+    
   }
 
 
@@ -216,16 +212,6 @@ function Home() {
 
   // 📍 POPUP
 
-  var popup = document.getElementById(popup);
-  
-  
-  function show(){
-    popup.style.display = "block";
-  } 
-
-  function hide(){
-    popup.style.display = "hidden";
-  }
 
   return (
     <div>
@@ -253,14 +239,16 @@ function Home() {
 
       {/* ⭐️ CONTENT SECTION STARTS */}
 
+
       {/* ✅ DASHBOARD */}
       <div className='dashboard'>
         <p className='dashboards' id='header'>| Dashbaord</p>
         <div className='dash_top'>
 
           {/* ⭐️ NOTIFICATION MODEL */}
-          <img src={add} alt="" onclick={show} className="addpost" />
-          <img onClick={notifModal} src={notification} alt="" className="notification" />
+          <Popups/>
+          <img src={add} alt="" className="addpost" />
+          <img  onClick={notifModal} src={notification} alt="" className="notification" />
 
           {/* ✅ NOTIFICATION MODEL */}
           <NotificationModel
@@ -268,20 +256,20 @@ function Home() {
             onBackgroundClick={notifModal}
             onEscapeKeydown={notifModal}>
             <center><img height="250px" width="250px" src={empty} alt="empty" /></center>
-            <center><p id='notif-text'>Empty !</p></center>
             <center> <button id='model-close' onClick={notifModal}>Close</button></center>
           </NotificationModel>
 
-          <div className='post'>
-            <input id='post_input' type='text' placeholder='enter your post here' value={post} onChange={e => setPost(e.target.value)} />
-            <button onClick={postSubmit} >POST</button>
-          </div>
+
+          <input id='post_input' type='text' placeholder='enter your post here' value={post} onChange={(e) => setPost(e.target.value)} />
+            <br/>
+            <button id='post_btn' onClick={postSubmit} >POST</button>
+         
+
+
 
         </div>
 
         {/* ❗️ WORKING AREA */}
-
-
 
         {/* ✅ TRENDING */}
         <div className='trending'>
@@ -301,12 +289,7 @@ function Home() {
 
       {/* 📍 POPUP INSIDE */}
 
-      <div class="popup" id="popup">
-        <p>This is a popup!</p>
-        <p>Overlay uses <b>:before</b> and <b>:after</b> pseudo-classes.</p>
-        <p>Website will still remain visible behind this popup.</p>
-        <a href="#" onclick={hide}>Close</a>
-      </div>
+      
 
     </div>
   )

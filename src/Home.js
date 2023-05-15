@@ -72,7 +72,6 @@ function Home() {
 
   useEffect(() => {
     console.log(newPost);
-
     const newData = {
       post: newPost,
       time: time,
@@ -86,7 +85,7 @@ function Home() {
       .catch((error) => {
         console.error('Error sending data:', error);
       });
-  }, [newPost])
+  },[newPost])
 
 
 

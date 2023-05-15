@@ -31,6 +31,7 @@ import addIcon from './Images/add.png'
 import { upload } from './Components/Profile'
 import { uid } from 'react-uid';
 import { Component } from "react";
+import Popups from './Components/PopUp'
 
 function Home() {
 
@@ -44,7 +45,7 @@ function Home() {
   const [profiles, setProfiles] = useState("https://cdn-icons-png.flaticon.com/512/141/141739.png");
 
   //🟡  POST STATES
-  const [post, setPost] = useState("");
+  const [post, setPost] = useState('');
   const [newPost, setNewPost] = useState([]);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -238,14 +239,16 @@ function Home() {
 
       {/* ⭐️ CONTENT SECTION STARTS */}
 
+
       {/* ✅ DASHBOARD */}
       <div className='dashboard'>
         <p className='dashboards' id='header'>| Dashbaord</p>
         <div className='dash_top'>
 
           {/* ⭐️ NOTIFICATION MODEL */}
-          <img onClick={notifModal} src={add} alt="" className="addpost" />
-          <img src={notification} alt="" className="notification" />
+          <Popups/>
+          <img src={add} alt="" className="addpost" />
+          <img  onClick={notifModal} src={notification} alt="" className="notification" />
 
           {/* ✅ NOTIFICATION MODEL */}
           <NotificationModel
@@ -253,23 +256,20 @@ function Home() {
             onBackgroundClick={notifModal}
             onEscapeKeydown={notifModal}>
             <center><img height="250px" width="250px" src={empty} alt="empty" /></center>
-           
-            <div className='post'>
-            <input id='post_input' type='text' placeholder='enter your post here' value={post} onChange={(e) => setPost(e.target.value)} />
-            <br/>
-            <button id='post_btn' onClick={postSubmit} >POST</button>
-          </div>
-
-
             <center> <button id='model-close' onClick={notifModal}>Close</button></center>
           </NotificationModel>
 
+
+          <input id='post_input' type='text' placeholder='enter your post here' value={post} onChange={(e) => setPost(e.target.value)} />
+            <br/>
+            <button id='post_btn' onClick={postSubmit} >POST</button>
          
+
+
+
         </div>
 
         {/* ❗️ WORKING AREA */}
-
-
 
         {/* ✅ TRENDING */}
         <div className='trending'>

@@ -31,6 +31,7 @@
     "react-scripts": "^5.0.1",
     "react-sidenav": "^4.0.6",
     "react-uid": "^2.3.2",
+    "reactjs-popup": "^2.0.5",
     "redux": "^4.2.1",
     "rodal": "^2.0.1",
     "scraper-instagram": "^1.0.17",

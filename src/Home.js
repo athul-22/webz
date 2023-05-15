@@ -255,7 +255,7 @@ function Home() {
             <center><img height="250px" width="250px" src={empty} alt="empty" /></center>
            
             <div className='post'>
-            <input id='post_input' type='text' placeholder='enter your post here' value={post} onChange={e => setPost(e.target.value)} />
+            <input id='post_input' type='text' placeholder='enter your post here' value={post} onChange={(e) => setPost(e.target.value)} />
             <br/>
             <button id='post_btn' onClick={postSubmit} >POST</button>
           </div>

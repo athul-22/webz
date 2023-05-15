@@ -44,7 +44,7 @@ function Home() {
   const [profiles, setProfiles] = useState("https://cdn-icons-png.flaticon.com/512/141/141739.png");
 
   //🟡  POST STATES
-  const [post, setPost] = useState();
+  const [post, setPost] = useState("");
   const [newPost, setNewPost] = useState([]);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -86,7 +86,6 @@ function Home() {
         console.error('Error sending data:', error);
       });
   },[newPost])
-
 
 
   // ✅ IMAGE CLICK TO SHOW UPLOAD OPTION
@@ -152,7 +151,7 @@ function Home() {
   // ✅ ⭐️ 2 - COPY AND ADD NEW ITEMS TO  WHOLE ARRAY 
   function posting() {
     setNewPost([post + " " + formattedToday, ...newPost]);
-    let p_i = document.getElementById("post_input").value === "";
+    
   }
 
 
@@ -246,7 +245,7 @@ function Home() {
 
           {/* ⭐️ NOTIFICATION MODEL */}
           <img onClick={notifModal} src={add} alt="" className="addpost" />
-          <img  src={notification} alt="" className="notification" />
+          <img src={notification} alt="" className="notification" />
 
           {/* ✅ NOTIFICATION MODEL */}
           <NotificationModel
@@ -257,7 +256,7 @@ function Home() {
            
             <div className='post'>
             <input id='post_input' type='text' placeholder='enter your post here' value={post} onChange={e => setPost(e.target.value)} />
-              <br/>
+            <br/>
             <button id='post_btn' onClick={postSubmit} >POST</button>
           </div>
 

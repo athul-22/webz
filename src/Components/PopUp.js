@@ -3,10 +3,13 @@ import { model } from 'mongoose';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 
-const Popups = () => (
-
+function PostFun(){
     const [post , setPost ] = useState("");
     const [newPost , setNewPost] = useState([]);
+}
+
+const Popups = () => (
+
     <Popup trigger={<button className="button"> Open Modal </button>} modal>
       <center><span> New Post </span><br/></center>
       <center></center><input id='post_input' type='text' placeholder='enter your post here'  /><center/>

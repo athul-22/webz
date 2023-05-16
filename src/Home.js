@@ -89,8 +89,8 @@ function Home() {
 
 
   // ✅ IMAGE CLICK TO SHOW UPLOAD OPTION
-  const usernamev1 = localStorage.getItem("name")
-  const user_name = usernamev1.replace(/[NP^a-zA-Z]/g, "")
+  // const usernamev1 = localStorage.getItem("name")
+  // const user_name = usernamev1.replace(/[NP^a-zA-Z]/g, "")
 
   // ✅ NAME AND EMAIL SETTING FROM LOCAL STORAGE
   useEffect(() => {
@@ -98,10 +98,10 @@ function Home() {
     $("#mail").html(mailDB);
   }, [])
 
-  const fileUpload = () => {
-    InputFile.current.click();
-    upload(profiles, user_name)
-  }
+  // const fileUpload = () => {
+  //   InputFile.current.click();
+  //   upload(profiles, user_name)
+  // }
 
   function handleChange(e) {
     if (e.target.files[0]) {
@@ -171,11 +171,11 @@ function Home() {
   }
 
   // ✅ WELCOME BOX JS
- 
-  useEffect(()=>{
+
+  useEffect(() => {
     $("#dash_wel_name").html(namDB);
-    
-  },[])
+
+  }, [])
 
 
   // END 🔥
@@ -234,29 +234,16 @@ function Home() {
 
   // 📍 WELCOME POPUP
 
-  if(localStorage.getItem("welpop") === ""){
-    console.log("xxxxx");
-  }else{
-    console.log("aaaa");
-    
-    //document.getElementById("welpop").style.visibility = "visible";
-    // document.getElementById("welpop").style.display = "block";
-    //document.querySelector(".overlay1").style.visibility = "visible";
-    //document.querySelector(".overlay1").style.display = "block";
-    
-  }
-
-
-  useEffect(()=>{
-    document.getElementById("dash_wel_nam")
-  })
+  $("#dash_wel_close").on("click", function () {
+    $("#dash_wel").css("visible", "hidden")
+  });
 
   return (
     <div>
       {/* ✅ SIDEBAR STARTING */}
       <div className="sidenav">
         <div className="user">
-          <center><HoverImage profile={profile} setProfile={setProfiles} onClick={fileUpload} src={profiles} hoverSrc={addIcon} className="profile" height="60px" width="60px" alt="" /><br /></center>
+          <center><HoverImage profile={profile} setProfile={setProfiles} src={profiles} hoverSrc={addIcon} className="profile" height="60px" width="60px" alt="" /><br /></center>
           {/* <center><img onClick={fileUpload} className="profile" src={profile} height="60px" width="60px" alt="" /><br /></center> */}
           <input onChange={handleChange} ref={InputFile} type="file" className="uploadInput" style={{ display: 'none' }} />
           <center><p id='nam' className="nam"></p></center>
@@ -315,18 +302,15 @@ function Home() {
           </NotificationModel>
         </div>
 
-      {/* ⭐️ WELCOME BOX */}
+        {/* ⭐️ WELCOME BOX */}
 
-        <div class="dash_wel">
-          <img alt='' id='dash_wel_hand' src="https://em-content.zobj.net/source/microsoft-teams/363/waving-hand_1f44b.png" height="70px" width="70px"/>
+        <div id="dash_wel">
+          <img alt='' id='dash_wel_hand' src="https://em-content.zobj.net/source/microsoft-teams/363/waving-hand_1f44b.png" height="70px" width="70px" />
           <img alt='' id='dash_wel_close' src={close} height="30px" width="30px" />
           <p id='dash_wel_wel'>Welcome to WEBZ</p>
           <p id='dash_wel_name'></p>
-          
+
         </div>
-
-        {/* ❗️ WORKING AREA */}
-
 
         {/* ✅ TRENDING */}
         <div className='trending'>
@@ -346,17 +330,17 @@ function Home() {
       {/* 📍 WELCOME POPUP */}
 
       <div class="box" onClick={popEnable}>
-            <a class="button" href="#welpop">New post</a>
+        <a class="button" href="#welpop">New post</a>
+      </div>
+      <div id="welpop" className="overlay1">
+        <div class="popup2">
+          <h2>New Post</h2>
+          <a class="close1" href="#">&times;</a>
+          <div class="content">
+            <h1>hllo</h1>
           </div>
-          <div id="welpop" className="overlay1">
-            <div class="popup2">
-              <h2>New Post</h2>
-              <a class="close1" href="#">&times;</a>
-              <div class="content">
-               <h1>hllo</h1>
-              </div>
-            </div>
-          </div>
+        </div>
+      </div>
 
 
     </div>

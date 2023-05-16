@@ -180,3 +180,45 @@
     cursor: pointer;
     bottom: 0px;
 }
+
+
+.dash_wel{
+  display: inline-block;
+  margin-left: 30px;
+  height: 100px;
+  width: 80%;
+  background-color: white;
+  border-radius: 20px;
+}
+
+#dash_wel_hand{
+  margin-top: 10px;
+  margin-left: 20px;
+ 
+}
+
+#dash_wel_close{
+  cursor: pointer;
+  margin-left: 900px;
+  margin-bottom: 10px;
+  margin-right: 20px;
+}
+
+#dash_wel_wel{
+  margin-left: 120px;
+  margin-top: -60px;
+  width: 100%;
+  font-family: sans-serif;
+  color: grey;
+  font-size: 17px;
+}
+
+#dash_wel_name{
+  margin-left: 120px;
+  margin-top: -15px;
+  width: 100%;
+  font-family: sans-serif;
+  color: rgb(0, 0, 0);
+  font-size: 40px;
+}
+

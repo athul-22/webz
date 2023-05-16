@@ -10,6 +10,7 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import { update, child } from 'firebase/compat/database';
 // ✅ IMAGES
+import close from './Images/close.png'
 import add from './Images/more.png'
 import dashboard from './Images/dashboard.png'
 import user from './Images/user.png'
@@ -169,20 +170,27 @@ function Home() {
     document.getElementById("popup1").style.display = "block";
   }
 
+  // ✅ WELCOME BOX JS
+ 
+  useEffect(()=>{
+    $("#dash_wel_name").html(namDB);
+    
+  },[])
+
 
   // END 🔥
 
   // ⭐️ STYLE FOR MODEL BOX
-  const CalenderModel = Modal.styled`
-    width: 550px;
-    height: 350px;
-    display:block;
-    justify-content:center;
-    align-items: center;
-    justify-content: center;
-    background-color:white;
-    border-radius:10px;
-  `
+  // const CalenderModel = Modal.styled`
+  //   width: 550px;
+  //   height: 350px;
+  //   display:block;
+  //   justify-content:center;
+  //   align-items: center;
+  //   justify-content: center;
+  //   background-color:white;
+  //   border-radius:10px;
+  // `
 
   // ⭐️ STYLE FOR MODEL BOX
   const NotificationModel = Modal.styled`
@@ -227,12 +235,21 @@ function Home() {
   // 📍 WELCOME POPUP
 
   if(localStorage.getItem("welpop") === ""){
-    document.getElementById("welpop").style.visibility = "visible";
-    document.getElementById("welpop").style.display = "block";
-    document.getElementsByClassName("overlay1").style.visibility = "visible";
-    document.getElementsByClassName("overlay1").style.display = "block";
+    console.log("xxxxx");
+  }else{
+    console.log("aaaa");
+    
+    //document.getElementById("welpop").style.visibility = "visible";
+    // document.getElementById("welpop").style.display = "block";
+    //document.querySelector(".overlay1").style.visibility = "visible";
+    //document.querySelector(".overlay1").style.display = "block";
     
   }
+
+
+  useEffect(()=>{
+    document.getElementById("dash_wel_nam")
+  })
 
   return (
     <div>
@@ -265,8 +282,6 @@ function Home() {
       <div className='dashboard'>
         <p className='dashboards' id='header'>| Dashbaord</p>
 
-
-
         <div className='dash_top'>
 
           {/* ⭐️ NOTIFICATION MODEL */}
@@ -298,6 +313,16 @@ function Home() {
             <center><img height="250px" width="250px" src={empty} alt="empty" /></center>
             <center> <button id='model-close' onClick={notifModal}>Close</button></center>
           </NotificationModel>
+        </div>
+
+      {/* ⭐️ WELCOME BOX */}
+
+        <div class="dash_wel">
+          <img alt='' id='dash_wel_hand' src="https://em-content.zobj.net/source/microsoft-teams/363/waving-hand_1f44b.png" height="70px" width="70px"/>
+          <img alt='' id='dash_wel_close' src={close} height="30px" width="30px" />
+          <p id='dash_wel_wel'>Welcome to WEBZ</p>
+          <p id='dash_wel_name'></p>
+          
         </div>
 
         {/* ❗️ WORKING AREA */}

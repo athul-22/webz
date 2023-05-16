@@ -226,14 +226,14 @@ function Home() {
 
   // 📍 WELCOME POPUP
 
-  const welpopval = localStorage.setItem("welpop", "1")
+  const welpopval = localStorage.getItem("welpop");
   console.log(welpopval);
   const link = "http://localhost:3000/home#welpop"
 
   if(welpopval === ""){
+    document.getElementById("#welpop").style.visibility = "visible"
     window.location = link;
   }
-
   return (
     <div>
       {/* ✅ SIDEBAR STARTING */}
@@ -320,7 +320,9 @@ function Home() {
 
       {/* 📍 WELCOME POPUP */}
 
-     
+      <div class="box" onClick={popEnable}>
+            <a class="button" href="#welpop">New post</a>
+          </div>
           <div id="welpop" class="overlay1">
             <div class="popup2">
               <h2>New Post</h2>

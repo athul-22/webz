@@ -38,8 +38,7 @@ function Home() {
   // ⭐️ LOCAL STORAGE VALUE GETTING FUNCTION
   const namDB = localStorage.getItem("name");
   const mailDB = localStorage.getItem("email");
-  console.log(namDB);
-  console.log(mailDB);
+  
 
   // ⭐️ STATES
   const [profiles, setProfiles] = useState("https://cdn-icons-png.flaticon.com/512/141/141739.png");
@@ -143,6 +142,7 @@ function Home() {
     }
     else {
       posting();
+
       // ✅ AFTER POSTING MAKING TEXTBOX EMPTY
       // ⭐️ 4 - RETRIVE DATA FROM FIREBASE ➡ DISPLAY ON PROFILE  ➡ USE CSS POST STYLE / POST TEMPLATE
 
@@ -152,7 +152,6 @@ function Home() {
   // ✅ ⭐️ 2 - COPY AND ADD NEW ITEMS TO  WHOLE ARRAY 
   function posting() {
     setNewPost([post + " " + formattedToday, ...newPost]);
-    
   }
 
 

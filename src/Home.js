@@ -150,8 +150,8 @@ function Home() {
       });
 
       // MAKING INPUT BOX EMPTY
-     setPost("")
-     popDisable();
+      setPost("")
+      popDisable();
 
     }
   }
@@ -161,11 +161,11 @@ function Home() {
     setNewPost([post + " " + formattedToday, ...newPost]);
   }
 
-  function popDisable(){
+  function popDisable() {
     document.getElementById("popup1").style.display = "none";
   }
 
-  function popEnable(){
+  function popEnable() {
     document.getElementById("popup1").style.display = "block";
   }
 
@@ -224,8 +224,15 @@ function Home() {
     $(".account").css("display", "block");
   }
 
-  // 📍 POPUP
+  // 📍 WELCOME POPUP
 
+  const welpopval = localStorage.setItem("welpop", "1")
+  console.log(welpopval);
+  const link = "http://localhost:3000/home#welpop"
+
+  if(welpopval === ""){
+    window.location = link;
+  }
 
   return (
     <div>
@@ -242,7 +249,7 @@ function Home() {
         <ul>
           <li onClick={dashFun}><img height="50px" width="50px" alt="" src={dashboard} /><p>Dashboard</p></li>
           <li onClick={trendFun}><img height="50px" width="50px" alt="" src={fire} /><p>Trending</p></li>
-          <li onClick={accFun}><img height="50px" width="50px" alt="" src={user} /><p>Account</p></li>
+          <li href="#" onClick={accFun}><img height="50px" width="50px" alt="" src={user} /><p>Account</p></li>
         </ul>
 
         {/* ✅ LOGOUT - BOTTOM NAV */}
@@ -257,25 +264,25 @@ function Home() {
       {/* ✅ DASHBOARD */}
       <div className='dashboard'>
         <p className='dashboards' id='header'>| Dashbaord</p>
+
+
+
         <div className='dash_top'>
 
           {/* ⭐️ NOTIFICATION MODEL */}
 
-          {/* 🛑 POPUP BOX*/}
+          {/* ✅ POST POPUP BOX*/}
           <div class="box" onClick={popEnable}>
-            <a class="button" href="#popup1">Let me Pop up</a>
+            <a class="button" href="#popup1">New post</a>
           </div>
-
           <div id="popup1" class="overlay">
             <div class="popup">
               <h2>New Post</h2>
               <a class="close" href="#">&times;</a>
               <div class="content">
-
                 <input id='post_input' type='text' placeholder='enter your post here' value={post} onChange={(e) => setPost(e.target.value)} />
                 <br />
                 <button href="#" id='post_btn' onClick={postSubmit} >POST</button>
-                
               </div>
             </div>
           </div>
@@ -311,8 +318,18 @@ function Home() {
 
       </div>
 
-      {/* 📍 POPUP INSIDE */}
+      {/* 📍 WELCOME POPUP */}
 
+     
+          <div id="welpop" class="overlay1">
+            <div class="popup2">
+              <h2>New Post</h2>
+              <a class="close1" href="#">&times;</a>
+              <div class="content">
+               <h1>hllo</h1>
+              </div>
+            </div>
+          </div>
 
 
     </div>

@@ -228,12 +228,12 @@ function Home() {
 
   const welpopval = localStorage.getItem("welpop");
   console.log(welpopval);
-  const link = "http://localhost:3000/home#welpop"
 
   if(welpopval === ""){
     document.getElementById("#welpop").style.visibility = "visible"
-    window.location = link;
+    window.location = "http://localhost:3000/home#welpop";
   }
+
   return (
     <div>
       {/* ✅ SIDEBAR STARTING */}

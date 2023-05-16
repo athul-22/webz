@@ -141,11 +141,15 @@ function Home() {
     }
     else {
       posting();
+      Swal.fire({
+        title: 'Posted!',
+        text: 'Post Successfully Posted',
+        icon: 'success',
+        confirmButtonText: 'Close'
+      });
 
-      // ✅ AFTER POSTING MAKING TEXTBOX EMPTY
-      // ⭐️ 4 - RETRIVE DATA FROM FIREBASE ➡ DISPLAY ON PROFILE  ➡ USE CSS POST STYLE / POST TEMPLATE
+     setPost("")
 
-      document.getElementById("popup1").style.visibility = "hidden";
 
     }
   }
@@ -154,6 +158,8 @@ function Home() {
   function posting() {
     setNewPost([post + " " + formattedToday, ...newPost]);
   }
+
+
 
 
   // END 🔥
@@ -257,10 +263,11 @@ function Home() {
               <h2>New Post</h2>
               <a class="close" href="#">&times;</a>
               <div class="content">
-              <input id='post_input' type='text' placeholder='enter your post here' value={post} onChange={(e) => setPost(e.target.value)} />
-          <br />
 
-          <button id='post_btn' onClick={postSubmit} >POST</button>
+                <input id='post_input' type='text' placeholder='enter your post here' value={post} onChange={(e) => setPost(e.target.value)} />
+                <br />
+                <button href="#" id='post_btn' onClick={postSubmit} >POST</button>
+                
               </div>
             </div>
           </div>
@@ -278,7 +285,7 @@ function Home() {
           </NotificationModel>
 
 
-          
+
 
         </div>
 

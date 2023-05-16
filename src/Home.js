@@ -31,14 +31,13 @@ import addIcon from './Images/add.png'
 import { upload } from './Components/Profile'
 import { uid } from 'react-uid';
 import { Component } from "react";
-import Popups from './Components/PopUp'
 
 function Home() {
 
   // ⭐️ LOCAL STORAGE VALUE GETTING FUNCTION
   const namDB = localStorage.getItem("name");
   const mailDB = localStorage.getItem("email");
-  
+
 
   // ⭐️ STATES
   const [profiles, setProfiles] = useState("https://cdn-icons-png.flaticon.com/512/141/141739.png");
@@ -85,7 +84,7 @@ function Home() {
       .catch((error) => {
         console.error('Error sending data:', error);
       });
-  },[newPost])
+  }, [newPost])
 
 
   // ✅ IMAGE CLICK TO SHOW UPLOAD OPTION
@@ -145,6 +144,8 @@ function Home() {
 
       // ✅ AFTER POSTING MAKING TEXTBOX EMPTY
       // ⭐️ 4 - RETRIVE DATA FROM FIREBASE ➡ DISPLAY ON PROFILE  ➡ USE CSS POST STYLE / POST TEMPLATE
+
+      document.getElementById("popup1").style.visibility = "hidden";
 
     }
   }
@@ -245,9 +246,27 @@ function Home() {
         <div className='dash_top'>
 
           {/* ⭐️ NOTIFICATION MODEL */}
-          <Popups/>
+
+          {/* 🛑 POPUP BOX*/}
+          <div class="box">
+            <a class="button" href="#popup1">Let me Pop up</a>
+          </div>
+
+          <div id="popup1" class="overlay">
+            <div class="popup">
+              <h2>New Post</h2>
+              <a class="close" href="#">&times;</a>
+              <div class="content">
+              <input id='post_input' type='text' placeholder='enter your post here' value={post} onChange={(e) => setPost(e.target.value)} />
+          <br />
+
+          <button id='post_btn' onClick={postSubmit} >POST</button>
+              </div>
+            </div>
+          </div>
+
           <img src={add} alt="" className="addpost" />
-          <img  onClick={notifModal} src={notification} alt="" className="notification" />
+          <img onClick={notifModal} src={notification} alt="" className="notification" />
 
           {/* ✅ NOTIFICATION MODEL */}
           <NotificationModel
@@ -259,11 +278,7 @@ function Home() {
           </NotificationModel>
 
 
-          <input id='post_input' type='text' placeholder='enter your post here' value={post} onChange={(e) => setPost(e.target.value)} />
-            <br/>
-            
-            <button id='post_btn' onClick={postSubmit} >POST</button>
-      
+          
 
         </div>
 
@@ -287,7 +302,7 @@ function Home() {
 
       {/* 📍 POPUP INSIDE */}
 
-      
+
 
     </div>
   )

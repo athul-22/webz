@@ -141,6 +141,7 @@ function Home() {
     }
     else {
       posting();
+
       Swal.fire({
         title: 'Posted!',
         text: 'Post Successfully Posted',
@@ -148,8 +149,9 @@ function Home() {
         confirmButtonText: 'Close'
       });
 
+      // MAKING INPUT BOX EMPTY
      setPost("")
-
+     popDisable();
 
     }
   }
@@ -159,7 +161,13 @@ function Home() {
     setNewPost([post + " " + formattedToday, ...newPost]);
   }
 
+  function popDisable(){
+    document.getElementById("popup1").style.display = "none";
+  }
 
+  function popEnable(){
+    document.getElementById("popup1").style.display = "block";
+  }
 
 
   // END 🔥
@@ -254,7 +262,7 @@ function Home() {
           {/* ⭐️ NOTIFICATION MODEL */}
 
           {/* 🛑 POPUP BOX*/}
-          <div class="box">
+          <div class="box" onClick={popEnable}>
             <a class="button" href="#popup1">Let me Pop up</a>
           </div>
 
@@ -283,10 +291,6 @@ function Home() {
             <center><img height="250px" width="250px" src={empty} alt="empty" /></center>
             <center> <button id='model-close' onClick={notifModal}>Close</button></center>
           </NotificationModel>
-
-
-
-
         </div>
 
         {/* ❗️ WORKING AREA */}

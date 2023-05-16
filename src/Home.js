@@ -226,12 +226,12 @@ function Home() {
 
   // 📍 WELCOME POPUP
 
-  const welpopval = localStorage.getItem("welpop");
-  console.log(welpopval);
-
-  if(welpopval === ""){
-    document.getElementById("#welpop").style.visibility = "visible"
-    window.location = "http://localhost:3000/home#welpop";
+  if(localStorage.getItem("welpop") === ""){
+    document.getElementById("welpop").style.visibility = "visible";
+    document.getElementById("welpop").style.display = "block";
+    document.getElementsByClassName("overlay1").style.visibility = "visible";
+    document.getElementsByClassName("overlay1").style.display = "block";
+    
   }
 
   return (
@@ -323,7 +323,7 @@ function Home() {
       <div class="box" onClick={popEnable}>
             <a class="button" href="#welpop">New post</a>
           </div>
-          <div id="welpop" class="overlay1">
+          <div id="welpop" className="overlay1">
             <div class="popup2">
               <h2>New Post</h2>
               <a class="close1" href="#">&times;</a>

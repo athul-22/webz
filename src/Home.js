@@ -234,9 +234,14 @@ function Home() {
 
   // 📍 WELCOME POPUP
 
-  $("#dash_wel_close").on("click", function () {
-    $("#dash_wel").css("visible", "hidden")
-  });
+  // $("#dash_wel_close").on("click", function() {
+    
+  // });
+
+  function welVis(){
+    $("#dash_wel").css("visibility", "hidden")
+  }
+
 
   return (
     <div>
@@ -274,7 +279,7 @@ function Home() {
           {/* ⭐️ NOTIFICATION MODEL */}
 
           {/* ✅ POST POPUP BOX*/}
-          <div class="box" onClick={popEnable}>
+          <div  className="addpost" src={add}  onClick={popEnable}>
             <a class="button" href="#popup1">New post</a>
           </div>
           <div id="popup1" class="overlay">
@@ -289,7 +294,7 @@ function Home() {
             </div>
           </div>
 
-          <img src={add} alt="" className="addpost" />
+          {/* <img href="#popup1" src={add} alt="" className="addpost" /> */}
           <img onClick={notifModal} src={notification} alt="" className="notification" />
 
           {/* ✅ NOTIFICATION MODEL */}
@@ -306,7 +311,7 @@ function Home() {
 
         <div id="dash_wel">
           <img alt='' id='dash_wel_hand' src="https://em-content.zobj.net/source/microsoft-teams/363/waving-hand_1f44b.png" height="70px" width="70px" />
-          <img alt='' id='dash_wel_close' src={close} height="30px" width="30px" />
+          <img onClick={welVis} alt='' id='dash_wel_close' src={close} height="30px" width="30px" />
           <p id='dash_wel_wel'>Welcome to WEBZ</p>
           <p id='dash_wel_name'></p>
 

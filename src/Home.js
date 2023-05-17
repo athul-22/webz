@@ -72,19 +72,49 @@ function Home() {
 
   useEffect(() => {
     console.log(newPost);
+
     const newData = {
       post: newPost,
       time: time,
-      mail: mailDB,
+
     };
 
+    const commonData = {
+      commonpost: post,
+      time: time,
+    };
+
+    // USER POST - SUCCESS ✅
     database.ref(namDB).update(newData)
       .then(() => {
         console.log('Data sent successfully');
+
+        Swal.fire({
+          title: 'Posted!',
+          text: 'Post Successfully Posted',
+          icon: 'success',
+          confirmButtonText: 'Close'
+        });
       })
+
+      // USER POST - FAILED ✅
       .catch((error) => {
         console.error('Error sending data:', error);
+        Swal.fire({
+          title: 'Error!',
+          text: 'Check your internet connection and try again latter',
+          icon: 'error',
+          confirmButtonText: 'Close'
+        });
       });
+
+      let commonpost;
+      // COMMON POST - SUCCESS ✅
+      database.ref(commonpost).update(commonData)
+      .then(() => {
+        console.log('Common Data sent successfully');
+      })
+
   }, [newPost])
 
 
@@ -105,12 +135,12 @@ function Home() {
 
   function handleChange(e) {
     if (e.target.files[0]) {
-      // setProfiles(e.target.files[0])
     }
     else {
       console.log("error");
     }
   }
+
 
   // ✅ FIREBASE REALTIME DATABASE FOR POST 
   const firebaseConfig = {
@@ -142,14 +172,6 @@ function Home() {
     }
     else {
       posting();
-
-      Swal.fire({
-        title: 'Posted!',
-        text: 'Post Successfully Posted',
-        icon: 'success',
-        confirmButtonText: 'Close'
-      });
-
       // MAKING INPUT BOX EMPTY
       setPost("")
       popDisable();
@@ -279,8 +301,8 @@ function Home() {
           {/* ⭐️ NOTIFICATION MODEL */}
 
           {/* ✅ POST POPUP BOX*/}
-          <div  className="addpost" src={add}  onClick={popEnable}>
-            <a class="button" href="#popup1">New post</a>
+          <div onClick={popEnable}>
+            <a  href="#popup1"><img href="#popup1" src={add} alt="" className="addpost" /></a>
           </div>
           <div id="popup1" class="overlay">
             <div class="popup">

@@ -10,6 +10,7 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import { update, child } from 'firebase/compat/database';
 // ✅ IMAGES
+import close from './Images/close.png'
 import add from './Images/more.png'
 import dashboard from './Images/dashboard.png'
 import user from './Images/user.png'
@@ -31,15 +32,13 @@ import addIcon from './Images/add.png'
 import { upload } from './Components/Profile'
 import { uid } from 'react-uid';
 import { Component } from "react";
-import Popups from './Components/PopUp'
 
 function Home() {
 
   // ⭐️ LOCAL STORAGE VALUE GETTING FUNCTION
   const namDB = localStorage.getItem("name");
   const mailDB = localStorage.getItem("email");
-  console.log(namDB);
-  console.log(mailDB);
+
 
   // ⭐️ STATES
   const [profiles, setProfiles] = useState("https://cdn-icons-png.flaticon.com/512/141/141739.png");
@@ -73,25 +72,55 @@ function Home() {
 
   useEffect(() => {
     console.log(newPost);
+
     const newData = {
       post: newPost,
       time: time,
-      mail: mailDB,
+
     };
 
+    const commonData = {
+      commonpost: post,
+      time: time,
+    };
+
+    // USER POST - SUCCESS ✅
     database.ref(namDB).update(newData)
       .then(() => {
         console.log('Data sent successfully');
+
+        Swal.fire({
+          title: 'Posted!',
+          text: 'Post Successfully Posted',
+          icon: 'success',
+          confirmButtonText: 'Close'
+        });
       })
+
+      // USER POST - FAILED ✅
       .catch((error) => {
         console.error('Error sending data:', error);
+        Swal.fire({
+          title: 'Error!',
+          text: 'Check your internet connection and try again latter',
+          icon: 'error',
+          confirmButtonText: 'Close'
+        });
       });
-  },[newPost])
+
+      let commonpost;
+      // COMMON POST - SUCCESS ✅
+      database.ref(commonpost).update(commonData)
+      .then(() => {
+        console.log('Common Data sent successfully');
+      })
+
+  }, [newPost])
 
 
   // ✅ IMAGE CLICK TO SHOW UPLOAD OPTION
-  const usernamev1 = localStorage.getItem("name")
-  const user_name = usernamev1.replace(/[NP^a-zA-Z]/g, "")
+  // const usernamev1 = localStorage.getItem("name")
+  // const user_name = usernamev1.replace(/[NP^a-zA-Z]/g, "")
 
   // ✅ NAME AND EMAIL SETTING FROM LOCAL STORAGE
   useEffect(() => {
@@ -99,19 +128,19 @@ function Home() {
     $("#mail").html(mailDB);
   }, [])
 
-  const fileUpload = () => {
-    InputFile.current.click();
-    upload(profiles, user_name)
-  }
+  // const fileUpload = () => {
+  //   InputFile.current.click();
+  //   upload(profiles, user_name)
+  // }
 
   function handleChange(e) {
     if (e.target.files[0]) {
-      // setProfiles(e.target.files[0])
     }
     else {
       console.log("error");
     }
   }
+
 
   // ✅ FIREBASE REALTIME DATABASE FOR POST 
   const firebaseConfig = {
@@ -143,8 +172,9 @@ function Home() {
     }
     else {
       posting();
-      // ✅ AFTER POSTING MAKING TEXTBOX EMPTY
-      // ⭐️ 4 - RETRIVE DATA FROM FIREBASE ➡ DISPLAY ON PROFILE  ➡ USE CSS POST STYLE / POST TEMPLATE
+      // MAKING INPUT BOX EMPTY
+      setPost("")
+      popDisable();
 
     }
   }
@@ -152,23 +182,37 @@ function Home() {
   // ✅ ⭐️ 2 - COPY AND ADD NEW ITEMS TO  WHOLE ARRAY 
   function posting() {
     setNewPost([post + " " + formattedToday, ...newPost]);
-    
   }
+
+  function popDisable() {
+    document.getElementById("popup1").style.display = "none";
+  }
+
+  function popEnable() {
+    document.getElementById("popup1").style.display = "block";
+  }
+
+  // ✅ WELCOME BOX JS
+
+  useEffect(() => {
+    $("#dash_wel_name").html(namDB);
+
+  }, [])
 
 
   // END 🔥
 
   // ⭐️ STYLE FOR MODEL BOX
-  const CalenderModel = Modal.styled`
-    width: 550px;
-    height: 350px;
-    display:block;
-    justify-content:center;
-    align-items: center;
-    justify-content: center;
-    background-color:white;
-    border-radius:10px;
-  `
+  // const CalenderModel = Modal.styled`
+  //   width: 550px;
+  //   height: 350px;
+  //   display:block;
+  //   justify-content:center;
+  //   align-items: center;
+  //   justify-content: center;
+  //   background-color:white;
+  //   border-radius:10px;
+  // `
 
   // ⭐️ STYLE FOR MODEL BOX
   const NotificationModel = Modal.styled`
@@ -210,7 +254,15 @@ function Home() {
     $(".account").css("display", "block");
   }
 
-  // 📍 POPUP
+  // 📍 WELCOME POPUP
+
+  // $("#dash_wel_close").on("click", function() {
+    
+  // });
+
+  function welVis(){
+    $("#dash_wel").css("visibility", "hidden")
+  }
 
 
   return (
@@ -218,7 +270,7 @@ function Home() {
       {/* ✅ SIDEBAR STARTING */}
       <div className="sidenav">
         <div className="user">
-          <center><HoverImage profile={profile} setProfile={setProfiles} onClick={fileUpload} src={profiles} hoverSrc={addIcon} className="profile" height="60px" width="60px" alt="" /><br /></center>
+          <center><HoverImage profile={profile} setProfile={setProfiles} src={profiles} hoverSrc={addIcon} className="profile" height="60px" width="60px" alt="" /><br /></center>
           {/* <center><img onClick={fileUpload} className="profile" src={profile} height="60px" width="60px" alt="" /><br /></center> */}
           <input onChange={handleChange} ref={InputFile} type="file" className="uploadInput" style={{ display: 'none' }} />
           <center><p id='nam' className="nam"></p></center>
@@ -228,7 +280,7 @@ function Home() {
         <ul>
           <li onClick={dashFun}><img height="50px" width="50px" alt="" src={dashboard} /><p>Dashboard</p></li>
           <li onClick={trendFun}><img height="50px" width="50px" alt="" src={fire} /><p>Trending</p></li>
-          <li onClick={accFun}><img height="50px" width="50px" alt="" src={user} /><p>Account</p></li>
+          <li href="#" onClick={accFun}><img height="50px" width="50px" alt="" src={user} /><p>Account</p></li>
         </ul>
 
         {/* ✅ LOGOUT - BOTTOM NAV */}
@@ -243,12 +295,29 @@ function Home() {
       {/* ✅ DASHBOARD */}
       <div className='dashboard'>
         <p className='dashboards' id='header'>| Dashbaord</p>
+
         <div className='dash_top'>
 
           {/* ⭐️ NOTIFICATION MODEL */}
-          <Popups/>
-          <img src={add} alt="" className="addpost" />
-          <img  onClick={notifModal} src={notification} alt="" className="notification" />
+
+          {/* ✅ POST POPUP BOX*/}
+          <div onClick={popEnable}>
+            <a  href="#popup1"><img href="#popup1" src={add} alt="" className="addpost" /></a>
+          </div>
+          <div id="popup1" class="overlay">
+            <div class="popup">
+              <h2>New Post</h2>
+              <a class="close" href="#">&times;</a>
+              <div class="content">
+                <input id='post_input' type='text' placeholder='enter your post here' value={post} onChange={(e) => setPost(e.target.value)} />
+                <br />
+                <button href="#" id='post_btn' onClick={postSubmit} >POST</button>
+              </div>
+            </div>
+          </div>
+
+          {/* <img href="#popup1" src={add} alt="" className="addpost" /> */}
+          <img onClick={notifModal} src={notification} alt="" className="notification" />
 
           {/* ✅ NOTIFICATION MODEL */}
           <NotificationModel
@@ -258,23 +327,21 @@ function Home() {
             <center><img height="250px" width="250px" src={empty} alt="empty" /></center>
             <center> <button id='model-close' onClick={notifModal}>Close</button></center>
           </NotificationModel>
-
-
-          <input id='post_input' type='text' placeholder='enter your post here' value={post} onChange={(e) => setPost(e.target.value)} />
-            <br/>
-            <button id='post_btn' onClick={postSubmit} >POST</button>
-         
-
-
-
         </div>
 
-        {/* ❗️ WORKING AREA */}
+        {/* ⭐️ WELCOME BOX */}
+
+        <div id="dash_wel">
+          <img alt='' id='dash_wel_hand' src="https://em-content.zobj.net/source/microsoft-teams/363/waving-hand_1f44b.png" height="70px" width="70px" />
+          <img onClick={welVis} alt='' id='dash_wel_close' src={close} height="30px" width="30px" />
+          <p id='dash_wel_wel'>Welcome to WEBZ</p>
+          <p id='dash_wel_name'></p>
+
+        </div>
 
         {/* ✅ TRENDING */}
         <div className='trending'>
           <p id='header'>| Trending</p>
-
         </div>
 
         {/* ✅ ACCOUNT */}
@@ -287,9 +354,21 @@ function Home() {
 
       </div>
 
-      {/* 📍 POPUP INSIDE */}
+      {/* 📍 WELCOME POPUP */}
 
-      
+      <div class="box" onClick={popEnable}>
+        <a class="button" href="#welpop">New post</a>
+      </div>
+      <div id="welpop" className="overlay1">
+        <div class="popup2">
+          <h2>New Post</h2>
+          <a class="close1" href="#">&times;</a>
+          <div class="content">
+            <h1>hllo</h1>
+          </div>
+        </div>
+      </div>
+
 
     </div>
   )
